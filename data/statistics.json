@@ -1,0 +1,37 @@
+{
+  "seed": 42,
+  "valid_images_before_dedup": 1123,
+  "corrupt_images": 0,
+  "ignored_unrecognized_images": [
+    "Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/pl_logo.png"
+  ],
+  "retained_images": 1097,
+  "exact_duplicates_removed": 26,
+  "quarantined_conflicts": 0,
+  "duplicate_pairs": 124,
+  "near_duplicate_pairs": 97,
+  "independent_groups": 1011,
+  "counts": {
+    "test": {
+      "cloudy": 44,
+      "rain": 31,
+      "shine": 37,
+      "sunrise": 53
+    },
+    "train": {
+      "cloudy": 204,
+      "rain": 143,
+      "shine": 175,
+      "sunrise": 246
+    },
+    "val": {
+      "cloudy": 43,
+      "rain": 31,
+      "shine": 37,
+      "sunrise": 53
+    }
+  },
+  "manifest_sha256": "5d91854a3a40fe885abf72ed0723918160cc2ebd3b8dc0afd71285dde8d6c29e",
+  "near_duplicate_rule": "pHash<=4 AND dHash<=4 AND abs(log(aspect ratio ratio))<=0.10 AND RGB thumbnail RMSE<=0.12",
+  "limitations": "Detected duplicate components cannot cross splits. Conservative hashes can miss transformed copies; manually review duplicate_pairs.csv and inspection figures. Mirror may differ from original dataset."
+}

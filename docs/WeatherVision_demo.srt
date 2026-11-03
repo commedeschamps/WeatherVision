@@ -1,0 +1,219 @@
+1
+00:00:00,000 --> 00:00:00,482
+Hello.
+
+2
+00:00:00,482 --> 00:00:08,677
+My name is Rakhman Seidigali, from group S E twenty four eleven at Astana I T University.
+
+3
+00:00:08,677 --> 00:00:12,052
+This is WeatherVision, my Computer Vision project.
+
+4
+00:00:12,052 --> 00:00:17,836
+It classifies outdoor photographs into four categories: Cloudy, Rain, Shine, and Sunrise.
+
+5
+00:00:17,836 --> 00:00:24,103
+The application brings together three trained models, a comparison of their results, and
+
+6
+00:00:24,103 --> 00:00:25,067
+visual explanations.
+
+7
+00:00:25,067 --> 00:00:30,370
+This demonstration shows the running application and its saved experimental results.
+
+8
+00:00:31,370 --> 00:00:36,484
+The project uses the Multi-class Weather Dataset published by Gbeminiyi Ajayi.
+
+9
+00:00:36,484 --> 00:00:41,598
+After duplicate removal, it contains one thousand and ninety seven photographs.
+
+10
+00:00:41,598 --> 00:00:48,107
+There are seven hundred and sixty eight training images, one hundred and sixty four
+
+11
+00:00:48,107 --> 00:00:52,756
+validation images, and one hundred and sixty five test images.
+
+12
+00:00:52,756 --> 00:00:55,545
+All experiments use the same split.
+
+13
+00:00:55,545 --> 00:01:00,659
+The Simple C N N learns three convolutional blocks from scratch.
+
+14
+00:01:00,659 --> 00:01:03,913
+MobileNet version two reuses efficient ImageNet features.
+
+15
+00:01:03,913 --> 00:01:08,562
+ConvNext Tiny uses deeper convolutional stages and larger spatial filters.
+
+16
+00:01:08,562 --> 00:01:14,606
+For both pretrained networks, only the new four class classification head is trained.
+
+17
+00:01:14,606 --> 00:01:19,720
+Training augmentation includes horizontal flips, small rotations, and mild color changes.
+
+18
+00:01:20,720 --> 00:01:24,130
+I now choose Upload and select a weather photograph.
+
+19
+00:01:24,130 --> 00:01:27,539
+The preview lets me check the input before prediction.
+
+20
+00:01:27,539 --> 00:01:30,570
+I select ConvNext Tiny and press Classify image.
+
+21
+00:01:30,570 --> 00:01:34,737
+The application loads its saved checkpoint and displays the predicted category.
+
+22
+00:01:34,737 --> 00:01:40,799
+The confidence is the model's softmax score, and the four bars show how the scores are
+
+23
+00:01:40,799 --> 00:01:42,314
+distributed across the labels.
+
+24
+00:01:42,314 --> 00:01:45,345
+The inference backend here is C P U.
+
+25
+00:01:45,345 --> 00:01:51,028
+The timing panel shows a single forward pass and the average of thirty measurements after
+
+26
+00:01:51,028 --> 00:01:52,543
+five warm up runs.
+
+27
+00:01:52,543 --> 00:01:56,331
+Model loading and image preparation are excluded from this benchmark.
+
+28
+00:01:56,331 --> 00:01:59,741
+The environment panel identifies the software and the browser.
+
+29
+00:01:59,741 --> 00:02:05,045
+Next, Compare on this image runs all three model families on the same input.
+
+30
+00:02:05,045 --> 00:02:09,212
+The comparison can be downloaded as a C S V file.
+
+31
+00:02:09,212 --> 00:02:12,243
+For ConvNext, Show Grad Cam adds an explanation.
+
+32
+00:02:12,243 --> 00:02:15,274
+The original image appears beside the heatmap overlay.
+
+33
+00:02:15,274 --> 00:02:19,062
+Brighter regions indicate spatial features associated with the predicted class.
+
+34
+00:02:19,062 --> 00:02:24,366
+This is an approximate attribution, rather than a precise segmentation of clouds or rain.
+
+35
+00:02:24,366 --> 00:02:32,322
+I can download the class scores as J S O N and save the overlay as a P N G image.
+
+36
+00:02:32,322 --> 00:02:36,110
+Switching the model keeps valid results for the same photograph.
+
+37
+00:02:50,720 --> 00:02:56,473
+The Experiments tab compares all four training configurations on the same one hundred and
+
+38
+00:02:56,473 --> 00:02:58,117
+sixty five test images.
+
+39
+00:02:58,117 --> 00:03:03,048
+Simple C N N reaches ninety five point one five percent accuracy.
+
+40
+00:03:03,048 --> 00:03:06,335
+MobileNet reaches ninety six point three six percent.
+
+41
+00:03:06,335 --> 00:03:12,088
+ConvNext with augmentation reaches ninety eight point one eight percent, with macro F one
+
+42
+00:03:12,088 --> 00:03:14,964
+of zero point nine eight two seven.
+
+43
+00:03:14,964 --> 00:03:19,073
+Without augmentation, ConvNext reaches ninety seven point five eight percent.
+
+44
+00:03:19,073 --> 00:03:24,415
+The difference is one additional correctly classified image: one hundred and sixty two
+
+45
+00:03:24,415 --> 00:03:27,292
+instead of one hundred and sixty one.
+
+46
+00:03:27,292 --> 00:03:30,579
+The learning curves show training and validation behavior.
+
+47
+00:03:30,579 --> 00:03:35,510
+The confusion matrix shows true labels in rows and predictions in columns.
+
+48
+00:03:36,510 --> 00:03:40,710
+ConvNext with augmentation has the highest accuracy in this comparison.
+
+49
+00:03:40,710 --> 00:03:47,430
+The small C N N provides the shortest measured forward time on Apple M P S.
+
+50
+00:03:47,430 --> 00:03:53,730
+The test set is small, and ambiguous labels or unusual lighting can affect predictions in
+
+51
+00:03:53,730 --> 00:03:54,570
+new environments.
+
+52
+00:03:54,570 --> 00:03:58,350
+The Project tab contains dataset attribution and both reports.
+
+53
+00:03:58,350 --> 00:04:02,970
+Source code, configurations, an executed notebook, and downloadable model weights are
+
+54
+00:04:02,970 --> 00:04:05,490
+available in the public GitHub repository.
+
+55
+00:04:05,490 --> 00:04:07,170
+Thank you for watching.

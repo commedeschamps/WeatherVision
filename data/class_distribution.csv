@@ -1,0 +1,5 @@
+label,train,val,test
+cloudy,204,43,44
+rain,143,31,31
+shine,175,37,37
+sunrise,246,53,53
