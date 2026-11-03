@@ -1,0 +1,20 @@
+{
+  "mixed_mode_modules_changed": 197,
+  "examples": [
+    "features",
+    "features.0",
+    "features.0.0",
+    "features.0.1",
+    "features.1"
+  ],
+  "geometrically_unseen_pixels_tinted": 0,
+  "zero_map_pixels_changed": 0,
+  "input_size": [
+    401,
+    237
+  ],
+  "resized_size": [
+    399,
+    236
+  ]
+}

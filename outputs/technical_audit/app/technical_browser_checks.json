@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:8507",
+  "checks": [
+    "prediction returns without automatic 35-forward benchmark; CPU/backend metadata correct",
+    "opacity changes only rendered overlay; raw map and prediction exports unchanged",
+    "earlier 14x14 stage is functional, labeled experimental, and preserves the predicted class",
+    "explanation controls/legend/raw map have no horizontal overflow at desktop, tablet, mobile sizes",
+    "explicit average benchmark is cached across repeat prediction on the same image/model/device/checkpoint",
+    "device switch separates caches, hides stale explanation, predicts on actual automatic backend, and restores matching CPU cache",
+    "model switch hides ConvNeXt heatmap and displays corresponding MobileNet prediction"
+  ],
+  "page_errors": [],
+  "browser_version": "156.0.8078.80",
+  "automatic_backend": "MPS",
+  "click_to_ready_ms": 1192.8703330340795,
+  "optional_benchmark_click_ms": 9639.43024998298,
+  "server_prediction_ms": 271.83270803652704,
+  "single_forward_ms": 249.64091699803248,
+  "warmed_cpu_mean_ms": 252.2779320618914
+}

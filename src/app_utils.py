@@ -27,8 +27,12 @@ def decode_upload(content: bytes) -> Image.Image:
     if len(content) > 12 * 1024 * 1024:
         raise ValueError("Choose a file smaller than 12 MB.")
     with Image.open(io.BytesIO(content)) as image:
+        if image.format not in {"JPEG", "PNG", "WEBP"}:
+            raise ValueError("Choose a JPG, PNG, or WebP image.")
         if image.width * image.height > 25_000_000:
             raise ValueError("Choose an image smaller than 25 megapixels.")
+        if max(image.size) / min(image.size) > 64:
+            raise ValueError("Choose an image with an aspect ratio no greater than 64:1.")
         image.load()
         return ImageOps.exif_transpose(image).convert("RGB")
 
@@ -78,7 +82,12 @@ def export_prediction(prediction, model_name: str, device: str, filename: str, s
         "forward_ms": prediction["latency_ms"],
         "timing": "One synchronized forward including softmax; excludes decoding, preprocessing, transfer, loading, and Grad-CAM",
     }
+    if 'environment' in prediction:
+        document['environment'] = prediction['environment']
+    if 'server_prediction_ms' in prediction:
+        document['server_prediction_ms'] = prediction['server_prediction_ms']
+        document['server_timing'] = 'Model retrieval, preprocessing and forward; excludes upload, decoding, browser rendering and optional benchmark'
+    document['browser_user_agent'] = prediction.get('browser_user_agent', 'Unavailable')
     if 'benchmark' in prediction:
         document['benchmark'] = prediction['benchmark']
-        document['browser_user_agent'] = prediction.get('browser_user_agent', 'Unavailable')
     return (json.dumps(document, indent=2, allow_nan=False) + "\n").encode()

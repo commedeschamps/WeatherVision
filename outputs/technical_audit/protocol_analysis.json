@@ -1,0 +1,781 @@
+{
+  "reconstruction_backend": "cpu",
+  "dataset": {
+    "images": 1097,
+    "counts": {
+      "test": {
+        "cloudy": 44,
+        "rain": 31,
+        "shine": 37,
+        "sunrise": 53
+      },
+      "train": {
+        "cloudy": 204,
+        "rain": 143,
+        "shine": 175,
+        "sunrise": 246
+      },
+      "val": {
+        "cloudy": 43,
+        "rain": 31,
+        "shine": 37,
+        "sunrise": 53
+      }
+    },
+    "all_file_and_decoded_pixel_hashes_verified": true,
+    "exact_and_pixel_hash_split_collisions": 0,
+    "detected_group_split_collisions": 0
+  },
+  "results": {
+    "cnn_baseline": {
+      "best_epoch": 9,
+      "validation": {
+        "accuracy": 0.8597560975609756,
+        "precision_macro": 0.8666986855409504,
+        "recall_macro": 0.8501990043660839,
+        "f1_macro": 0.8543969829668531,
+        "confusion_matrix": [
+          [
+            36,
+            0,
+            6,
+            1
+          ],
+          [
+            6,
+            24,
+            1,
+            0
+          ],
+          [
+            4,
+            1,
+            32,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            49
+          ]
+        ],
+        "per_class": {
+          "cloudy": {
+            "precision": 0.782608695652174,
+            "recall": 0.8372093023255814,
+            "f1-score": 0.8089887640449438,
+            "support": 43.0
+          },
+          "rain": {
+            "precision": 0.96,
+            "recall": 0.7741935483870968,
+            "f1-score": 0.8571428571428571,
+            "support": 31.0
+          },
+          "shine": {
+            "precision": 0.7441860465116279,
+            "recall": 0.8648648648648649,
+            "f1-score": 0.8,
+            "support": 37.0
+          },
+          "sunrise": {
+            "precision": 0.98,
+            "recall": 0.9245283018867925,
+            "f1-score": 0.9514563106796117,
+            "support": 53.0
+          },
+          "accuracy": 0.8597560975609756,
+          "macro avg": {
+            "precision": 0.8666986855409504,
+            "recall": 0.8501990043660839,
+            "f1-score": 0.8543969829668531,
+            "support": 164.0
+          },
+          "weighted avg": {
+            "precision": 0.8712625465486202,
+            "recall": 0.8597560975609756,
+            "f1-score": 0.8621044505571985,
+            "support": 164.0
+          }
+        }
+      },
+      "test": {
+        "accuracy": 0.9515151515151515,
+        "precision_macro": 0.9488909238909238,
+        "recall_macro": 0.9472872591786163,
+        "f1_macro": 0.9477130492133327,
+        "confusion_matrix": [
+          [
+            41,
+            1,
+            2,
+            0
+          ],
+          [
+            1,
+            28,
+            0,
+            2
+          ],
+          [
+            0,
+            1,
+            36,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            52
+          ]
+        ],
+        "per_class": {
+          "cloudy": {
+            "precision": 0.9761904761904762,
+            "recall": 0.9318181818181818,
+            "f1-score": 0.9534883720930233,
+            "support": 44.0
+          },
+          "rain": {
+            "precision": 0.9333333333333333,
+            "recall": 0.9032258064516129,
+            "f1-score": 0.9180327868852459,
+            "support": 31.0
+          },
+          "shine": {
+            "precision": 0.9230769230769231,
+            "recall": 0.972972972972973,
+            "f1-score": 0.9473684210526315,
+            "support": 37.0
+          },
+          "sunrise": {
+            "precision": 0.9629629629629629,
+            "recall": 0.9811320754716981,
+            "f1-score": 0.9719626168224299,
+            "support": 53.0
+          },
+          "accuracy": 0.9515151515151515,
+          "macro avg": {
+            "precision": 0.9488909238909238,
+            "recall": 0.9472872591786163,
+            "f1-score": 0.9477130492133327,
+            "support": 165.0
+          },
+          "weighted avg": {
+            "precision": 0.9519793786460453,
+            "recall": 0.9515151515151515,
+            "f1-score": 0.9513888184004352,
+            "support": 165.0
+          }
+        }
+      },
+      "val_correct": 141,
+      "test_correct": 157,
+      "mean_confidence": {
+        "val": 0.8509130725046483,
+        "test": 0.8739855188311952
+      },
+      "mean_entropy": {
+        "val": 0.4225967706011778,
+        "test": 0.3871132548096578
+      },
+      "macro_f1_gap_test_minus_validation": 0.09331606624647959,
+      "descriptive_group_bootstrap_95": {
+        "validation": [
+          0.7944555092524072,
+          0.90688365139995
+        ],
+        "test": [
+          0.9106792764284003,
+          0.9804400678393285
+        ],
+        "gap": [
+          0.026061081676583758,
+          0.16015939323029274
+        ],
+        "repeats": 2000,
+        "method": "Whole detected groups resampled within each class in each split; independent split resamples. Descriptive, conditional on this dataset; not a causal or significance claim."
+      },
+      "initial_state_keys_present": [],
+      "historical_source_sha_matches_current": {
+        "config.py": true,
+        "models.py": true,
+        "evaluation.py": false,
+        "__init__.py": true,
+        "plots.py": false,
+        "engine.py": false,
+        "utils.py": true,
+        "explainability.py": false,
+        "data.py": true
+      }
+    },
+    "mobilenet_improved": {
+      "best_epoch": 8,
+      "validation": {
+        "accuracy": 0.9390243902439024,
+        "precision_macro": 0.9379082575521929,
+        "recall_macro": 0.9421121853640361,
+        "f1_macro": 0.9390486761961984,
+        "confusion_matrix": [
+          [
+            40,
+            1,
+            2,
+            0
+          ],
+          [
+            1,
+            30,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            35,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            49
+          ]
+        ],
+        "per_class": {
+          "cloudy": {
+            "precision": 0.9302325581395349,
+            "recall": 0.9302325581395349,
+            "f1-score": 0.9302325581395349,
+            "support": 43.0
+          },
+          "rain": {
+            "precision": 0.967741935483871,
+            "recall": 0.967741935483871,
+            "f1-score": 0.967741935483871,
+            "support": 31.0
+          },
+          "shine": {
+            "precision": 0.8536585365853658,
+            "recall": 0.9459459459459459,
+            "f1-score": 0.8974358974358975,
+            "support": 37.0
+          },
+          "sunrise": {
+            "precision": 1.0,
+            "recall": 0.9245283018867925,
+            "f1-score": 0.9607843137254902,
+            "support": 53.0
+          },
+          "accuracy": 0.9390243902439024,
+          "macro avg": {
+            "precision": 0.9379082575521929,
+            "recall": 0.9421121853640361,
+            "f1-score": 0.9390486761961984,
+            "support": 164.0
+          },
+          "weighted avg": {
+            "precision": 0.9425936942296252,
+            "recall": 0.9390243902439024,
+            "f1-score": 0.9397969319059706,
+            "support": 164.0
+          }
+        }
+      },
+      "test": {
+        "accuracy": 0.9636363636363636,
+        "precision_macro": 0.9624297731767244,
+        "recall_macro": 0.9624514543869382,
+        "f1_macro": 0.9620029693559106,
+        "confusion_matrix": [
+          [
+            40,
+            2,
+            1,
+            1
+          ],
+          [
+            0,
+            30,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            36,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            53
+          ]
+        ],
+        "per_class": {
+          "cloudy": {
+            "precision": 0.975609756097561,
+            "recall": 0.9090909090909091,
+            "f1-score": 0.9411764705882353,
+            "support": 44.0
+          },
+          "rain": {
+            "precision": 0.9375,
+            "recall": 0.967741935483871,
+            "f1-score": 0.9523809523809523,
+            "support": 31.0
+          },
+          "shine": {
+            "precision": 0.972972972972973,
+            "recall": 0.972972972972973,
+            "f1-score": 0.972972972972973,
+            "support": 37.0
+          },
+          "sunrise": {
+            "precision": 0.9636363636363636,
+            "recall": 1.0,
+            "f1-score": 0.9814814814814815,
+            "support": 53.0
+          },
+          "accuracy": 0.9636363636363636,
+          "macro avg": {
+            "precision": 0.9624297731767244,
+            "recall": 0.9624514543869382,
+            "f1-score": 0.9620029693559106,
+            "support": 165.0
+          },
+          "weighted avg": {
+            "precision": 0.9640124638849694,
+            "recall": 0.9636363636363636,
+            "f1-score": 0.9633581378679418,
+            "support": 165.0
+          }
+        }
+      },
+      "val_correct": 154,
+      "test_correct": 159,
+      "mean_confidence": {
+        "val": 0.8984578724314527,
+        "test": 0.9065465840426359
+      },
+      "mean_entropy": {
+        "val": 0.29777209423633977,
+        "test": 0.28149581699445303
+      },
+      "macro_f1_gap_test_minus_validation": 0.022954293159712202,
+      "descriptive_group_bootstrap_95": {
+        "validation": [
+          0.8991635015443128,
+          0.970659532512047
+        ],
+        "test": [
+          0.931002540091515,
+          0.9876137583199321
+        ],
+        "gap": [
+          -0.023697093006059995,
+          0.0710886763053183
+        ],
+        "repeats": 2000,
+        "method": "Whole detected groups resampled within each class in each split; independent split resamples. Descriptive, conditional on this dataset; not a causal or significance claim."
+      },
+      "initial_state_keys_present": [],
+      "historical_source_sha_matches_current": {
+        "config.py": true,
+        "models.py": true,
+        "evaluation.py": false,
+        "__init__.py": true,
+        "plots.py": false,
+        "engine.py": false,
+        "utils.py": true,
+        "explainability.py": false,
+        "data.py": true
+      }
+    },
+    "convnext_aug": {
+      "best_epoch": 3,
+      "validation": {
+        "accuracy": 0.9573170731707317,
+        "precision_macro": 0.9572486112418793,
+        "recall_macro": 0.9586678604888346,
+        "f1_macro": 0.9578959025470654,
+        "confusion_matrix": [
+          [
+            41,
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            31,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            34,
+            1
+          ],
+          [
+            0,
+            0,
+            2,
+            51
+          ]
+        ],
+        "per_class": {
+          "cloudy": {
+            "precision": 0.9534883720930233,
+            "recall": 0.9534883720930233,
+            "f1-score": 0.9534883720930233,
+            "support": 43.0
+          },
+          "rain": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 31.0
+          },
+          "shine": {
+            "precision": 0.8947368421052632,
+            "recall": 0.918918918918919,
+            "f1-score": 0.9066666666666666,
+            "support": 37.0
+          },
+          "sunrise": {
+            "precision": 0.9807692307692307,
+            "recall": 0.9622641509433962,
+            "f1-score": 0.9714285714285714,
+            "support": 53.0
+          },
+          "accuracy": 0.9573170731707317,
+          "macro avg": {
+            "precision": 0.9572486112418793,
+            "recall": 0.9586678604888346,
+            "f1-score": 0.9578959025470654,
+            "support": 164.0
+          },
+          "weighted avg": {
+            "precision": 0.9578416609064876,
+            "recall": 0.9573170731707317,
+            "f1-score": 0.9575145180023229,
+            "support": 164.0
+          }
+        }
+      },
+      "test": {
+        "accuracy": 0.9818181818181818,
+        "precision_macro": 0.9866071428571428,
+        "recall_macro": 0.9794969089323928,
+        "f1_macro": 0.9827226846466708,
+        "confusion_matrix": [
+          [
+            43,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            30,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            36,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            53
+          ]
+        ],
+        "per_class": {
+          "cloudy": {
+            "precision": 1.0,
+            "recall": 0.9772727272727273,
+            "f1-score": 0.9885057471264368,
+            "support": 44.0
+          },
+          "rain": {
+            "precision": 1.0,
+            "recall": 0.967741935483871,
+            "f1-score": 0.9836065573770492,
+            "support": 31.0
+          },
+          "shine": {
+            "precision": 1.0,
+            "recall": 0.972972972972973,
+            "f1-score": 0.9863013698630136,
+            "support": 37.0
+          },
+          "sunrise": {
+            "precision": 0.9464285714285714,
+            "recall": 1.0,
+            "f1-score": 0.9724770642201835,
+            "support": 53.0
+          },
+          "accuracy": 0.9818181818181818,
+          "macro avg": {
+            "precision": 0.9866071428571428,
+            "recall": 0.9794969089323928,
+            "f1-score": 0.9827226846466708,
+            "support": 165.0
+          },
+          "weighted avg": {
+            "precision": 0.9827922077922078,
+            "recall": 0.9818181818181818,
+            "f1-score": 0.9819423711566847,
+            "support": 165.0
+          }
+        }
+      },
+      "val_correct": 157,
+      "test_correct": 162,
+      "mean_confidence": {
+        "val": 0.8909381753424319,
+        "test": 0.8989212231202559
+      },
+      "mean_entropy": {
+        "val": 0.3396214649422599,
+        "test": 0.3228071633217473
+      },
+      "macro_f1_gap_test_minus_validation": 0.024826782099605427,
+      "descriptive_group_bootstrap_95": {
+        "validation": [
+          0.9254666975781918,
+          0.9873018302256835
+        ],
+        "test": [
+          0.9612967611835673,
+          1.0
+        ],
+        "gap": [
+          -0.010587912414124184,
+          0.061475325904124634
+        ],
+        "repeats": 2000,
+        "method": "Whole detected groups resampled within each class in each split; independent split resamples. Descriptive, conditional on this dataset; not a causal or significance claim."
+      },
+      "initial_state_keys_present": [],
+      "historical_source_sha_matches_current": {
+        "config.py": true,
+        "models.py": true,
+        "evaluation.py": false,
+        "__init__.py": true,
+        "plots.py": false,
+        "engine.py": false,
+        "utils.py": true,
+        "explainability.py": false,
+        "data.py": true
+      }
+    },
+    "convnext_noaug": {
+      "best_epoch": 5,
+      "validation": {
+        "accuracy": 0.9573170731707317,
+        "precision_macro": 0.9554816304452932,
+        "recall_macro": 0.9586678604888346,
+        "f1_macro": 0.9569907116418744,
+        "confusion_matrix": [
+          [
+            41,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            31,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            34,
+            1
+          ],
+          [
+            0,
+            0,
+            2,
+            51
+          ]
+        ],
+        "per_class": {
+          "cloudy": {
+            "precision": 0.9534883720930233,
+            "recall": 0.9534883720930233,
+            "f1-score": 0.9534883720930233,
+            "support": 43.0
+          },
+          "rain": {
+            "precision": 0.96875,
+            "recall": 1.0,
+            "f1-score": 0.9841269841269841,
+            "support": 31.0
+          },
+          "shine": {
+            "precision": 0.918918918918919,
+            "recall": 0.918918918918919,
+            "f1-score": 0.918918918918919,
+            "support": 37.0
+          },
+          "sunrise": {
+            "precision": 0.9807692307692307,
+            "recall": 0.9622641509433962,
+            "f1-score": 0.9714285714285714,
+            "support": 53.0
+          },
+          "accuracy": 0.9573170731707317,
+          "macro avg": {
+            "precision": 0.9554816304452932,
+            "recall": 0.9586678604888346,
+            "f1-score": 0.9569907116418744,
+            "support": 164.0
+          },
+          "weighted avg": {
+            "precision": 0.957390361163227,
+            "recall": 0.9573170731707317,
+            "f1-score": 0.9572783584978707,
+            "support": 164.0
+          }
+        }
+      },
+      "test": {
+        "accuracy": 0.9757575757575757,
+        "precision_macro": 0.9797979797979799,
+        "recall_macro": 0.972740152175636,
+        "f1_macro": 0.9759005989780534,
+        "confusion_matrix": [
+          [
+            43,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            30,
+            0,
+            1
+          ],
+          [
+            2,
+            0,
+            35,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            53
+          ]
+        ],
+        "per_class": {
+          "cloudy": {
+            "precision": 0.9555555555555556,
+            "recall": 0.9772727272727273,
+            "f1-score": 0.9662921348314607,
+            "support": 44.0
+          },
+          "rain": {
+            "precision": 1.0,
+            "recall": 0.967741935483871,
+            "f1-score": 0.9836065573770492,
+            "support": 31.0
+          },
+          "shine": {
+            "precision": 1.0,
+            "recall": 0.9459459459459459,
+            "f1-score": 0.9722222222222222,
+            "support": 37.0
+          },
+          "sunrise": {
+            "precision": 0.9636363636363636,
+            "recall": 1.0,
+            "f1-score": 0.9814814814814815,
+            "support": 53.0
+          },
+          "accuracy": 0.9757575757575757,
+          "macro avg": {
+            "precision": 0.9797979797979799,
+            "recall": 0.972740152175636,
+            "f1-score": 0.9759005989780534,
+            "support": 165.0
+          },
+          "weighted avg": {
+            "precision": 0.9764677073767982,
+            "recall": 0.9757575757575757,
+            "f1-score": 0.9757539269819001,
+            "support": 165.0
+          }
+        }
+      },
+      "val_correct": 157,
+      "test_correct": 161,
+      "mean_confidence": {
+        "val": 0.9205520240271964,
+        "test": 0.921133169260892
+      },
+      "mean_entropy": {
+        "val": 0.258593546031518,
+        "test": 0.2540209625263379
+      },
+      "macro_f1_gap_test_minus_validation": 0.018909887336178932,
+      "descriptive_group_bootstrap_95": {
+        "validation": [
+          0.9231258158635219,
+          0.986665872805283
+        ],
+        "test": [
+          0.9487984072087332,
+          0.9947899881834783
+        ],
+        "gap": [
+          -0.020167908595547148,
+          0.05775287810099028
+        ],
+        "repeats": 2000,
+        "method": "Whole detected groups resampled within each class in each split; independent split resamples. Descriptive, conditional on this dataset; not a causal or significance claim."
+      },
+      "initial_state_keys_present": [],
+      "historical_source_sha_matches_current": {
+        "config.py": true,
+        "models.py": true,
+        "evaluation.py": false,
+        "__init__.py": true,
+        "plots.py": false,
+        "engine.py": false,
+        "utils.py": true,
+        "explainability.py": false,
+        "data.py": true
+      }
+    }
+  },
+  "ablation": {
+    "disagreements": 2,
+    "aug_correct": 162,
+    "noaug_correct": 161,
+    "frozen_backbones_byte_equal": true,
+    "backbone_matches_official_v1_in_replay": [
+      true,
+      true
+    ],
+    "historical_initial_head_state_saved": false,
+    "deterministic_replay_initial_heads_identical": true,
+    "replayed_initial_head_sha256": "dbe67c063b5acee447ce0fc3f2f2ba61d5980a97999524595f85290712838a5f",
+    "interpretation": "The archived code seeds construction before augmentation and reproduces equal initial heads. Historical head tensors/hashes were not saved, so replay is protocol evidence, not direct evidence of the past initial state."
+  }
+}

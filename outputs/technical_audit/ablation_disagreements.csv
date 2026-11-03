@@ -1,0 +1,3 @@
+path,label,class_id,group,predicted_class_id,predicted_label,correct,score_cloudy,score_rain,score_shine,score_sunrise,noaug_predicted_label,noaug_correct
+data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/shine/shine_1.jpeg,shine,2,f901c15fa37636eabd3a,3,sunrise,False,0.3446175158023834,0.015234353952109814,0.29424813389778137,0.3458999991416931,cloudy,False
+data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/shine/shine_123.jpeg,shine,2,162094a178c133e8c338,2,shine,True,0.42199358344078064,0.0005237695877440274,0.5559880137443542,0.021494600921869278,cloudy,False

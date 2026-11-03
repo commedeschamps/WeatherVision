@@ -1,0 +1,933 @@
+{
+  "commit": "2f3de91eaafd0ee418535e1e78b7ccd169682dce",
+  "branch": "main",
+  "working_tree": "",
+  "files": {
+    "configs/experiments.yaml": {
+      "bytes": 830,
+      "sha256": "de4d548286aabbb836aaee53271dd157c92aec0bc21e0dcad7028c9fe20556dd"
+    },
+    "data/class_distribution.csv": {
+      "bytes": 87,
+      "sha256": "b5f83ebdfb24e0695aa507357604f743b8e37e19c682e17193eaacf574e0db23"
+    },
+    "data/class_distribution.png": {
+      "bytes": 60003,
+      "sha256": "1a8be58e35e8efd4324c5d6ac7407366f9dc143ce63d9a68a528686be58773fc"
+    },
+    "data/corrupted_images.csv": {
+      "bytes": 11,
+      "sha256": "de5418525a5dc0d4b6d7c88f36bf039c5d4d998a6ba76837e39bb27a5f7f12f1"
+    },
+    "data/duplicate_pairs.csv": {
+      "bytes": 26807,
+      "sha256": "92b9e85b8052b3c6cd2200409b9c6e9ba9fce12c8c359d135bbef4a6e77765bc"
+    },
+    "data/image_audit.csv": {
+      "bytes": 336482,
+      "sha256": "0c253797d1ea1b42452844cb22c4fe6ea0b3a4551da71ef97e42c6a4c72b392f"
+    },
+    "data/inspection.png": {
+      "bytes": 2842003,
+      "sha256": "ed372b1cbec4b423d949a887f2d0d65fb3d2409d4d97b0d660c4dd4dfea1f88d"
+    },
+    "data/manifest.csv": {
+      "bytes": 324559,
+      "sha256": "5d91854a3a40fe885abf72ed0723918160cc2ebd3b8dc0afd71285dde8d6c29e"
+    },
+    "data/source.json": {
+      "bytes": 535,
+      "sha256": "a94c0b94a3ed7152c499701241856ef56aefb3daceec689d92b680cb71fa3a86"
+    },
+    "data/statistics.json": {
+      "bytes": 1114,
+      "sha256": "109aa8be90e22be0a384db230f1071c9af910850bd89a4821729d0eaddb98783"
+    },
+    "outputs/a1_confusion_pair.png": {
+      "bytes": 95275,
+      "sha256": "d51e9e434136ba897cc9747813c2e1754890cae8cd3d92b462a5b2e45c97d99c"
+    },
+    "outputs/ablation.csv": {
+      "bytes": 602,
+      "sha256": "2d22c915ad285795cd5a90bfde9d12c292b6d59ce71f41cf77f38031d8e76a00"
+    },
+    "outputs/ablation_analysis.json": {
+      "bytes": 454,
+      "sha256": "e34d8a993e8107549c24c8c6d5961d607d323cb1fafa6a86a381d182ece2178b"
+    },
+    "outputs/ablation_confusion_pair.png": {
+      "bytes": 101941,
+      "sha256": "fe2ff22034e88b02f726fe5762d8310aea57d638029df101d3a75e62d91907a9"
+    },
+    "outputs/app/camera.png": {
+      "bytes": 78604,
+      "sha256": "86d60fba1706e7aed30d3cb76bdeb3f3b6cfbebe91f6a693e855464d92e52b00"
+    },
+    "outputs/app/camera_simulation.png": {
+      "bytes": 93307,
+      "sha256": "d862eec8080a1332bd9e49ce85131f6bd671823f79e6acca7af6b27aaa2a6205"
+    },
+    "outputs/app/comparison.png": {
+      "bytes": 106806,
+      "sha256": "8bc33fec8fef233618a03eace0628ab560ae311baf180f6fc400cd46bc808465"
+    },
+    "outputs/app/desktop.png": {
+      "bytes": 237291,
+      "sha256": "83dd9ff2c89d2b88a58814afb9c7015850e87ddff11e168fd3ea4f2180bd4284"
+    },
+    "outputs/app/mobile.png": {
+      "bytes": 125858,
+      "sha256": "b9850a50697def288bd41893aca1ba23e5f07aee45be1dfc366b54b43dd6bc98"
+    },
+    "outputs/app/mobile_result.png": {
+      "bytes": 41138,
+      "sha256": "a261af301b017aa00af5c6c02340e230017f5b73a836bf17cbaae97adb74b1b3"
+    },
+    "outputs/app/project.png": {
+      "bytes": 105015,
+      "sha256": "aa7e99386edf40cb1f7be91b4cecbec674bd47ea2efc8ad03e20abe947c7fff0"
+    },
+    "outputs/app/tablet.png": {
+      "bytes": 221565,
+      "sha256": "cabe6e71fad9b84edad52a40735e9c869cfad964d84ae0a403c9c9021389a09f"
+    },
+    "outputs/cnn_baseline/best.pt": {
+      "bytes": 305939,
+      "sha256": "bb53555ba56ce9b835e303d243008a5b392567d3c5e0ab02b57a3b875301c23e"
+    },
+    "outputs/cnn_baseline/confusion_matrix.png": {
+      "bytes": 92501,
+      "sha256": "246b115e77f418223d183289c56710a1ebecf7fb03ad252311726f9440b5c587"
+    },
+    "outputs/cnn_baseline/history.csv": {
+      "bytes": 1666,
+      "sha256": "8dcae1b11bf438cbf9b5ff23fd70753aedb96ece4895cc0393d57b2c60a89596"
+    },
+    "outputs/cnn_baseline/last.pt": {
+      "bytes": 306579,
+      "sha256": "73dbec3536f66ff58e6e3d60696030655b299d5d58b558ff8ad76a78f466496e"
+    },
+    "outputs/cnn_baseline/status.json": {
+      "bytes": 2226,
+      "sha256": "aa39856135c9d59e9b54fda00d1fd06079000a6b96aad943eb6620abb08c3827"
+    },
+    "outputs/cnn_baseline/test_metrics.json": {
+      "bytes": 3406,
+      "sha256": "2a346619c959624a7006524329e847fdc488e67163e55ec649e9e175012f7fda"
+    },
+    "outputs/cnn_baseline/test_predictions.csv": {
+      "bytes": 35347,
+      "sha256": "8228af4636c34025970de0436e3d89c7858749ce4c8f6bf622995e9c3a527a9a"
+    },
+    "outputs/cnn_baseline/training_curves.png": {
+      "bytes": 123289,
+      "sha256": "b0b68d508cf9ec5f186abe5074a6aa8d1517ae54426e008d25a59323f8fda0e7"
+    },
+    "outputs/convnext_architecture.png": {
+      "bytes": 174884,
+      "sha256": "bdf021cb4023ba7408fe5761932b0870b2c77e2b9a1e2ed039fe55e9f9f969d9"
+    },
+    "outputs/convnext_aug/best.pt": {
+      "bytes": 111365825,
+      "sha256": "0ed6e5c3912ccb2c60eddd2782a5d3322e4d5a7a5dcbb04a674fbcf3a43ae0ba"
+    },
+    "outputs/convnext_aug/confusion_matrix.png": {
+      "bytes": 94755,
+      "sha256": "dc7d00cd84ea21730a92b39b61332bcfeb6122f88ea898996f8aa1740101c68c"
+    },
+    "outputs/convnext_aug/gradcam_01.npy": {
+      "bytes": 200832,
+      "sha256": "8ca28001b7243995bcc2d796f97ba75e0da3702deef9acf97b2fd88e3c32c492"
+    },
+    "outputs/convnext_aug/gradcam_01.png": {
+      "bytes": 190707,
+      "sha256": "b988e9928119ca9787af23564c445c3f05039d8a293e7c99491df74a6821ae2d"
+    },
+    "outputs/convnext_aug/gradcam_02.npy": {
+      "bytes": 200832,
+      "sha256": "2d86087e967dd5f3534693fd78f2bc1f7d04de20de0b164e8b69f23af0806077"
+    },
+    "outputs/convnext_aug/gradcam_02.png": {
+      "bytes": 202691,
+      "sha256": "827cfdd297da9ac4ec32914b04ca0ceeda9858f6b162d50052a07a4131129ec3"
+    },
+    "outputs/convnext_aug/gradcam_03.npy": {
+      "bytes": 200832,
+      "sha256": "e2b9d6210e521dcb49a6181b13c317f9a1df1757d371cf0bb6c1348fedff7aa2"
+    },
+    "outputs/convnext_aug/gradcam_03.png": {
+      "bytes": 221983,
+      "sha256": "fbd20e7c3c267f9e4a9b447698c82ff06182603fc7d2fd244134ec6e113727f4"
+    },
+    "outputs/convnext_aug/gradcam_04.npy": {
+      "bytes": 200832,
+      "sha256": "8b0be0a435b150715d5aa1101f8fff0a5f139bca25ef298ddbd8cd6836accf12"
+    },
+    "outputs/convnext_aug/gradcam_04.png": {
+      "bytes": 211825,
+      "sha256": "babb31cf962307b25c208b8fbcf542bbcf02fdc114122b5e10f7373469766766"
+    },
+    "outputs/convnext_aug/gradcam_05.npy": {
+      "bytes": 200832,
+      "sha256": "9d1745202ec52a5340e4d91c6028bf1c3d8e3e6e33ee90a8db302bfe17f380dc"
+    },
+    "outputs/convnext_aug/gradcam_05.png": {
+      "bytes": 186497,
+      "sha256": "8a900bf213363961304bf81dd23ccfef3713c528e5bf86764fa55770fac53e5b"
+    },
+    "outputs/convnext_aug/gradcam_06.npy": {
+      "bytes": 200832,
+      "sha256": "c536ad634eae6fcfd36792e339d9b4942f3440f9888b230159081cd24797c5ec"
+    },
+    "outputs/convnext_aug/gradcam_06.png": {
+      "bytes": 174759,
+      "sha256": "ce54a7790fe0f826f13fea9e593627b8defbbdb4336b797681a2a8233d5fee43"
+    },
+    "outputs/convnext_aug/gradcam_metadata.json": {
+      "bytes": 2058,
+      "sha256": "88d357aa402cea596d3ff0ee9c802b8db78ae31696fca1389148196dbb9bba0f"
+    },
+    "outputs/convnext_aug/history.csv": {
+      "bytes": 879,
+      "sha256": "20d75e077defd305b98c95d5c0437b549ccc34b855a1f7cebbba7e1aaf4a7028"
+    },
+    "outputs/convnext_aug/last.pt": {
+      "bytes": 111366465,
+      "sha256": "37cb4e939918cfb5ad926846ac673c30d231b19e0d4f32a194a32acf1c7f757b"
+    },
+    "outputs/convnext_aug/status.json": {
+      "bytes": 2262,
+      "sha256": "cf76d2ae9c4d9392e0e82e750986725dbae21c6c8458c67b3c7b72d5f2932e79"
+    },
+    "outputs/convnext_aug/test_metrics.json": {
+      "bytes": 3310,
+      "sha256": "663b2d2f3cfd2da8a10f93a5f3f77e337fada7511c9f3ba39ba36694b3d2f2b5"
+    },
+    "outputs/convnext_aug/test_predictions.csv": {
+      "bytes": 35398,
+      "sha256": "093ea85ecc669983eb8086045de8263c8a3e3df0a709b4727f2022be1f043224"
+    },
+    "outputs/convnext_aug/training_curves.png": {
+      "bytes": 102502,
+      "sha256": "d4c44327318698e8fa851b94c83ce0e4cb88679c797bffd0257cc701d635e4f4"
+    },
+    "outputs/convnext_noaug/best.pt": {
+      "bytes": 111366273,
+      "sha256": "d6086becedd9c45975af6a273f0d9b31118a5d70f2b10a14e8c35cf1a7304dc5"
+    },
+    "outputs/convnext_noaug/confusion_matrix.png": {
+      "bytes": 95040,
+      "sha256": "f386d0cf55b6f52713d06cb8d3f606ce9c09c9b6e84a97eabd68dac50ec00f8c"
+    },
+    "outputs/convnext_noaug/history.csv": {
+      "bytes": 869,
+      "sha256": "1e7d92de9285c19e6e96d91b6b393ce26cc93a7032ad72c5e10d89d4ca6f6a7e"
+    },
+    "outputs/convnext_noaug/last.pt": {
+      "bytes": 111366465,
+      "sha256": "6fd5b9ec7efdf0f1d3c6e8eb650526b5dd5521db4a2280d8df87f334dfc13262"
+    },
+    "outputs/convnext_noaug/status.json": {
+      "bytes": 2267,
+      "sha256": "d5f66dfec0d662a22856a1770eefe5e4917c588d1a62d50d2d284c5c302d6af6"
+    },
+    "outputs/convnext_noaug/test_metrics.json": {
+      "bytes": 3331,
+      "sha256": "aa4ba27d7bf6a20487e72c22308bf8a17275411bdd3a65a008b7a470353f38e3"
+    },
+    "outputs/convnext_noaug/test_predictions.csv": {
+      "bytes": 35521,
+      "sha256": "28e236ac23b21de8a5b3fb015e0c33bbfb1e5b515c26a352543c66727c3835c2"
+    },
+    "outputs/convnext_noaug/training_curves.png": {
+      "bytes": 100431,
+      "sha256": "fbe6570d5aecccc8fc69096254d5fb9008611cd7e860c37618900699c1b62019"
+    },
+    "outputs/fresh_app/camera.png": {
+      "bytes": 78604,
+      "sha256": "86d60fba1706e7aed30d3cb76bdeb3f3b6cfbebe91f6a693e855464d92e52b00"
+    },
+    "outputs/fresh_app/comparison.png": {
+      "bytes": 106806,
+      "sha256": "8bc33fec8fef233618a03eace0628ab560ae311baf180f6fc400cd46bc808465"
+    },
+    "outputs/fresh_app/desktop.png": {
+      "bytes": 237312,
+      "sha256": "a57e787155b2dc87538a24aebf87f3754f716e1d46a6ec908291f35defbf363f"
+    },
+    "outputs/fresh_app/mobile.png": {
+      "bytes": 125858,
+      "sha256": "b9850a50697def288bd41893aca1ba23e5f07aee45be1dfc366b54b43dd6bc98"
+    },
+    "outputs/fresh_app/mobile_result.png": {
+      "bytes": 41018,
+      "sha256": "8140d5c9cda20e56a2a79f4eb637231e725e5d67910b1e474b4dbf3a8def340d"
+    },
+    "outputs/fresh_app/tablet.png": {
+      "bytes": 221488,
+      "sha256": "72856ddb81d62760dd6e00f513bb62a4a3a4b4d509b507c2da02920c94d4a712"
+    },
+    "outputs/mobilenet_improved/best.pt": {
+      "bytes": 9177453,
+      "sha256": "7b0566df2ec7b73bea6fd7ad16c7227a9262fc6f14f8f74d32cea166129b9869"
+    },
+    "outputs/mobilenet_improved/confusion_matrix.png": {
+      "bytes": 93889,
+      "sha256": "717c3d675bcf7d1bbdd1247a04b0104f4f6edca8a4de6647335c0f84150a5b42"
+    },
+    "outputs/mobilenet_improved/history.csv": {
+      "bytes": 1161,
+      "sha256": "b4555b980231dcb19783b5b3e0163a53e3b1db84b8afa6d038322df97f158804"
+    },
+    "outputs/mobilenet_improved/last.pt": {
+      "bytes": 9177453,
+      "sha256": "8d0e2e052d1f17125b666c56829de1432650116852c2bb19cf587a63553b1213"
+    },
+    "outputs/mobilenet_improved/status.json": {
+      "bytes": 2273,
+      "sha256": "d20d36226470e37d4c32d154d8f29d998c6d1879432365c9c1abfa07c16ab3fd"
+    },
+    "outputs/mobilenet_improved/test_metrics.json": {
+      "bytes": 3355,
+      "sha256": "6e1bee569d5716f9cb827d082f409a6c5b7ff1eb45a27dedb0fd9e6f533b64e4"
+    },
+    "outputs/mobilenet_improved/test_predictions.csv": {
+      "bytes": 35488,
+      "sha256": "94dc10ed2c074f2f8b4db59fb2780bd4e943812a3080a3e9fd581a678eed8378"
+    },
+    "outputs/mobilenet_improved/training_curves.png": {
+      "bytes": 112942,
+      "sha256": "8c38c9556cbad7878adfa3c7ba3c17b2f437dafafb347bb6cfdb52089f1eefa3"
+    },
+    "outputs/model_comparison.csv": {
+      "bytes": 1007,
+      "sha256": "d6bc47fbcfcd39a5b891b3218bec6bb0dfdc5ad04fca0e3201a0be85185c6a04"
+    },
+    "outputs/model_comparison.json": {
+      "bytes": 2175,
+      "sha256": "a40fad94bf5bc4d4e4fbc30d626f672c1e3a37b1d0ba05b28a3c32751fb59b3f"
+    },
+    "outputs/model_comparison.png": {
+      "bytes": 101932,
+      "sha256": "6326525bbd9cbdcd1da2e05ec2c0f43a660ec228a5bbc8fe2408f0be170c7d45"
+    },
+    "outputs/smoke/cnn_baseline/confusion_matrix.png": {
+      "bytes": 84458,
+      "sha256": "5e98789baeca9bc06616162d8ca2693d2b1d348a3aff6fc94e491dec9c68b07b"
+    },
+    "outputs/smoke/cnn_baseline/training_curves.png": {
+      "bytes": 81500,
+      "sha256": "96c58b7fc4399ea44f63a337c805fe1246f6469cb1fbafca53a68b8bc606d965"
+    },
+    "outputs/smoke/convnext_aug/confusion_matrix.png": {
+      "bytes": 79325,
+      "sha256": "af4d3c03de3be119742d6ac764ab21a3c935b6a59a7b7f8f6210c20eec7c1999"
+    },
+    "outputs/smoke/convnext_aug/gradcam_01.png": {
+      "bytes": 178522,
+      "sha256": "85dc6ac095cae40308ab4e2e560aed45281f40d6fe189f559eba819a4a083b63"
+    },
+    "outputs/smoke/convnext_aug/gradcam_02.png": {
+      "bytes": 201958,
+      "sha256": "501c96fe87d6358b887b3b57cf40a37e936e70349d5648d3b406a4718e31e508"
+    },
+    "outputs/smoke/convnext_aug/training_curves.png": {
+      "bytes": 81332,
+      "sha256": "e0de8ac5349f9ca55692470b1ebb924c40ac0440e7a61b1ba92acdeb11885da6"
+    },
+    "outputs/smoke/convnext_noaug/confusion_matrix.png": {
+      "bytes": 79325,
+      "sha256": "af4d3c03de3be119742d6ac764ab21a3c935b6a59a7b7f8f6210c20eec7c1999"
+    },
+    "outputs/smoke/convnext_noaug/training_curves.png": {
+      "bytes": 81638,
+      "sha256": "317ae621b7c99ceb2db736f0ab460993b65c1ea6aacb02246459849901b1c102"
+    },
+    "outputs/smoke/mobilenet_improved/confusion_matrix.png": {
+      "bytes": 83267,
+      "sha256": "4c9896471c398f5e3509a052ead25b1c018c39a716d8d71faf6f799b90b70d6c"
+    },
+    "outputs/smoke/mobilenet_improved/training_curves.png": {
+      "bytes": 75949,
+      "sha256": "6f521b815a770cea6db836b074cb791645429776d2e68fd71d1b0551c8ee5ad0"
+    },
+    "outputs/smoke/model_comparison.png": {
+      "bytes": 94306,
+      "sha256": "02fffe5443157c7a40ab66ef6dd28e84fe4872415c123878c6ed413fb311c4ee"
+    },
+    "reports/assignment1_foundation.md": {
+      "bytes": 10559,
+      "sha256": "1c367e232f2d68ea74c5bedbd665102bfdb5aa251217014cece3a32c04dcd712"
+    },
+    "reports/assignment1_foundation.pdf": {
+      "bytes": 6973283,
+      "sha256": "01b4be524cc8aa54dc8f7de978a3170aefcbcfea2c9c0c4adbcd7bfa1efa9a5f"
+    },
+    "reports/assignment2_report.md": {
+      "bytes": 18892,
+      "sha256": "b551c99fbaf9a4a2f8683e823c3704b3c541e43bb0501f740ef03bea5dea1a9b"
+    },
+    "reports/assignment2_report.pdf": {
+      "bytes": 8383375,
+      "sha256": "1a83c6b10b4b2b59fc8327dc00ce68802444734be50bf1aabd9dfa1f5d43298c"
+    },
+    "reports/report_status.json": {
+      "bytes": 692,
+      "sha256": "916d2c32fa8b32abed857943aba9f9aabdcba8eb61ebbefcce6f2c1d6d2ddef3"
+    }
+  },
+  "results": {
+    "cnn_baseline": {
+      "accuracy": 0.9515151515151515,
+      "precision_macro": 0.9488909238909238,
+      "recall_macro": 0.9472872591786163,
+      "f1_macro": 0.9477130492133327,
+      "confusion_matrix": [
+        [
+          41,
+          1,
+          2,
+          0
+        ],
+        [
+          1,
+          28,
+          0,
+          2
+        ],
+        [
+          0,
+          1,
+          36,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          52
+        ]
+      ],
+      "per_class": {
+        "cloudy": {
+          "precision": 0.9761904761904762,
+          "recall": 0.9318181818181818,
+          "f1-score": 0.9534883720930233,
+          "support": 44.0
+        },
+        "rain": {
+          "precision": 0.9333333333333333,
+          "recall": 0.9032258064516129,
+          "f1-score": 0.9180327868852459,
+          "support": 31.0
+        },
+        "shine": {
+          "precision": 0.9230769230769231,
+          "recall": 0.972972972972973,
+          "f1-score": 0.9473684210526315,
+          "support": 37.0
+        },
+        "sunrise": {
+          "precision": 0.9629629629629629,
+          "recall": 0.9811320754716981,
+          "f1-score": 0.9719626168224299,
+          "support": 53.0
+        },
+        "accuracy": 0.9515151515151515,
+        "macro avg": {
+          "precision": 0.9488909238909238,
+          "recall": 0.9472872591786163,
+          "f1-score": 0.9477130492133327,
+          "support": 165.0
+        },
+        "weighted avg": {
+          "precision": 0.9519793786460453,
+          "recall": 0.9515151515151515,
+          "f1-score": 0.9513888184004352,
+          "support": 165.0
+        }
+      },
+      "run": "cnn_baseline",
+      "split": "test",
+      "test_samples": 165,
+      "test_membership_sha256": "e6ae49512f6732d4a299873f844b588cde98f1b359642c3bfedabae8b6278290",
+      "manifest_sha256": "5d91854a3a40fe885abf72ed0723918160cc2ebd3b8dc0afd71285dde8d6c29e",
+      "checkpoint_sha256": "bb53555ba56ce9b835e303d243008a5b392567d3c5e0ab02b57a3b875301c23e",
+      "best_epoch": 9,
+      "latency": {
+        "median_ms": 0.7422079797834158,
+        "mean_ms": 0.7290595657347391,
+        "std_ms": 0.07644560245341851,
+        "p95_ms": 0.8067328511970118,
+        "measurements_ms": [
+          0.7849590037949383,
+          0.7633749628439546,
+          0.7749580545350909,
+          0.7497909828089178,
+          0.7681249990127981,
+          0.7519579958170652,
+          0.8000410161912441,
+          0.7628329913131893,
+          0.7528330315835774,
+          0.7714999956078827,
+          0.7632909691892564,
+          0.7698749541305006,
+          0.7346249767579138,
+          0.6596249877475202,
+          0.6787499878555536,
+          0.652290997095406,
+          1.0209160391241312,
+          0.6333329947665334,
+          0.7328750216402113,
+          0.7575839990749955,
+          0.6416249671019614,
+          0.6744159618392587,
+          0.6872920203022659,
+          0.6498749717138708,
+          0.6563750212080777,
+          0.8122079889290035,
+          0.6608330295421183,
+          0.6598749896511436,
+          0.6731250323355198,
+          0.6726250285282731
+        ],
+        "warmup": 5,
+        "repeats": 30,
+        "batch_size": 1,
+        "includes_preprocessing": false,
+        "includes_device_transfer": false,
+        "synchronization": "mps",
+        "protocol": "Same first test tensor, resident on device; forward pass only, inference_mode; no softmax, disk I/O, or model loading",
+        "environment": {
+          "python": "3.14.5",
+          "torch": "2.10.0",
+          "torchvision": "0.25.0",
+          "sklearn": "1.9.1",
+          "numpy": "2.5.4",
+          "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+          "processor": "arm",
+          "cpu_count": 10,
+          "device": "mps",
+          "cuda_available": false,
+          "mps_available": true,
+          "gpu": null,
+          "threads": 4
+        }
+      }
+    },
+    "convnext_aug": {
+      "accuracy": 0.9818181818181818,
+      "precision_macro": 0.9866071428571428,
+      "recall_macro": 0.9794969089323928,
+      "f1_macro": 0.9827226846466708,
+      "confusion_matrix": [
+        [
+          43,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          30,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          36,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          53
+        ]
+      ],
+      "per_class": {
+        "cloudy": {
+          "precision": 1.0,
+          "recall": 0.9772727272727273,
+          "f1-score": 0.9885057471264368,
+          "support": 44.0
+        },
+        "rain": {
+          "precision": 1.0,
+          "recall": 0.967741935483871,
+          "f1-score": 0.9836065573770492,
+          "support": 31.0
+        },
+        "shine": {
+          "precision": 1.0,
+          "recall": 0.972972972972973,
+          "f1-score": 0.9863013698630136,
+          "support": 37.0
+        },
+        "sunrise": {
+          "precision": 0.9464285714285714,
+          "recall": 1.0,
+          "f1-score": 0.9724770642201835,
+          "support": 53.0
+        },
+        "accuracy": 0.9818181818181818,
+        "macro avg": {
+          "precision": 0.9866071428571428,
+          "recall": 0.9794969089323928,
+          "f1-score": 0.9827226846466708,
+          "support": 165.0
+        },
+        "weighted avg": {
+          "precision": 0.9827922077922078,
+          "recall": 0.9818181818181818,
+          "f1-score": 0.9819423711566847,
+          "support": 165.0
+        }
+      },
+      "run": "convnext_aug",
+      "split": "test",
+      "test_samples": 165,
+      "test_membership_sha256": "e6ae49512f6732d4a299873f844b588cde98f1b359642c3bfedabae8b6278290",
+      "manifest_sha256": "5d91854a3a40fe885abf72ed0723918160cc2ebd3b8dc0afd71285dde8d6c29e",
+      "checkpoint_sha256": "0ed6e5c3912ccb2c60eddd2782a5d3322e4d5a7a5dcbb04a674fbcf3a43ae0ba",
+      "best_epoch": 3,
+      "latency": {
+        "median_ms": 6.493666995083913,
+        "mean_ms": 6.71564726702248,
+        "std_ms": 0.7662549380287867,
+        "p95_ms": 8.13190014159772,
+        "measurements_ms": [
+          6.548958015628159,
+          6.3896659994497895,
+          6.3794589950703084,
+          6.400624988600612,
+          6.342125008814037,
+          6.613333011046052,
+          6.272916041780263,
+          6.436624971684068,
+          6.531457998789847,
+          6.2220419640652835,
+          6.50987500557676,
+          6.36054202914238,
+          6.251459009945393,
+          6.865291972644627,
+          8.91212496208027,
+          6.353624979965389,
+          6.732082983944565,
+          7.013374997768551,
+          6.57116697402671,
+          7.110707985702902,
+          6.351625022944063,
+          6.685083033517003,
+          6.356958008836955,
+          6.277750013396144,
+          7.178292027674615,
+          6.477458984591067,
+          6.5217920346185565,
+          6.358042010106146,
+          6.562999973539263,
+          9.881959005724639
+        ],
+        "warmup": 5,
+        "repeats": 30,
+        "batch_size": 1,
+        "includes_preprocessing": false,
+        "includes_device_transfer": false,
+        "synchronization": "mps",
+        "protocol": "Same first test tensor, resident on device; forward pass only, inference_mode; no softmax, disk I/O, or model loading",
+        "environment": {
+          "python": "3.14.5",
+          "torch": "2.10.0",
+          "torchvision": "0.25.0",
+          "sklearn": "1.9.1",
+          "numpy": "2.5.4",
+          "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+          "processor": "arm",
+          "cpu_count": 10,
+          "device": "mps",
+          "cuda_available": false,
+          "mps_available": true,
+          "gpu": null,
+          "threads": 4
+        }
+      }
+    },
+    "convnext_noaug": {
+      "accuracy": 0.9757575757575757,
+      "precision_macro": 0.9797979797979799,
+      "recall_macro": 0.972740152175636,
+      "f1_macro": 0.9759005989780534,
+      "confusion_matrix": [
+        [
+          43,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          30,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          35,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          53
+        ]
+      ],
+      "per_class": {
+        "cloudy": {
+          "precision": 0.9555555555555556,
+          "recall": 0.9772727272727273,
+          "f1-score": 0.9662921348314607,
+          "support": 44.0
+        },
+        "rain": {
+          "precision": 1.0,
+          "recall": 0.967741935483871,
+          "f1-score": 0.9836065573770492,
+          "support": 31.0
+        },
+        "shine": {
+          "precision": 1.0,
+          "recall": 0.9459459459459459,
+          "f1-score": 0.9722222222222222,
+          "support": 37.0
+        },
+        "sunrise": {
+          "precision": 0.9636363636363636,
+          "recall": 1.0,
+          "f1-score": 0.9814814814814815,
+          "support": 53.0
+        },
+        "accuracy": 0.9757575757575757,
+        "macro avg": {
+          "precision": 0.9797979797979799,
+          "recall": 0.972740152175636,
+          "f1-score": 0.9759005989780534,
+          "support": 165.0
+        },
+        "weighted avg": {
+          "precision": 0.9764677073767982,
+          "recall": 0.9757575757575757,
+          "f1-score": 0.9757539269819001,
+          "support": 165.0
+        }
+      },
+      "run": "convnext_noaug",
+      "split": "test",
+      "test_samples": 165,
+      "test_membership_sha256": "e6ae49512f6732d4a299873f844b588cde98f1b359642c3bfedabae8b6278290",
+      "manifest_sha256": "5d91854a3a40fe885abf72ed0723918160cc2ebd3b8dc0afd71285dde8d6c29e",
+      "checkpoint_sha256": "d6086becedd9c45975af6a273f0d9b31118a5d70f2b10a14e8c35cf1a7304dc5",
+      "best_epoch": 5,
+      "latency": {
+        "median_ms": 6.273083476116881,
+        "mean_ms": 6.310290332961206,
+        "std_ms": 0.14152502817256135,
+        "p95_ms": 6.500652598333545,
+        "measurements_ms": [
+          6.205125013366342,
+          6.268583005294204,
+          6.206459016539156,
+          6.200124975293875,
+          6.278708053287119,
+          6.34683296084404,
+          6.197083042934537,
+          6.250332982745022,
+          6.169332948047668,
+          6.3342920038849115,
+          6.181499978993088,
+          6.31004199385643,
+          6.223041971679777,
+          6.867207994218916,
+          6.2908330000936985,
+          6.260875030420721,
+          6.2039169715717435,
+          6.4927919884212315,
+          6.155917013529688,
+          6.258250039536506,
+          6.222209020052105,
+          6.4474999671801925,
+          6.50708400644362,
+          6.272083963267505,
+          6.416916032321751,
+          6.274082988966256,
+          6.282334041316062,
+          6.489874969702214,
+          6.313375022727996,
+          6.381999992299825
+        ],
+        "warmup": 5,
+        "repeats": 30,
+        "batch_size": 1,
+        "includes_preprocessing": false,
+        "includes_device_transfer": false,
+        "synchronization": "mps",
+        "protocol": "Same first test tensor, resident on device; forward pass only, inference_mode; no softmax, disk I/O, or model loading",
+        "environment": {
+          "python": "3.14.5",
+          "torch": "2.10.0",
+          "torchvision": "0.25.0",
+          "sklearn": "1.9.1",
+          "numpy": "2.5.4",
+          "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+          "processor": "arm",
+          "cpu_count": 10,
+          "device": "mps",
+          "cuda_available": false,
+          "mps_available": true,
+          "gpu": null,
+          "threads": 4
+        }
+      }
+    },
+    "mobilenet_improved": {
+      "accuracy": 0.9636363636363636,
+      "precision_macro": 0.9624297731767244,
+      "recall_macro": 0.9624514543869382,
+      "f1_macro": 0.9620029693559106,
+      "confusion_matrix": [
+        [
+          40,
+          2,
+          1,
+          1
+        ],
+        [
+          0,
+          30,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          36,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          53
+        ]
+      ],
+      "per_class": {
+        "cloudy": {
+          "precision": 0.975609756097561,
+          "recall": 0.9090909090909091,
+          "f1-score": 0.9411764705882353,
+          "support": 44.0
+        },
+        "rain": {
+          "precision": 0.9375,
+          "recall": 0.967741935483871,
+          "f1-score": 0.9523809523809523,
+          "support": 31.0
+        },
+        "shine": {
+          "precision": 0.972972972972973,
+          "recall": 0.972972972972973,
+          "f1-score": 0.972972972972973,
+          "support": 37.0
+        },
+        "sunrise": {
+          "precision": 0.9636363636363636,
+          "recall": 1.0,
+          "f1-score": 0.9814814814814815,
+          "support": 53.0
+        },
+        "accuracy": 0.9636363636363636,
+        "macro avg": {
+          "precision": 0.9624297731767244,
+          "recall": 0.9624514543869382,
+          "f1-score": 0.9620029693559106,
+          "support": 165.0
+        },
+        "weighted avg": {
+          "precision": 0.9640124638849694,
+          "recall": 0.9636363636363636,
+          "f1-score": 0.9633581378679418,
+          "support": 165.0
+        }
+      },
+      "run": "mobilenet_improved",
+      "split": "test",
+      "test_samples": 165,
+      "test_membership_sha256": "e6ae49512f6732d4a299873f844b588cde98f1b359642c3bfedabae8b6278290",
+      "manifest_sha256": "5d91854a3a40fe885abf72ed0723918160cc2ebd3b8dc0afd71285dde8d6c29e",
+      "checkpoint_sha256": "7b0566df2ec7b73bea6fd7ad16c7227a9262fc6f14f8f74d32cea166129b9869",
+      "best_epoch": 8,
+      "latency": {
+        "median_ms": 10.269354039337486,
+        "mean_ms": 12.171304068760946,
+        "std_ms": 5.344381609135102,
+        "p95_ms": 23.379718442447476,
+        "measurements_ms": [
+          22.00254099443555,
+          24.906250007916242,
+          10.808499995619059,
+          10.927082970738411,
+          9.434750012587756,
+          8.711499976925552,
+          8.737290976569057,
+          10.549542028456926,
+          15.659124997910112,
+          21.18395798606798,
+          21.71000000089407,
+          14.287500001955777,
+          11.94158400176093,
+          12.324833020102233,
+          13.562583015300333,
+          8.655334007926285,
+          7.921250013168901,
+          7.359292008914053,
+          9.311583009548485,
+          7.241207989864051,
+          9.345541999209672,
+          7.49024999095127,
+          9.989166050218046,
+          8.315749990288168,
+          24.506499990820885,
+          15.3485830524005,
+          7.90745799895376,
+          10.6289999675937,
+          8.126083004754037,
+          6.245083000976592
+        ],
+        "warmup": 5,
+        "repeats": 30,
+        "batch_size": 1,
+        "includes_preprocessing": false,
+        "includes_device_transfer": false,
+        "synchronization": "mps",
+        "protocol": "Same first test tensor, resident on device; forward pass only, inference_mode; no softmax, disk I/O, or model loading",
+        "environment": {
+          "python": "3.14.5",
+          "torch": "2.10.0",
+          "torchvision": "0.25.0",
+          "sklearn": "1.9.1",
+          "numpy": "2.5.4",
+          "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+          "processor": "arm",
+          "cpu_count": 10,
+          "device": "mps",
+          "cuda_available": false,
+          "mps_available": true,
+          "gpu": null,
+          "threads": 4
+        }
+      }
+    }
+  }
+}

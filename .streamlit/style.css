@@ -64,3 +64,7 @@ input, textarea { caret-color: var(--wv-accent); }
   .prediction-score { font-size: 1.45rem; }
   [data-testid="stButton"] button, [data-testid="stDownloadButton"] button { min-height: 44px; }
 }
+
+.cam-legend { max-width: 540px; margin: .7rem 0 1rem; }
+.cam-legend-scale { height: 12px; border-radius: 3px; background: linear-gradient(to right, #000004, #420a68, #932667, #dd513a, #fca50a, #fcffa4); }
+.cam-legend-labels { display: flex; justify-content: space-between; gap: 1rem; color: var(--wv-muted); font-size: .8rem; margin-top: .3rem; }

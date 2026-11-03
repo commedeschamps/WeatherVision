@@ -1,0 +1,209 @@
+{
+  "protocol": "Current code, loaded model, same first test photograph; five warm-ups; three paired timed repetitions with alternating order. Single path includes transforms, forward and softmax; previous policy replays that path plus five warm-ups and thirty additional forwards. Excludes model loading and browser overhead. Not a historical wall-time measurement.",
+  "results": [
+    {
+      "run": "cnn_baseline",
+      "backend": "cpu",
+      "single_prediction_median_ms": 2.1170410327613354,
+      "previous_policy_median_ms": 97.94558299472556,
+      "measurements_ms": {
+        "single_prediction": [
+          2.6714999694377184,
+          2.1170410327613354,
+          2.0460410160012543
+        ],
+        "previous_auto_benchmark_policy": [
+          97.94558299472556,
+          61.28962495131418,
+          129.1019579512067
+        ]
+      },
+      "optional_benchmark_forward_mean_ms": 3.8957735329555967,
+      "environment": {
+        "python": "3.14.5",
+        "torch": "2.10.0",
+        "torchvision": "0.25.0",
+        "sklearn": "1.9.1",
+        "numpy": "2.5.4",
+        "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+        "processor": "arm",
+        "cpu_count": 10,
+        "device": "cpu",
+        "cuda_available": false,
+        "mps_available": true,
+        "gpu": null,
+        "threads": 4
+      }
+    },
+    {
+      "run": "mobilenet_improved",
+      "backend": "cpu",
+      "single_prediction_median_ms": 27.702583000063896,
+      "previous_policy_median_ms": 1043.0054159951396,
+      "measurements_ms": {
+        "single_prediction": [
+          28.763875016011298,
+          27.702583000063896,
+          27.18987496336922
+        ],
+        "previous_auto_benchmark_policy": [
+          1043.0054159951396,
+          1057.9614579910412,
+          993.8685410306789
+        ]
+      },
+      "optional_benchmark_forward_mean_ms": 27.494119400701795,
+      "environment": {
+        "python": "3.14.5",
+        "torch": "2.10.0",
+        "torchvision": "0.25.0",
+        "sklearn": "1.9.1",
+        "numpy": "2.5.4",
+        "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+        "processor": "arm",
+        "cpu_count": 10,
+        "device": "cpu",
+        "cuda_available": false,
+        "mps_available": true,
+        "gpu": null,
+        "threads": 4
+      }
+    },
+    {
+      "run": "convnext_aug",
+      "backend": "cpu",
+      "single_prediction_median_ms": 265.1202079723589,
+      "previous_policy_median_ms": 8157.665165956132,
+      "measurements_ms": {
+        "single_prediction": [
+          342.8877499536611,
+          265.1202079723589,
+          216.20191598776728
+        ],
+        "previous_auto_benchmark_policy": [
+          9642.830082972068,
+          7987.938124977518,
+          8157.665165956132
+        ]
+      },
+      "optional_benchmark_forward_mean_ms": 227.05744712923965,
+      "environment": {
+        "python": "3.14.5",
+        "torch": "2.10.0",
+        "torchvision": "0.25.0",
+        "sklearn": "1.9.1",
+        "numpy": "2.5.4",
+        "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+        "processor": "arm",
+        "cpu_count": 10,
+        "device": "cpu",
+        "cuda_available": false,
+        "mps_available": true,
+        "gpu": null,
+        "threads": 4
+      }
+    },
+    {
+      "run": "cnn_baseline",
+      "backend": "mps",
+      "single_prediction_median_ms": 2.741082978900522,
+      "previous_policy_median_ms": 31.420291983522475,
+      "measurements_ms": {
+        "single_prediction": [
+          8.449250017292798,
+          2.741082978900522,
+          2.512833976652473
+        ],
+        "previous_auto_benchmark_policy": [
+          40.955667034722865,
+          27.822582982480526,
+          31.420291983522475
+        ]
+      },
+      "optional_benchmark_forward_mean_ms": 0.8107763656880707,
+      "environment": {
+        "python": "3.14.5",
+        "torch": "2.10.0",
+        "torchvision": "0.25.0",
+        "sklearn": "1.9.1",
+        "numpy": "2.5.4",
+        "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+        "processor": "arm",
+        "cpu_count": 10,
+        "device": "mps",
+        "cuda_available": false,
+        "mps_available": true,
+        "gpu": null,
+        "threads": 4
+      }
+    },
+    {
+      "run": "mobilenet_improved",
+      "backend": "mps",
+      "single_prediction_median_ms": 6.976083968766034,
+      "previous_policy_median_ms": 208.23966700118035,
+      "measurements_ms": {
+        "single_prediction": [
+          7.17170798452571,
+          6.976083968766034,
+          6.8395420094020665
+        ],
+        "previous_auto_benchmark_policy": [
+          208.23966700118035,
+          204.2624580208212,
+          219.7740830015391
+        ]
+      },
+      "optional_benchmark_forward_mean_ms": 6.166547166261201,
+      "environment": {
+        "python": "3.14.5",
+        "torch": "2.10.0",
+        "torchvision": "0.25.0",
+        "sklearn": "1.9.1",
+        "numpy": "2.5.4",
+        "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+        "processor": "arm",
+        "cpu_count": 10,
+        "device": "mps",
+        "cuda_available": false,
+        "mps_available": true,
+        "gpu": null,
+        "threads": 4
+      }
+    },
+    {
+      "run": "convnext_aug",
+      "backend": "mps",
+      "single_prediction_median_ms": 7.421125017572194,
+      "previous_policy_median_ms": 232.18995798379183,
+      "measurements_ms": {
+        "single_prediction": [
+          8.174374990630895,
+          7.390042010229081,
+          7.421125017572194
+        ],
+        "previous_auto_benchmark_policy": [
+          226.32324998266995,
+          232.18995798379183,
+          235.46941700624302
+        ]
+      },
+      "optional_benchmark_forward_mean_ms": 6.607136157496522,
+      "environment": {
+        "python": "3.14.5",
+        "torch": "2.10.0",
+        "torchvision": "0.25.0",
+        "sklearn": "1.9.1",
+        "numpy": "2.5.4",
+        "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+        "processor": "arm",
+        "cpu_count": 10,
+        "device": "mps",
+        "cuda_available": false,
+        "mps_available": true,
+        "gpu": null,
+        "threads": 4
+      }
+    }
+  ]
+}

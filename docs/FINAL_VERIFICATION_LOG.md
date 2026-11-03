@@ -63,3 +63,26 @@ Full model training was not repeated. Hosted Colab, public deployment, a physica
 ## Public release verification
 
 `gh release create v1.1.0 ... --target fb1adc11bd62b6f9f263639d10e1244209b5ad6c`: final release published at https://github.com/commedeschamps/WeatherVision/releases/tag/v1.1.0. All five final asset sizes/server SHA-256 digests match local files. An anonymous download of WeatherVision_final_submission.zip matched its local hash and passed ZIP integrity checks. Anonymous raw downloads of README, both PDFs, the executed notebook and final audit matched local bytes. Evidence: outputs/public_release_verification.json. Stable checkpoint/video URLs in the reports remain available in v1.0.0.
+
+## Technical improvement verification
+
+Baseline commit: `2f3de91eaafd0ee418535e1e78b7ccd169682dce`; clean working tree. Dedicated branch: `technical/explainability-validation`. Baseline hashes/results: `outputs/technical_audit/baseline.json` (93 protected artifacts).
+
+| Executed command / check | Actual outcome |
+|---|---|
+| `.venv/bin/python -m pytest -q --junitxml=outputs/technical_audit/baseline_pytest.xml` | 40 passed in 18.38 s before source edits. |
+| Controlled original helper reproductions | Mixed-mode Grad-CAM changed 197 module flags; boundary test tinted 852 unseen pixels on a 224-square all-positive map. Baseline scratch-CNN training-mode prediction changed nine BN buffers. A corrupted checkpoint raised UnpicklingError outside the app's handled tuple. Reproductions use separate temporary inputs/models. |
+| `.venv/bin/python scripts/validate_explanations.py --device auto` | Actual MPS run: 22 selected test images, both stages, two replacements and 1,056 perturbations. Five of 49 cells deleted per mask, ten seeded random masks per image; fixed original target. Weights unchanged. Full scores/settings/maps in outputs/explainability_validation. |
+| Six legacy-array and CPU/MPS comparisons | Maximum difference from preserved maps 2.39e-7; CPU/MPS difference 4.53e-6. outputs/technical_audit/gradcam_numerical_parity.json. |
+| `MPLCONFIGDIR=.cache/matplotlib TORCH_HOME=.cache/torch .venv/bin/python scripts/audit_training_protocol.py` | Actual CPU reconstruction of 656 validation and 660 test predictions; all saved metrics/labels match. File/pixel/group checks, validation-selected epochs, deterministic head replay, two ablation disagreements and controlled rotation visualization passed. |
+| Independent experiment identity check | All four checkpoint/config/manifest/test identity hashes matched evaluation metadata. Cached V1 weights match the vendor filename hash prefix. outputs/technical_audit/experiment_identity_check.json. |
+| `.venv/bin/python scripts/profile_inference_policy.py` | Three paired loaded-model measurements per architecture/backend on CPU and MPS. ConvNeXt CPU median single path 265.12 ms versus 8,157.67 ms for replay of the previous automatic-benchmark policy; MPS 7.42 versus 232.19 ms. Raw timings/environment retained; excludes loading/browser time. |
+| `.venv/bin/python -m pytest -q --junitxml=outputs/technical_audit/final_pytest.xml` | 63 passed in 23.86 s, including actual MPS parity and Streamlit corrupt-checkpoint recovery. |
+| `.venv/bin/python scripts/check_app.py --url http://127.0.0.1:8507 --output-dir outputs/technical_audit/app` | All 14 existing Chrome scenarios passed after the improvements. New screenshots stored separately from protected figures. |
+| `.venv/bin/python scripts/check_technical_app.py --url http://127.0.0.1:8507` | Seven technical browser scenarios passed: raw/opacity invariance, earlier stage, benchmark reuse, device/model state and responsive explanation. Actual automatic backend MPS; no page errors. Browser/server/forward timing scopes recorded separately. |
+| `.venv/bin/python -m compileall -q src scripts tests`; `git diff --check`; `.venv/bin/python -m pip check` | Syntax checks passed, no whitespace errors, no broken dependencies. |
+| Read-only `gh api` checks for v1.0.0/v1.1.0 | All preexisting release asset digests matched recorded published hashes. No release files changed. outputs/technical_audit/release_preservation.json. |
+
+Final occlusion results are baseline-sensitive: final-stage high regions exceed random controls in 21/22 mean-fill cases and 18/22 blur cases. Cloud_267 has positive mean-fill but negative blur logit drops; this counterexample is included. Historical initial-head identity remains unverified because no original initial-state snapshot was saved; deterministic replay is described separately.
+
+No official training was repeated. Test-suite training uses independent temporary fixtures. All 93 protected artifacts, including the 5/8-page reports and original figures, retain their baseline hashes. Additional scientific clarification is provided in the new technical documents; PDF regeneration was unnecessary.

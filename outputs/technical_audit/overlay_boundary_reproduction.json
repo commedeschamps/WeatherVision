@@ -1,0 +1,65 @@
+[
+  {
+    "size": [
+      224,
+      224
+    ],
+    "unseen_tinted": 852
+  },
+  {
+    "size": [
+      400,
+      240
+    ],
+    "unseen_tinted": 228
+  },
+  {
+    "size": [
+      237,
+      401
+    ],
+    "unseen_tinted": 0
+  },
+  {
+    "size": [
+      401,
+      237
+    ],
+    "unseen_tinted": 0
+  },
+  {
+    "size": [
+      500,
+      500
+    ],
+    "unseen_tinted": 1900
+  },
+  {
+    "size": [
+      225,
+      225
+    ],
+    "unseen_tinted": 856
+  },
+  {
+    "size": [
+      320,
+      179
+    ],
+    "unseen_tinted": 342
+  },
+  {
+    "size": [
+      179,
+      320
+    ],
+    "unseen_tinted": 342
+  },
+  {
+    "size": [
+      640,
+      480
+    ],
+    "unseen_tinted": 1828
+  }
+]

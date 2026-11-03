@@ -106,3 +106,21 @@ Run `python -m streamlit run app.py`. Open Classify, select a trained model, use
 46. **How does an instructor obtain your model?** Clone the public repository and run scripts/download_checkpoints.py. It downloads release files and validates their SHA-256 checksums before inference.
 47. **Was the notebook executed on hosted Colab?** It was executed with a local Python kernel. It contains the shared workflow and saved outputs; hosted Colab execution has not been claimed.
 48. **Why is the ablation gain small?** Both runs begin with strong pretrained features. The test-set difference is one image, so additional locations and repeated seeds would help evaluate how consistent that difference is.
+
+## Explainability and technical-defense questions
+
+49. **Why can Grad-CAM highlight the background?** Scene context can affect the class score. The final feature grid is only 7×7. A highlighted horizon is an attribution to the chosen class, not a list of cloud pixels.
+50. **Does Grad-CAM prove that the model understands clouds?** No. It shows gradient-weighted spatial features for one score. Interpretation requires additional evidence.
+51. **Why use the final spatial layer?** It retains a spatial grid after the deeper feature stages. We keep it as the default and offer the earlier 14×14 stage as a complementary experimental view.
+52. **How does this differ from segmentation?** Segmentation assigns labels to pixels. Grad-CAM gives coarse relative attribution for a whole-image class score.
+53. **How did you test important regions?** We removed five equal-size cells ranked high or low by the map and compared them with ten random masks. We kept the original target class fixed and measured its logit change.
+54. **What did the occlusion test show?** On 22 selected images, final-stage high regions beat random controls in 21 mean-fill cases and 18 blur cases. Individual exceptions and baseline sensitivity remain.
+55. **Why is the augmentation gain only one image?** Both runs start from strong pretrained features. Two labels change, but only shine_123 becomes correct; shine_1 remains wrong with a different wrong label. One seed and 165 test images provide limited evidence.
+56. **Why is CNN validation F1 lower than test F1?** The reconstruction confirms 0.8544 versus 0.9477. Cloudy and Shine contribute most of the gap. The validation subset is harder for these trained models; the analysis does not establish one cause.
+57. **Why freeze pretrained features?** The dataset is small. Training only the new head reduces the number of updated weights and reuses ImageNet representations.
+58. **What happens with a completely new image?** It receives one of the four learned labels. Unusual scenes or objects can be misclassified; no out-of-distribution rejection detector was trained.
+59. **What are the main limitations?** A small dataset, one training seed, overlapping visual categories, heuristic duplicate grouping and limited coverage of new locations and lighting. Explanations are approximate and perturbations create artificial images.
+60. **Does opacity change the explanation calculation?** It changes only blending with the photograph. The normalized map and prediction stay the same; raw-map downloads verify this.
+61. **Why is the average latency optional?** It requires five warm-ups and thirty timed forwards. A normal prediction performs one forward, and users can request the benchmark separately.
+62. **Were the two original classifier heads proven identical?** The original initial tensors were not saved. Replaying the seeded construction produces equal heads, and the saved frozen backbones match, but replay is not direct historical initial-state evidence.
+63. **Why are rotation corners discussed?** The original nearest-neighbor rotation fills corners with black, about 6.07% at 8 degrees. A different fill recipe would need fresh matched training, so the current recipe stays fixed.

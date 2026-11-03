@@ -1,7 +1,7 @@
 # Run WeatherVision
 
 ```bash
-git clone https://github.com/commedeschamps/WeatherVision.git
+git clone --branch technical/explainability-validation https://github.com/commedeschamps/WeatherVision.git
 cd WeatherVision
 python3 -m venv .venv
 source .venv/bin/activate
@@ -10,7 +10,7 @@ python scripts/download_checkpoints.py
 python -m streamlit run app.py
 ```
 
-On Windows activate `.venv\Scripts\activate` instead. Open the local URL printed by Streamlit. The default backend is CPU. Choose Upload, select a JPG/PNG/WebP, and press Classify image. View class scores, average latency, and Timing and environment. ConvNeXt supports Show Grad-CAM and Download heatmap. Compare on this image runs all three models.
+On Windows activate `.venv\Scripts\activate` instead. Open the local URL printed by Streamlit. The default backend is CPU. Choose Upload, select a JPG/PNG/WebP, and press Classify image. View class scores and the single-forward/server prediction times. Open Timing and environment and click Measure average latency for the optional warmed benchmark. ConvNeXt supports Show Grad-CAM, an opacity slider, optional raw heatmap, final/earlier-stage radio controls, and PNG downloads. Compare on this image runs all three models.
 
 Uploads and inference do not require the dataset. For test examples, run `python weather_cv.py prepare`, then restart/refresh the application. This restores the pinned dataset and verifies the existing manifest. For the fourth ablation model use `python scripts/download_checkpoints.py --all`. Existing files with the correct checksum are reused; a mismatched existing file is preserved and reported.
 

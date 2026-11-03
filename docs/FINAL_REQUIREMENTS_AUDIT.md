@@ -73,3 +73,23 @@ See `docs/FINAL_VERIFICATION_LOG.md` for commands, actual outcomes and scope.
 All 15 A1 and 23 A2 supplied academic requirements pass with the evidence above. Application access is provided through the tested local-run guide. Public Streamlit deployment, hosted Colab execution, physical camera hardware and the student's oral defense are outside the completed local validation scope. Camera integration was tested using a simulated device.
 
 The student still submits the prepared materials to Moodle and attends the practical defense by the stated deadline: November 7, 2026, 23:59 Asia/Almaty.
+
+## Technical improvement addendum
+
+The dedicated branch `technical/explainability-validation` continues the audited submission without rewriting its reports or release assets. The new evidence is in `TECHNICAL_IMPROVEMENT_REPORT.md`, `EXPLAINABILITY_VALIDATION.md` and `VALIDATION_TEST_ANALYSIS.md`.
+
+| Verification question | Status | Actual evidence |
+|---|---|---|
+| Preserve trained experiments and submission figures | PASS | 93 baseline file hashes unchanged, including all best/last checkpoints, configs, manifest, metrics, predictions, histories and report artifacts. |
+| Grad-CAM formula, selected logit, shapes and gradients | PASS | Independent formula test; final 1×768×7×7 and earlier 1×384×14×14; six preserved maps reproduced within 2.39e-7. |
+| Hooks, model modes, numerical safety and outside-crop pixels | PASS | Mixed-mode restoration and boundary-rendering defects fixed; focused finite/zero/target/failure/geometry tests. |
+| Broad causal faithfulness of explanations | PARTIAL | Equal-area check on 22 diagnostic images supports many high-ranked regions; mean and blur disagree on individual cases. No causal certification. |
+| Historical identical initial head tensors | NOT VERIFIED | No initial-state snapshots exist. Recorded-code replay gives identical heads; saved frozen backbones are byte-equal and match V1 weights. |
+| File/pixel and detected-group leakage | PASS | All retained file/pixel hashes checked, with zero cross-split exact/pixel/group collisions. Heavy edits or unrecorded scene relationships remain a grouping limitation. |
+| Validation/test reconstruction | PASS | All 656 validation and 660 test predictions reconstructed; selected epochs, official labels and metrics match. CNN gap analyzed separately. |
+| Original augmentation preserved | PASS | Data transforms unchanged; controlled examples document 6.07% black fill at 8°. Alternative filling is a future training experiment. |
+| CPU/MPS inference, optional benchmarks and cache state | PASS | Actual MPS parity test plus browser model/device/image transitions; benchmark is explicit and keyed to the prediction. |
+| Automated and browser checks | PASS | 63 tests; 14 existing browser scenarios and 7 additional technical scenarios, no page errors. |
+| Existing public release assets | PASS | Read-only server digest comparison with previously published hashes; no release mutation performed. |
+
+The optional average benchmark remains available under Timing and environment. A normal prediction shows its single-forward and server-prediction times immediately. Earlier-layer attribution is labeled experimental; opacity changes rendering only. All original four classification results remain unchanged.

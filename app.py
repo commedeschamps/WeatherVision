@@ -4,6 +4,8 @@ from __future__ import annotations
 import html
 import json
 import threading
+import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -16,8 +18,8 @@ from src.app_utils import (MODEL_SPECS, RUN_LABELS, decode_upload, example_catal
 from src.data import transform
 from src.engine import load_checkpoint, predict_image
 from src.evaluation import benchmark
-from src.explainability import gradcam_convnext, overlay_image
-from src.utils import LABELS, ROOT, select_device
+from src.explainability import gradcam_convnext, overlay_image, heatmap_image
+from src.utils import LABELS, ROOT, select_device, environment
 
 st.set_page_config(page_title="WeatherVision", page_icon=":material/partly_cloudy_day:", layout="wide")
 torch.set_num_threads(4)
@@ -51,6 +53,7 @@ def clear_image():
 
 
 def classify_one(name, image, device, key):
+    started = time.perf_counter()
     path = ROOT / 'outputs' / MODEL_SPECS[name]['run'] / 'best.pt'
     model, checkpoint, lock = cached_model(str(path), path.stat().st_mtime_ns, str(device))
     architecture = MODEL_SPECS[name]['architecture']
@@ -58,11 +61,15 @@ def classify_one(name, image, device, key):
         raise ValueError('Checkpoint does not match the selected model.')
     with lock:
         prediction = predict_image(model, image, architecture, device)
-        sample = transform(architecture=architecture)(image).unsqueeze(0)
-        prediction['benchmark'] = benchmark(model, sample, device)
+    prediction['server_prediction_ms'] = (time.perf_counter() - started) * 1000
+    prediction['environment'] = environment(device)
+    previous = st.session_state.image_predictions.get(key, {})
+    if 'benchmark' in previous:
+        prediction['benchmark'] = previous['benchmark']
     prediction['browser_user_agent'] = st.context.headers.get('User-Agent', 'Unavailable')
     st.session_state.image_predictions[key] = prediction
-    st.session_state.image_heatmaps.pop(key, None)
+    if previous.get('class_id') != prediction['class_id']:
+        st.session_state.image_heatmaps.pop(key, None)
     return prediction
 
 
@@ -133,7 +140,7 @@ with classify_tab:
                 generation = st.session_state.get('upload_generation', 0)
                 upload = (st.camera_input('Take a photograph', key=f'camera_{generation}') if source == 'Camera'
                           else st.file_uploader('Upload a photograph', type=['jpg', 'jpeg', 'png', 'webp'],
-                                                key=f'upload_{generation}', help='JPG, PNG, or WebP. Up to 12 MB and 25 megapixels.'))
+                                                key=f'upload_{generation}', help='JPG, PNG, or WebP. Up to 12 MB, 25 megapixels, and 64:1 aspect ratio.'))
                 if upload is not None:
                     content, filename = upload.getvalue(), upload.name
             if content is not None:
@@ -163,7 +170,7 @@ with classify_tab:
             spec = MODEL_SPECS[selected]
             st.caption(spec['description'])
             with st.expander('Prediction settings'):
-                selected_device = st.selectbox('Inference device', ['CPU', 'Automatic'], key='inference_device')
+                selected_device = st.radio('Inference device', ['CPU', 'Automatic'], horizontal=True, key='inference_device')
                 st.caption('Automatic selects CUDA or Apple MPS when available.')
                 st.caption('Forward time includes softmax; image preparation and model loading are excluded.')
             device = select_device('cpu' if st.session_state.get('inference_device', 'CPU') == 'CPU' else 'auto')
@@ -187,12 +194,29 @@ with classify_tab:
             if prediction:
                 st.markdown(prediction_html(prediction), unsafe_allow_html=True)
                 st.markdown(f'<div class="prediction-meta"><span>Forward pass <strong>{prediction["latency_ms"]:.1f} ms</strong></span><span>Device <strong>{str(device).upper()}</strong></span></div>', unsafe_allow_html=True)
-                timing = prediction['benchmark']
-                st.caption(f'{selected} · Average forward: {timing["mean_ms"]:.2f} ms · 30 measurements · {str(device).upper()}')
-                with st.expander('Timing and environment'):
-                    st.write(f'Mean {timing["mean_ms"]:.2f} ms · median {timing["median_ms"]:.2f} ms · p95 {timing["p95_ms"]:.2f} ms')
-                    st.caption('Batch 1; five warm-up forwards followed by 30 measurements on this image. Accelerator calls are synchronized. Excludes softmax, image preparation, transfer, model loading, and Grad-CAM. The single forward above includes softmax.')
-                    env = timing['environment']
+                st.caption(f'{selected} · Server prediction: {prediction["server_prediction_ms"]:.1f} ms' if 'server_prediction_ms' in prediction else selected)
+                timing = prediction.get('benchmark')
+                if timing:
+                    st.caption(f'{selected} · Average forward: {timing["mean_ms"]:.2f} ms · 30 measurements · {str(device).upper()}')
+                with st.expander('Timing and environment', key='timing_details'):
+                    st.caption('Server prediction covers model retrieval, preprocessing and one synchronized forward. Upload/decoding and browser rendering are excluded.')
+                    if st.button('Measure average latency', key=f'benchmark_{spec["run"]}'):
+                        try:
+                            with st.spinner('Measuring warmed forward passes…'):
+                                model, _, lock = cached_model(str(checkpoint_path), modified, str(device))
+                                sample = transform(architecture=spec['architecture'])(original).unsqueeze(0)
+                                with lock:
+                                    timing = benchmark(model, sample, device)
+                                timing['measured_at_utc'] = datetime.now(timezone.utc).isoformat()
+                                prediction['benchmark'] = timing
+                            st.rerun()
+                        except (OSError, ValueError, RuntimeError) as error:
+                            show_failure('Could not measure latency. Try CPU inference.', error)
+                    if timing:
+                        st.write(f'Mean {timing["mean_ms"]:.2f} ms · median {timing["median_ms"]:.2f} ms · p95 {timing["p95_ms"]:.2f} ms')
+                        st.caption('Measured at ' + timing.get('measured_at_utc', 'the earlier measurement in this session'))
+                    st.caption('Optional benchmark: batch 1; five warm-ups and 30 measurements on this image. Accelerator calls are synchronized. Excludes softmax, image preparation, transfer, loading, and Grad-CAM. The single forward above includes softmax. Measurements are cached for this image, model, device and checkpoint version.')
+                    env = prediction.get('environment') or environment(device)
                     st.write(f'Inference backend: {env["device"].upper()} · Python {env["python"]} · PyTorch {env["torch"]} · TorchVision {env["torchvision"]} · {env["threads"]} CPU threads')
                     st.caption(env['platform'])
                     st.text('Browser (reported User-Agent): ' + prediction['browser_user_agent'])
@@ -237,25 +261,46 @@ with classify_tab:
                            'weathervision_image_comparison.csv', 'text/csv', icon=':material/download:', on_click='ignore')
     if show_cam:
         try:
-            if key not in st.session_state.image_heatmaps:
+            st.subheader('Grad-CAM explanation')
+            stage_label = st.radio('Explanation stage', ['Final stage · 7 × 7', 'Earlier stage · 14 × 14 (experimental)'], horizontal=True, key='cam_stage')
+            layer = 'earlier' if stage_label.startswith('Earlier') else 'final'
+            opacity = st.slider('Maximum overlay opacity', 0.0, 1.0, 0.4, 0.05, key='cam_opacity')
+            raw_view = st.checkbox('Show raw heatmap', key='cam_raw')
+            cached_maps = st.session_state.image_heatmaps.get(key)
+            if not isinstance(cached_maps, dict):
+                cached_maps = {}
+                st.session_state.image_heatmaps[key] = cached_maps
+            if layer not in cached_maps:
                 with st.spinner('Generating Grad-CAM…'):
                     model, _, lock = cached_model(str(checkpoint_path), modified, str(device))
                     with lock:
                         x = transform(architecture='convnext')(original).unsqueeze(0).to(device)
-                        heatmap = gradcam_convnext(model, x, prediction['class_id'])
-                        st.session_state.image_heatmaps[key] = overlay_image(original, heatmap)
-            st.subheader('Grad-CAM explanation')
-            st.caption('Brighter regions show spatial features associated with the predicted class.')
+                        heatmap, details = gradcam_convnext(model, x, prediction['class_id'], layer, True)
+                    cached_maps[layer] = {'heatmap': heatmap, 'details': details}
+            explanation = cached_maps[layer]
+            heatmap, details = explanation['heatmap'], explanation['details']
+            overlay = overlay_image(original, heatmap, alpha=opacity)
+            st.caption(f'Predicted class: {prediction["label"].title()} · target: class logit · {details["target_layer"]} · native spatial grid {details["activation_shape"][-2]} × {details["activation_shape"][-1]}')
+            st.caption('Warmer colors show stronger relative attribution to this class within this map. Grad-CAM is approximate attribution, not segmentation or causal proof. Opacity changes the display only.')
+            if layer == 'earlier':
+                st.caption('Experimental earlier-stage view: more spatial detail from intermediate features. Its values are normalized separately and are not directly equivalent to the final-stage map.')
+            if details['spatially_constant']:
+                st.info('This map has no spatial contrast for the selected class and layer.')
             with st.container(key='explanation_view'):
-                left, right = st.columns(2)
-                left.image(original, caption='Original photograph', width='stretch')
-                right.image(st.session_state.image_heatmaps[key], caption=f'Grad-CAM · {prediction["label"].title()}', width='stretch')
+                columns = st.columns(3 if raw_view else 2)
+                columns[0].image(original, caption='Original photograph', width='stretch')
+                columns[1].image(overlay, caption=f'Grad-CAM overlay · {prediction["label"].title()}', width='stretch')
+                if raw_view:
+                    columns[2].image(heatmap_image(heatmap), caption='Raw attribution · model-visible 224 × 224 crop', width='stretch')
+            st.markdown('<div class="cam-legend" role="img" aria-label="Inferno scale: low relative attribution at zero, high at one"><div class="cam-legend-scale"></div><div class="cam-legend-labels"><span>0 · Low relative attribution</span><span>1 · High</span></div></div>', unsafe_allow_html=True)
             import io
-            buffer = io.BytesIO()
-            st.session_state.image_heatmaps[key].save(buffer, format='PNG')
+            buffer = io.BytesIO(); overlay.save(buffer, format='PNG')
             st.download_button('Download heatmap', buffer.getvalue(), 'weathervision_gradcam.png', 'image/png',
-                               icon=':material/download:', on_click='ignore')
-        except (OSError, ValueError, RuntimeError, KeyError) as error:
+                               icon=':material/download:', on_click='ignore', help='PNG of the displayed overlay with the selected opacity.')
+            if raw_view:
+                raw_buffer = io.BytesIO(); heatmap_image(heatmap).save(raw_buffer, format='PNG')
+                st.download_button('Download raw heatmap', raw_buffer.getvalue(), 'weathervision_raw_gradcam.png', 'image/png', on_click='ignore')
+        except (OSError, ValueError, RuntimeError) as error:
             show_failure('Could not generate the heatmap. Try CPU inference.', error)
 
 with experiments_tab:

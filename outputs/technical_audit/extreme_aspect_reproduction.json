@@ -1,0 +1,15 @@
+{
+  "baseline_decoder_accepted_size": [
+    3000,
+    1
+  ],
+  "input_pixels": 3000,
+  "convnext_resize_shape": [
+    708000,
+    236
+  ],
+  "convnext_resize_pixels": 167088000,
+  "new_aspect_ratio_limit": 64,
+  "resize_allocation_performed": false,
+  "reason": "The short-side resize can amplify a thin small input into a very large intermediate; bounded before resize now."
+}

@@ -1,0 +1,16 @@
+{
+  "baseline_corrupt_checkpoint_exception": "UnpicklingError",
+  "handled_by_previous_app_exception_tuple": false,
+  "training_mode_prediction_changed_buffers": [
+    "features.1.running_mean",
+    "features.1.running_var",
+    "features.1.num_batches_tracked",
+    "features.5.running_mean",
+    "features.5.running_var",
+    "features.5.num_batches_tracked",
+    "features.9.running_mean",
+    "features.9.running_var",
+    "features.9.num_batches_tracked"
+  ],
+  "scope": "Isolated misuse of public prediction helper with a training-mode scratch model; the application checkpoints were loaded in eval mode and official results remain valid."
+}

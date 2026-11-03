@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import pickle
 import sys
 import time
 from datetime import datetime, timezone
@@ -46,10 +47,18 @@ def atomic_checkpoint(path: Path, payload: dict):
 
 def load_checkpoint(path, device="cpu"):
     device = torch.device(device)
-    checkpoint = torch.load(path, map_location="cpu", weights_only=True)
-    if checkpoint.get("format_version") != 1 or checkpoint.get("classes") != list(CLASSES):
+    try:
+        checkpoint = torch.load(path, map_location="cpu", weights_only=True)
+    except (pickle.UnpicklingError, EOFError) as error:
+        raise ValueError("Cannot decode checkpoint; download the project weights again") from error
+    if not isinstance(checkpoint, dict) or checkpoint.get("format_version") != 1 or checkpoint.get("classes") != list(CLASSES):
         raise ValueError("Unsupported checkpoint format or class mapping")
-    config = Experiment(**checkpoint["config"])
+    if not isinstance(checkpoint.get("config"), dict) or not isinstance(checkpoint.get("model_state"), dict):
+        raise ValueError("Checkpoint metadata or model weights are missing")
+    try:
+        config = Experiment(**checkpoint["config"])
+    except TypeError as error:
+        raise ValueError("Malformed checkpoint configuration") from error
     # All weights are saved, so inference never downloads anything.
     model = build_model(config.model, pretrained=False, freeze_backbone=config.freeze_backbone)
     model.load_state_dict(checkpoint["model_state"], strict=True)
@@ -186,8 +195,12 @@ def train(run: str, config: Experiment, manifest_path: Path, output_dir: Path,
 
 
 def predict_image(model, image, architecture, device):
+    if any(module.training for module in model.modules()):
+        raise ValueError("Call model.eval() before inference")
     if image.width * image.height > 25_000_000:
         raise ValueError("Use an image smaller than 25 megapixels")
+    if max(image.size) / min(image.size) > 64:
+        raise ValueError("Use an image with an aspect ratio no greater than 64:1")
     x = transform("test", False, architecture)(image.convert("RGB")).unsqueeze(0).to(device)
     synchronize(device)
     started = time.perf_counter()

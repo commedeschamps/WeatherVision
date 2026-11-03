@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "examples": [
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_267.jpeg",
+      "device": "mps",
+      "max_abs_change_vs_preserved_map": 2.384185791015625e-07,
+      "max_abs_cpu_device_delta": 1.7285346984863281e-06
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/rain/rain_209.jpeg",
+      "device": "mps",
+      "max_abs_change_vs_preserved_map": 1.1920928955078125e-07,
+      "max_abs_cpu_device_delta": 1.9073486328125e-06
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/shine/shine_1.jpeg",
+      "device": "mps",
+      "max_abs_change_vs_preserved_map": 2.384185791015625e-07,
+      "max_abs_cpu_device_delta": 4.522502422332764e-06
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_101.jpeg",
+      "device": "mps",
+      "max_abs_change_vs_preserved_map": 1.7881393432617188e-07,
+      "max_abs_cpu_device_delta": 3.874301910400391e-06
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_108.jpeg",
+      "device": "mps",
+      "max_abs_change_vs_preserved_map": 1.7881393432617188e-07,
+      "max_abs_cpu_device_delta": 1.430511474609375e-06
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_112.jpeg",
+      "device": "mps",
+      "max_abs_change_vs_preserved_map": 1.1920928955078125e-07,
+      "max_abs_cpu_device_delta": 1.8477439880371094e-06
+    }
+  ],
+  "original_maps_unchanged": true
+}

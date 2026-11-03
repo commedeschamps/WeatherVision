@@ -1,0 +1,90 @@
+{
+  "status": "passed",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "url": "https://github.com/commedeschamps/WeatherVision/releases/tag/v1.0.0",
+      "assets": [
+        {
+          "name": "assignment1_foundation.pdf",
+          "sha256": "01b4be524cc8aa54dc8f7de978a3170aefcbcfea2c9c0c4adbcd7bfa1efa9a5f",
+          "bytes": 6973283
+        },
+        {
+          "name": "assignment2_report.pdf",
+          "sha256": "1a83c6b10b4b2b59fc8327dc00ce68802444734be50bf1aabd9dfa1f5d43298c",
+          "bytes": 8383375
+        },
+        {
+          "name": "cnn_baseline_best.pt",
+          "sha256": "bb53555ba56ce9b835e303d243008a5b392567d3c5e0ab02b57a3b875301c23e",
+          "bytes": 305939
+        },
+        {
+          "name": "convnext_aug_best.pt",
+          "sha256": "0ed6e5c3912ccb2c60eddd2782a5d3322e4d5a7a5dcbb04a674fbcf3a43ae0ba",
+          "bytes": 111365825
+        },
+        {
+          "name": "convnext_noaug_best.pt",
+          "sha256": "d6086becedd9c45975af6a273f0d9b31118a5d70f2b10a14e8c35cf1a7304dc5",
+          "bytes": 111366273
+        },
+        {
+          "name": "mobilenet_improved_best.pt",
+          "sha256": "7b0566df2ec7b73bea6fd7ad16c7227a9262fc6f14f8f74d32cea166129b9869",
+          "bytes": 9177453
+        },
+        {
+          "name": "WeatherVision_demo.mp4",
+          "sha256": "c012750665731760f0bce829f2da3cfde2e21db02ca84db42d9593016c9d060f",
+          "bytes": 7481037
+        },
+        {
+          "name": "WeatherVision_final_submission.zip",
+          "sha256": "3ee492a0661579329c89ec50ac9545879e73737f649ddba05a60bef9524e2ef0",
+          "bytes": 17926107
+        },
+        {
+          "name": "WeatherVision_source.zip",
+          "sha256": "b7bc014706abf84b2e20f9727dd40716ea35539c7cca08325baa18fc8613dde8",
+          "bytes": 25196350
+        }
+      ],
+      "all_match_preexisting_published_hashes": true
+    },
+    {
+      "tag": "v1.1.0",
+      "url": "https://github.com/commedeschamps/WeatherVision/releases/tag/v1.1.0",
+      "assets": [
+        {
+          "name": "assignment1_foundation.pdf",
+          "sha256": "01b4be524cc8aa54dc8f7de978a3170aefcbcfea2c9c0c4adbcd7bfa1efa9a5f",
+          "bytes": 6973283
+        },
+        {
+          "name": "assignment2_report.pdf",
+          "sha256": "1a83c6b10b4b2b59fc8327dc00ce68802444734be50bf1aabd9dfa1f5d43298c",
+          "bytes": 8383375
+        },
+        {
+          "name": "WeatherVision_demo.mp4",
+          "sha256": "c012750665731760f0bce829f2da3cfde2e21db02ca84db42d9593016c9d060f",
+          "bytes": 7481037
+        },
+        {
+          "name": "WeatherVision_final_submission.zip",
+          "sha256": "3ee492a0661579329c89ec50ac9545879e73737f649ddba05a60bef9524e2ef0",
+          "bytes": 17926107
+        },
+        {
+          "name": "WeatherVision_source.zip",
+          "sha256": "b7bc014706abf84b2e20f9727dd40716ea35539c7cca08325baa18fc8613dde8",
+          "bytes": 25196350
+        }
+      ],
+      "all_match_preexisting_published_hashes": true
+    }
+  ],
+  "release_mutations_performed": false
+}

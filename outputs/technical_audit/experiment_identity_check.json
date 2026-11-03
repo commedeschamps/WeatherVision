@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "models": {
+    "cnn_baseline": {
+      "manifest_and_config_match": true,
+      "checkpoint_matches_evaluation": true,
+      "test_identity_match": true
+    },
+    "mobilenet_improved": {
+      "manifest_and_config_match": true,
+      "checkpoint_matches_evaluation": true,
+      "test_identity_match": true
+    },
+    "convnext_aug": {
+      "manifest_and_config_match": true,
+      "checkpoint_matches_evaluation": true,
+      "test_identity_match": true
+    },
+    "convnext_noaug": {
+      "manifest_and_config_match": true,
+      "checkpoint_matches_evaluation": true,
+      "test_identity_match": true
+    }
+  },
+  "pretrained_cache_sha256": "983f1562536e84ff750a1576fb08e54de751dbf2e17c0d8a4a13704341fdcd3d",
+  "vendor_filename_hash_prefix_matches": true
+}

@@ -27,7 +27,7 @@ Complete results are stored in `outputs/model_comparison.csv`, per-run `test_met
 ## Installation and local application
 
 ```bash
-git clone https://github.com/commedeschamps/WeatherVision.git
+git clone --branch technical/explainability-validation https://github.com/commedeschamps/WeatherVision.git
 cd WeatherVision
 python3 -m venv .venv
 source .venv/bin/activate
@@ -38,11 +38,11 @@ python scripts/download_checkpoints.py
 python -m streamlit run app.py
 ```
 
-Open the local URL printed by Streamlit. Select a model, upload a JPG/PNG/WebP or choose a test image, then press **Classify image**. The app displays the prediction, four softmax scores, single and average forward-pass times, device and environment, and optional ConvNeXt Grad-CAM. Camera input is also available.
+Open the local URL printed by Streamlit. Select a model, upload a JPG/PNG/WebP or choose a test image, then press **Classify image**. The app displays the prediction, four softmax scores, single forward time, optional average benchmarking, device and environment, and optional ConvNeXt Grad-CAM. Camera input is also available.
 
 The **Examples**, **Upload**, and **Camera** controls select the image source. Examples open immediately; **Another example** cycles through the selected category. **Clear image** starts a new upload. **Compare on this image** runs the available model families on the same photograph and provides a CSV export.
 
-After prediction, **Download result** exports the class scores and forward time as JSON. For ConvNeXt, **Show Grad-CAM** displays the explanation without clearing or recomputing the prediction. The heatmap can be downloaded as PNG. The **Experiments** tab contains test metrics and an interactive comparison chart; **Project** contains the team, dataset, and PDF report downloads.
+After prediction, **Download result** exports the class scores, backend/environment, forward time and server prediction time as JSON. Under **Timing and environment**, **Measure average latency** performs five warm-ups and 30 synchronized measurements on demand. This result is cached for the same image, model, device and checkpoint; ordinary predictions skip those 35 extra forwards. For ConvNeXt, **Show Grad-CAM** displays the explanation without clearing or recomputing the prediction. The heatmap can be downloaded as PNG. The **Experiments** tab contains test metrics and an interactive comparison chart; **Project** contains the team, dataset, and PDF report downloads.
 
 The setup command downloads three trained `best.pt` files from GitHub Releases and validates their sizes and SHA-256 hashes against `configs/checkpoints.json`. Add `--all` to obtain the non-augmented ablation checkpoint. The total download is about 115 MiB for the app or 221 MiB for all four models. Weights are distributed separately from Git history. Run `python weather_cv.py prepare` to enable dataset examples; uploads work without downloading the dataset. Models are cached during application use, and uploaded images are processed in memory. CPU is the default inference device; automatic selection supports CUDA and Apple MPS.
 
@@ -172,3 +172,22 @@ The held-out set has 165 images and the comparison uses one seed. Ambiguous scen
 The demonstration video uses explicitly disclosed synthetic English narration over an actual application screen recording. No generated images are used for training.
 
 For a new training comparison that preserves released outputs, pass `--outputs outputs/retrained` to each train/evaluate command. In a separate notebook training copy, move `outputs/` to `outputs_saved/` before starting and set `USE_RELEASED_CHECKPOINTS=False`.
+
+## Technical validation update
+
+The `technical/explainability-validation` branch adds a raw Grad-CAM view, a relative-color legend, opacity control and an experimental earlier-stage view. The final 7×7 stage remains the default; the earlier stage is 14×14. Both stage and backend choices use direct radio controls. Changing opacity redraws the overlay while preserving the attribution and prediction.
+
+The 22-image, equal-area occlusion experiment includes every saved error and all six original explanation examples. High-attribution final-stage regions outperform random controls in 21/22 mean-replacement cases and 18/22 blur cases. Baseline-dependent counterexamples are included in the analysis.
+
+- [Explainability methods and results](docs/EXPLAINABILITY_VALIDATION.md)
+- [Validation/test gap, augmentation and ablation recheck](docs/VALIDATION_TEST_ANALYSIS.md)
+- [Technical improvement report](docs/TECHNICAL_IMPROVEMENT_REPORT.md)
+
+```bash
+python scripts/validate_explanations.py --device auto
+MPLCONFIGDIR=.cache/matplotlib TORCH_HOME=.cache/torch python scripts/audit_training_protocol.py
+python scripts/profile_inference_policy.py
+python -m pytest -q
+```
+
+New analyses are stored in outputs/explainability_validation and outputs/technical_audit. They preserve official checkpoints, predictions, metrics, histories, the dataset split, reports and original figures. The published Assignment 2 demo and submission assets remain versioned in their existing releases.

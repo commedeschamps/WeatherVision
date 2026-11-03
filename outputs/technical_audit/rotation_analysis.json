@@ -1,0 +1,37 @@
+{
+  "rotation_degrees": [
+    -8,
+    8
+  ],
+  "interpolation": "NEAREST (TorchVision RandomRotation default)",
+  "fill_rgb": [
+    0,
+    0,
+    0
+  ],
+  "fraction_black_fill_at_8_degrees": 0.060666454081632654,
+  "input_size": [
+    224,
+    224
+  ],
+  "examples": [
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_0.jpeg",
+      "class": "cloudy"
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/rain/rain_10.jpeg",
+      "class": "rain"
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/shine/shine_0.jpeg",
+      "class": "shine"
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/sunrise/sunrise_1.jpeg",
+      "class": "sunrise"
+    }
+  ],
+  "training_recipe_changed": false,
+  "future_experiment": "Compare reflection padding followed by rotation/crop, or alternative fill, under fresh training; current artifacts retain the original augmentation."
+}

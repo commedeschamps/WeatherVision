@@ -55,15 +55,19 @@ def main():
 
         record = json.loads(download('Download result', 'prediction.json').read_text())
         assert record['model'] == 'ConvNeXt-Tiny' and record['device'] == 'CPU'
+        assert 'benchmark' not in record and record['server_prediction_ms'] > 0
+        assert record['environment']['device'] == 'cpu'
+        assert 'Chrome/' in record['browser_user_agent']
+        page.get_by_text('Timing and environment', exact=True).click()
+        page.get_by_role('button', name='Measure average latency', exact=True).click()
+        page.get_by_text('Average forward:', exact=False).wait_for(timeout=60000)
+        settle()
+        record = json.loads(download('Download result', 'prediction.json').read_text())
         assert record['benchmark']['mean_ms'] > 0 and len(record['benchmark']['measurements_ms']) == 30
         assert record['benchmark']['environment']['device'] == 'cpu'
-        assert 'Chrome/' in record['browser_user_agent']
-        assert 'Average forward:' in page.locator('body').inner_text()
-        page.get_by_text('Timing and environment', exact=True).click()
-        page.get_by_text('Browser (reported User-Agent):', exact=False).wait_for()
         assert 'Inference backend: CPU' in page.locator('body').inner_text()
         page.get_by_text('Timing and environment', exact=True).click()
-        checks.append('measured average latency, synchronized protocol, real backend/environment and browser User-Agent')
+        checks.append('optional average latency, valid protocol, real backend/environment and browser User-Agent')
         assert len(record['class_scores']) == 4 and abs(sum(record['class_scores'].values()) - 1) < 1e-6
         checks.append('prediction JSON download')
         page.get_by_text('Show Grad-CAM', exact=True).click()
@@ -87,7 +91,7 @@ def main():
             selector.fill(name)
             selector.press('ArrowDown')
             selector.press('Enter')
-            page.get_by_text(f'{name} · Average forward:', exact=False).wait_for()
+            page.get_by_text(f'{name} · Server prediction:', exact=False).wait_for()
             settle()
             page.locator('.prediction-summary').wait_for()
             item = json.loads(download('Download result', 'switched_prediction.json').read_text())
