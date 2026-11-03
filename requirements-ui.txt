@@ -1,3 +1,5 @@
 # Optional isolated browser verification; not required to run or train the app.
 -r requirements-dev.txt
 playwright>=1.50,<2
+# Optional narration/video muxing for scripts/finalize_demo.py
+imageio-ffmpeg>=0.8,<1

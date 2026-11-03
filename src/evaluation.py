@@ -36,7 +36,7 @@ def benchmark(model, sample, device, warmup=5, repeats=30):
             "measurements_ms": measurements, "warmup": warmup, "repeats": repeats,
             "batch_size": 1, "includes_preprocessing": False, "includes_device_transfer": False,
             "synchronization": device.type if device.type in {"cuda", "mps"} else "not_required",
-            "protocol": "Same first test tensor, resident on device; forward pass only, inference_mode; no softmax, disk I/O, or model loading",
+            "protocol": "Same provided tensor, resident on device; forward pass only, inference_mode; no softmax, disk I/O, or model loading",
             "environment": environment(device)}
 
 

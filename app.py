@@ -188,7 +188,7 @@ with classify_tab:
                 st.markdown(prediction_html(prediction), unsafe_allow_html=True)
                 st.markdown(f'<div class="prediction-meta"><span>Forward pass <strong>{prediction["latency_ms"]:.1f} ms</strong></span><span>Device <strong>{str(device).upper()}</strong></span></div>', unsafe_allow_html=True)
                 timing = prediction['benchmark']
-                st.caption(f'Average forward: {timing["mean_ms"]:.2f} ms · 30 measurements · {str(device).upper()}')
+                st.caption(f'{selected} · Average forward: {timing["mean_ms"]:.2f} ms · 30 measurements · {str(device).upper()}')
                 with st.expander('Timing and environment'):
                     st.write(f'Mean {timing["mean_ms"]:.2f} ms · median {timing["median_ms"]:.2f} ms · p95 {timing["p95_ms"]:.2f} ms')
                     st.caption('Batch 1; five warm-up forwards followed by 30 measurements on this image. Accelerator calls are synchronized. Excludes softmax, image preparation, transfer, model loading, and Grad-CAM. The single forward above includes softmax.')

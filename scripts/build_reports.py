@@ -84,7 +84,7 @@ def render_pdf(markdown, target, author):
                                    ('LINEBELOW', (0, 1), (-1, -1), .25, colors.HexColor('#D5DFD9')),
                                    ('TOPPADDING', (0, 0), (-1, -1), 5), ('BOTTOMPADDING', (0, 0), (-1, -1), 5)]))
             story.extend([t, Spacer(1, 8)]); continue
-        match = re.fullmatch(r'!\[([^\]]*)\]\(([^)]+)\)', line)
+        match = re.fullmatch(r'!\[(.*)\]\(([^)]+)\)', line)
         if match:
             caption, path = match.groups()
             source = ROOT / 'reports' / path
@@ -189,6 +189,8 @@ def main():
     wrong = next((e for e in examples if not e['correct']), None)
     right = next((e for e in examples if e['correct']), None)
     hardware = next(iter(statuses.values()))['environment'] if statuses else {}
+    browser_info = read_json(ROOT / 'outputs/app/browser_checks.json', {})
+    browser_text = f'Browser checks used Chrome {browser_info["browser_version"]} at desktop and mobile viewport sizes.' if browser_info.get('browser_version') else ''
     refs = '''[1] Ajayi, G. (2018). Multi-class Weather Dataset for Image Classification. Mendeley Data, V1. [DOI: 10.17632/4drtyfjtfy.1](https://doi.org/10.17632/4drtyfjtfy.1).
 
 [2] Sandler, M., Howard, A., Zhu, M., Zhmoginov, A., and Chen, L.-C. (2018). MobileNetV2: Inverted Residuals and Linear Bottlenecks. CVPR, pp. 4510-4520. [Paper](https://arxiv.org/abs/1801.04381).
@@ -203,7 +205,7 @@ def main():
     counts_text = (f"The dataset contains {stats['valid_images_before_dedup']:,} weather images. "
                    f"Removing {stats['exact_duplicates_removed']} duplicate images leaves "
                    f"{stats['retained_images']:,} images for training and evaluation.") if stats else 'Dataset preparation is incomplete.'
-    hardware_text = (f"Training used Apple MPS on macOS with Python {hardware['python']}, "
+    hardware_text = (f"Training used Apple MPS (four CPU threads) on macOS 26.5.2 with Python {hardware['python']}, "
                      f"PyTorch {hardware['torch']}, and TorchVision {hardware['torchvision']}.") if hardware else 'Training environment unavailable.'
     split_text = ('/'.join(str(sum(stats['counts'][s].values())) for s in ['train', 'val', 'test'])
                   + ' training/validation/test images') if stats else 'Dataset split unavailable.'
@@ -324,7 +326,7 @@ Augmented ConvNeXt classifies 162 images correctly, compared with 159 for Mobile
 Average latency is the arithmetic mean of 30 batch-one network forwards after five warm-up runs. The first test tensor resides on MPS before timing; synchronization brackets every measurement. Preprocessing, transfer, softmax, loading, and Grad-CAM are excluded. The means are 0.729 ms for CNN, 12.171 for MobileNetV2, 6.716 for augmented ConvNeXt, and 6.310 without augmentation. Median values describe the same samples. Operator structure and device kernels affect runtime as well as parameter count.
 
 The app separately benchmarks the current image on the selected backend and displays its mean, median, and p95, plus a single forward including softmax. It reports Python, PyTorch, TorchVision, operating system, thread count, and the browser-reported User-Agent. Browser identity describes the client; CPU, CUDA, or MPS describes inference execution.'''
-    p5 = f'''## 6. Training behavior and classification errors
+    p5 = f'''## 5. Training behavior and classification errors
 
 **Table 5. Validation-selected epochs and test macro-F1.**
 
@@ -341,7 +343,7 @@ The app separately benchmarks the current image on the selected backend and disp
 The CNN reaches its best validation macro-F1 at epoch 9. MobileNetV2 improves through epoch 8. Augmented ConvNeXt reaches 0.9579 at epochs 3 and 5, so epoch 3 is retained. Its training loss continues decreasing after that point while validation scores fluctuate.
 
 All three augmented ConvNeXt errors are Sunrise predictions: one Cloudy, one Rain, and one Shine image. It recovers all 53 true Sunrise photographs, giving Sunrise recall of 1.0000. The three additional Sunrise predictions reduce its precision to 53/56, or 0.9464.'''
-    p6 = f'''## 7. Augmentation ablation
+    p6 = f'''## 6. Augmentation ablation
 
 The two ConvNeXt runs share the architecture, pretrained weights, initialization seed, dataset split, optimizer, learning rate, batch size, six-epoch limit, and early-stopping settings. Training augmentation is the changed factor. Each run selects a checkpoint by validation macro-F1.
 
@@ -356,7 +358,7 @@ The two ConvNeXt runs share the architecture, pretrained weights, initialization
 {ablation_result} The 0.61 percentage-point accuracy increase represents one additional correct image. Macro-F1 increases by 0.0068 in this single-seed comparison. Class F1 increases for Cloudy and Shine, remains equal for Rain, and decreases for Sunrise.
 
 Without augmentation, two Shine images are predicted as Cloudy. With augmentation, Shine has one error, predicted as Sunrise. The augmented model therefore has fewer false Cloudy predictions, which raises Cloudy precision from 0.9556 to 1.0000. Its extra Sunrise false positive lowers Sunrise F1 from 0.9815 to 0.9725. The class-wise results explain the change in the overall macro average.'''
-    p7 = f'''## 8. Grad-CAM visualization
+    p7 = f'''## 7. Grad-CAM visualization
 
 Grad-CAM [4] gives a class-specific spatial explanation by combining feature maps and score gradients. The target is ConvNeXt's final spatial stage, `features[-1]`, before global pooling. For a selected class, gradients of its logit with respect to the spatial activations are averaged across positions. Those averages become channel weights for a weighted sum of the feature maps. ReLU retains positive responses, and normalization maps the heatmap into the range from zero to one.
 
@@ -366,13 +368,13 @@ The calculation enables gradients on the image input while retaining the frozen 
 
 The correctly classified Cloudy example emphasizes parts of the cloud structure. The second image is labeled Cloudy but classified as Sunrise; its overlay emphasizes the bright horizon. Warm horizon lighting is therefore associated with the Sunrise score in this example. The visual comparison connects the class prediction to a spatial pattern and helps examine the errors seen in the confusion matrix.'''
     screenshot = image('../outputs/app/desktop.png', 'Figure 8. WeatherVision interface displaying a Cloudy prediction.')
-    p8 = f'''## 9. Application, limitations, and conclusion
+    p8 = f'''## 8. Application, limitations, and conclusion
 
-WeatherVision accepts uploads, camera capture, or dataset examples. It offers all three model families, four class scores, measured latency and environment details, same-image model comparison, and ConvNeXt Grad-CAM. Exports include JSON predictions, CSV comparisons, PNG overlays, and both PDF reports. The Experiments tab provides interactive metric charts, learning curves, and confusion matrices.
+WeatherVision accepts uploads, camera capture, or dataset examples. It offers all three model families, four class scores, measured latency and environment details, same-image model comparison, and ConvNeXt Grad-CAM. Exports include JSON predictions, CSV comparisons, PNG overlays, and both PDF reports. The Experiments tab provides interactive metric charts, learning curves, and confusion matrices. {browser_text}
 
 {screenshot}
 
-**Ethics and limitations.** The dataset is credited under CC BY 4.0. Uploaded photographs stay in server memory and are not saved by the app. Users should avoid sensitive images on shared servers. The 165-image test set and single seed limit the scope of the comparison. Cloudy, Shine, and Sunrise can overlap visually; unusual lighting, camera exposure, and unseen locations may change performance. Softmax scores are uncalibrated, and Grad-CAM provides approximate spatial attribution. Further evaluation should use additional locations and repeated seeds.
+**Ethics and limitations.** The dataset is credited under CC BY 4.0. Demo narration uses disclosed synthetic speech. Uploaded photographs stay in server memory and are not saved by the app. Users should avoid sensitive images on shared servers. The 165-image test set and single seed limit the scope of the comparison. Cloudy, Shine, and Sunrise can overlap visually; unusual lighting, camera exposure, and unseen locations may change performance. Softmax scores are uncalibrated, and Grad-CAM provides approximate spatial attribution. Further evaluation should use additional locations and repeated seeds.
 
 **Conclusion.** Augmented ConvNeXt achieves 98.18% accuracy and 0.9827 macro-F1, ahead of MobileNetV2 and Simple CNN. The ablation adds one correct prediction. Simple CNN is the smallest and fastest model on the measured MPS workload. The application combines these models with visual explanations and exportable results.
 

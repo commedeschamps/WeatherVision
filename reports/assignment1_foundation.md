@@ -78,7 +78,7 @@ Training augmentation applies horizontal flips with probability 0.5, rotations b
 
 The models output four logits. Softmax converts these into class scores, and cross-entropy minimizes the negative log score of the target label. AdamW uses weight decay 0.0001. Training shuffles mini-batches and uses seed 42. Each epoch includes a validation pass; the highest validation macro-F1 selects the checkpoint. Early stopping has a patience of four non-improving epochs.
 
-Accuracy is the fraction of correct predictions. Precision measures the correct fraction of a class's predicted labels, and recall measures the fraction of its true images recovered. Per-class F1 is `2PR / (P + R)`; macro-F1 averages the four class values. Training used Apple MPS on macOS with Python 3.14.5, PyTorch 2.10.0, and TorchVision 0.25.0.
+Accuracy is the fraction of correct predictions. Precision measures the correct fraction of a class's predicted labels, and recall measures the fraction of its true images recovered. Per-class F1 is `2PR / (P + R)`; macro-F1 averages the four class values. Training used Apple MPS (four CPU threads) on macOS 26.5.2 with Python 3.14.5, PyTorch 2.10.0, and TorchVision 0.25.0.
 
 <!-- pagebreak -->
 

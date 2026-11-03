@@ -85,7 +85,7 @@ md('''## 5. Configurations and model architectures
 
 The Simple CNN uses three Conv-BatchNorm-ReLU-Pool blocks (16, 32, 64 channels), global average pooling, dropout, and a four-logit head. MobileNetV2 uses inverted residuals and depthwise convolution. ConvNeXt-Tiny is a modern CNN using large depthwise kernels and hierarchical features. Both transfer models start from ImageNet-1K V1 weights and train only the new linear head. Frozen feature extractors remain in evaluation mode, preserving BatchNorm and stochastic-depth behavior.
 
-AdamW and cross-entropy are used. Validation macro-F1 selects the best checkpoint; patience controls early stopping. Test images do not enter training/model selection. Edit hyperparameters **before** training; existing runs with different settings are rejected. ConvNeXt ablation settings must differ only in `augment`. Full checkpoints avoid any pretrained download during inference.''')
+AdamW and cross-entropy are used. Validation macro-F1 selects the best checkpoint; patience controls early stopping. Test images do not enter training/model selection. For a fresh training run, work in a separate copy, move `outputs/` to `outputs_saved/`, and set `USE_RELEASED_CHECKPOINTS=False`. This preserves existing results while the training cells create new ones. Edit hyperparameters **before** training; existing runs with different settings are rejected. ConvNeXt ablation settings must differ only in `augment`. Full checkpoints avoid any pretrained download during inference.''')
 code('''import yaml
 CONFIG = Path('configs/experiments.yaml')
 settings = yaml.safe_load(CONFIG.read_text())
@@ -147,6 +147,7 @@ display(pd.read_csv('outputs/ablation.csv'))
 print(Path('outputs/ablation_analysis.json').read_text())''')
 md('## 12. Learning curves and confusion matrices')
 code('''cli('figures')
+subprocess.run([sys.executable, 'scripts/final_figures.py'], check=True)
 display(IPImage(filename='outputs/model_comparison.png', width=850))
 for run in configs:
     print(run)

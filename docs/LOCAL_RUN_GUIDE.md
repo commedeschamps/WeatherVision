@@ -24,7 +24,7 @@ python -m pytest -q
 python scripts/verify_project.py
 ```
 
-The notebook includes code and saved outputs. Its local execution reused completed training checkpoints and recalculated saved test metrics from predictions. To train fresh, use a separate clone/output directory, disable USE_RELEASED_CHECKPOINTS in the notebook, and follow the training cells. To deliberately reevaluate on different hardware set REEVALUATE=True; the new latency describes that hardware. Full training commands and the seed-42 configurations are in README.
+The notebook includes code and saved outputs. Its local execution reused completed training checkpoints and recalculated saved test metrics from predictions. To train fresh, use a separate copy, move its outputs directory to outputs_saved, disable USE_RELEASED_CHECKPOINTS in the notebook, and follow the training cells. Alternatively pass --outputs outputs/retrained to the CLI train/evaluate commands. To deliberately reevaluate on different hardware set REEVALUATE=True; the new latency describes that hardware. Full training commands and the seed-42 configurations are in README.
 
 ## Hosting
 

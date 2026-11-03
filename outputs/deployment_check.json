@@ -1,0 +1,9 @@
+{
+  "checked_url": "https://share.streamlit.io/",
+  "title": "Sign in \u00b7 Streamlit",
+  "authenticated_session": false,
+  "sign_in_prompt": false,
+  "public_app_url": null,
+  "verified_access_method": "docs/LOCAL_RUN_GUIDE.md",
+  "scope": "isolated browser has no Streamlit session; no deployment API/session available in connected tools"
+}

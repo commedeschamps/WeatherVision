@@ -44,7 +44,7 @@ The **Examples**, **Upload**, and **Camera** controls select the image source. E
 
 After prediction, **Download result** exports the class scores and forward time as JSON. For ConvNeXt, **Show Grad-CAM** displays the explanation without clearing or recomputing the prediction. The heatmap can be downloaded as PNG. The **Experiments** tab contains test metrics and an interactive comparison chart; **Project** contains the team, dataset, and PDF report downloads.
 
-The setup command downloads three trained `best.pt` files from GitHub Releases and validates their sizes and SHA-256 hashes against `configs/checkpoints.json`. Add `--all` to obtain the non-augmented ablation checkpoint. The total download is about 115 MB for the app or 226 MB for all four models. Weights are distributed separately from Git history. Run `python weather_cv.py prepare` to enable dataset examples; uploads work without downloading the dataset. Models are cached during application use, and uploaded images are processed in memory. CPU is the default inference device; automatic selection supports CUDA and Apple MPS.
+The setup command downloads three trained `best.pt` files from GitHub Releases and validates their sizes and SHA-256 hashes against `configs/checkpoints.json`. Add `--all` to obtain the non-augmented ablation checkpoint. The total download is about 115 MiB for the app or 221 MiB for all four models. Weights are distributed separately from Git history. Run `python weather_cv.py prepare` to enable dataset examples; uploads work without downloading the dataset. Models are cached during application use, and uploaded images are processed in memory. CPU is the default inference device; automatic selection supports CUDA and Apple MPS.
 
 Runtime dependencies are in `requirements.txt`. Test, notebook, and PDF tools are in `requirements-dev.txt`. The tested local environment uses Python 3.14.5, Torch 2.10.0, and TorchVision 0.25.0; `requirements-lock-local.txt` records its package versions. Python 3.11 or 3.12 can also be used with the compatible dependency ranges.
 
@@ -168,3 +168,7 @@ The held-out set has 165 images and the comparison uses one seed. Ambiguous scen
 - [Requirement audit](docs/FINAL_REQUIREMENTS_AUDIT.md) and [verification log](docs/FINAL_VERIFICATION_LOG.md).
 - [Demo script](docs/FINAL_DEMO_SCRIPT.md) and [recording plan](docs/DEMO_RECORDING_PLAN.md).
 - [Defense guide](docs/DEFENSE_GUIDE.md).
+
+The demonstration video uses explicitly disclosed synthetic English narration over an actual application screen recording. No generated images are used for training.
+
+For a new training comparison that preserves released outputs, pass `--outputs outputs/retrained` to each train/evaluate command. In a separate notebook training copy, move `outputs/` to `outputs_saved/` before starting and set `USE_RELEASED_CHECKPOINTS=False`.

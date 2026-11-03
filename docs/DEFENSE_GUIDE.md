@@ -83,7 +83,7 @@ The following explanations and answers describe the implemented models and the m
 28. **Why is test accuracy higher than validation accuracy for the CNN?** These are different finite samples, and difficulty can vary. The split is small. Detected groups and file hashes are verified before evaluation.
 29. **What is softmax confidence?** A normalized model score among the four categories. The four scores sum to one.
 30. **Can the model reject a picture of a cat?** No explicit rejection class or detector was trained. It will still assign one of the four labels, possibly with high confidence.
-31. **How do you compute latency?** Batch-one forward passes on a device-resident test tensor, after five warm-ups, repeated 30 times with GPU synchronization. We report the median and retain raw timings.
+31. **How do you compute latency?** Batch-one forward passes on a device-resident test tensor, after five warm-ups, repeated 30 times with GPU synchronization. We report the arithmetic mean and median and retain raw timings.
 32. **Why can a smaller model appear slower?** Kernel implementation, device scheduling, and architecture affect latency. Parameter count alone is not a latency prediction.
 33. **Does latency include loading or preprocessing?** The comparison benchmark excludes both, transfer, and softmax. The app's single-pass timer includes softmax but excludes preprocessing and loading, and is separately labeled.
 34. **How do gradients work when the backbone is frozen?** Grad-CAM enables gradients on a cloned input and requests the gradient of the class logit with respect to the final spatial activation. No optimizer update occurs.
@@ -97,3 +97,12 @@ The following explanations and answers describe the implemented models and the m
 ## Demonstration preparation
 
 Run `python -m streamlit run app.py`. Open Classify, select a trained model, use a test photograph or upload an outdoor image, and press Classify image. Compare all models, show the shared test metrics and confusion matrix, then explain one correct and one incorrect Grad-CAM example. Keep `outputs/` checkpoints on the demonstration computer. Use `docs/DEMO_SCRIPT.md` for timing.
+
+41. **Is this weather forecasting?** It classifies the visible appearance of one photograph. Forecasting predicts future weather and requires time-dependent observations and a different model.
+42. **Why is ConvNeXt suitable as the advanced method?** Its 2022 design uses larger depthwise filters and a deeper feature hierarchy than the baseline. The pretrained features work well with a small four-class head.
+43. **What does the latency average mean?** Add the 30 warmed forward times and divide by 30. The median is the middle value and is less sensitive to slower individual calls.
+44. **Does browser choice change the inference device?** No. The browser sends the image to Streamlit; PyTorch runs on the selected server backend, such as CPU or MPS.
+45. **Did you generate training photographs?** No. All training images come from the cited dataset. Augmentation changes their appearance during loading; it does not add generated source images. The demo uses synthetic speech, which is separate from training.
+46. **How does an instructor obtain your model?** Clone the public repository and run scripts/download_checkpoints.py. It downloads release files and validates their SHA-256 checksums before inference.
+47. **Was the notebook executed on hosted Colab?** It was executed with a local Python kernel. It contains the shared workflow and saved outputs; hosted Colab execution has not been claimed.
+48. **Why is the ablation gain small?** Both runs begin with strong pretrained features. The test-set difference is one image, so additional locations and repeated seeds would help evaluate how consistent that difference is.

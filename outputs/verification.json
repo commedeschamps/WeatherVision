@@ -31,7 +31,7 @@
       "test_accuracy": 0.9757575757575757
     }
   },
-  "notebook": "schema valid; all code cells compile; shared pipeline validated locally",
+  "notebook": "schema valid; all code cells compile; executed outputs present, no cell errors; local kernel, not hosted Colab",
   "report_page_counts": {
     "assignment1_foundation": 5,
     "assignment2_report": 8

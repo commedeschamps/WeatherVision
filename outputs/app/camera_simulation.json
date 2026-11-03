@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "capture": "Chrome simulated media device",
+  "physical_camera_tested": false,
+  "flows": [
+    "permission granted",
+    "video preview",
+    "Take Photo",
+    "CPU prediction on captured frame"
+  ],
+  "browser_version": "156.0.8078.80"
+}

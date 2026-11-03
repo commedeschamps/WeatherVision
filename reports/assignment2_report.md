@@ -80,7 +80,7 @@ ConvNeXt was introduced in 2022 as a modernized convolutional architecture [3]. 
 | ConvNeXt + aug. | 6 | 16 | 0.001 | True |
 | ConvNeXt no aug. | 6 | 16 | 0.001 | False |
 
-Cross-entropy and AdamW use learning rate 0.001, weight decay 0.0001, and seed 42. Simple CNN trains all weights; transfer models train only their new linear heads. Frozen extractors remain in evaluation mode. Validation macro-F1 selects the best checkpoint, retaining the earlier epoch on a tie; early-stopping patience is four. Training used Apple MPS on macOS with Python 3.14.5, PyTorch 2.10.0, and TorchVision 0.25.0.
+Cross-entropy and AdamW use learning rate 0.001, weight decay 0.0001, and seed 42. Simple CNN trains all weights; transfer models train only their new linear heads. Frozen extractors remain in evaluation mode. Validation macro-F1 selects the best checkpoint, retaining the earlier epoch on a tie; early-stopping patience is four. Training used Apple MPS (four CPU threads) on macOS 26.5.2 with Python 3.14.5, PyTorch 2.10.0, and TorchVision 0.25.0.
 
 Accuracy is the proportion of correct labels. Per-class precision measures correctness among predicted labels; recall measures recovery of true labels. F1 is `2PR / (P + R)`. Macro precision, recall, and F1 average the four class-specific values equally. The 165 test images are reserved for final evaluation.
 
@@ -110,7 +110,7 @@ The app separately benchmarks the current image on the selected backend and disp
 
 <!-- pagebreak -->
 
-## 6. Training behavior and classification errors
+## 5. Training behavior and classification errors
 
 **Table 5. Validation-selected epochs and test macro-F1.**
 
@@ -135,7 +135,7 @@ All three augmented ConvNeXt errors are Sunrise predictions: one Cloudy, one Rai
 
 <!-- pagebreak -->
 
-## 7. Augmentation ablation
+## 6. Augmentation ablation
 
 The two ConvNeXt runs share the architecture, pretrained weights, initialization seed, dataset split, optimizer, learning rate, batch size, six-epoch limit, and early-stopping settings. Training augmentation is the changed factor. Each run selects a checkpoint by validation macro-F1.
 
@@ -161,7 +161,7 @@ Without augmentation, two Shine images are predicted as Cloudy. With augmentatio
 
 <!-- pagebreak -->
 
-## 8. Grad-CAM visualization
+## 7. Grad-CAM visualization
 
 Grad-CAM [4] gives a class-specific spatial explanation by combining feature maps and score gradients. The target is ConvNeXt's final spatial stage, `features[-1]`, before global pooling. For a selected class, gradients of its logit with respect to the spatial activations are averaged across positions. Those averages become channel weights for a weighted sum of the feature maps. ReLU retains positive responses, and normalization maps the heatmap into the range from zero to one.
 
@@ -177,15 +177,15 @@ The correctly classified Cloudy example emphasizes parts of the cloud structure.
 
 ## 8. Application, limitations, and conclusion
 
-WeatherVision accepts uploads, camera capture, or dataset examples. It offers all three model families, four class scores, measured latency and environment details, same-image model comparison, and ConvNeXt Grad-CAM. Exports include JSON predictions, CSV comparisons, PNG overlays, and both PDF reports. The Experiments tab provides interactive metric charts, learning curves, and confusion matrices.
+WeatherVision accepts uploads, camera capture, or dataset examples. It offers all three model families, four class scores, measured latency and environment details, same-image model comparison, and ConvNeXt Grad-CAM. Exports include JSON predictions, CSV comparisons, PNG overlays, and both PDF reports. The Experiments tab provides interactive metric charts, learning curves, and confusion matrices. Browser checks used Chrome 156.0.8078.80 at desktop and mobile viewport sizes.
 
 ![Figure 8. WeatherVision interface displaying a Cloudy prediction.](../outputs/app/desktop.png)
 
-**Ethics and limitations.** The dataset is credited under CC BY 4.0. Uploaded photographs stay in server memory and are not saved by the app. Users should avoid sensitive images on shared servers. The 165-image test set and single seed limit the scope of the comparison. Cloudy, Shine, and Sunrise can overlap visually; unusual lighting, camera exposure, and unseen locations may change performance. Softmax scores are uncalibrated, and Grad-CAM provides approximate spatial attribution. Further evaluation should use additional locations and repeated seeds.
+**Ethics and limitations.** The dataset is credited under CC BY 4.0. Demo narration uses disclosed synthetic speech. Uploaded photographs stay in server memory and are not saved by the app. Users should avoid sensitive images on shared servers. The 165-image test set and single seed limit the scope of the comparison. Cloudy, Shine, and Sunrise can overlap visually; unusual lighting, camera exposure, and unseen locations may change performance. Softmax scores are uncalibrated, and Grad-CAM provides approximate spatial attribution. Further evaluation should use additional locations and repeated seeds.
 
 **Conclusion.** Augmented ConvNeXt achieves 98.18% accuracy and 0.9827 macro-F1, ahead of MobileNetV2 and Simple CNN. The ablation adds one correct prediction. Simple CNN is the smallest and fastest model on the measured MPS workload. The application combines these models with visual explanations and exportable results.
 
-**Reproducibility.** Install `requirements.txt`, run `python scripts/download_checkpoints.py`, then `python -m streamlit run app.py`. Dataset preparation and training commands are in README and the notebook. 
+**Reproducibility.** Install `requirements.txt`, run `python scripts/download_checkpoints.py`, then `python -m streamlit run app.py`. Dataset preparation and training commands are in README and the notebook. Repository: https://github.com/commedeschamps/WeatherVision.
 
 ## References
 

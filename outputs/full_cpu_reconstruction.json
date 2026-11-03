@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "models": {
+    "cnn_baseline": {
+      "device": "cpu",
+      "images": 165,
+      "predictions_equal_saved": true,
+      "correct": 157,
+      "accuracy": 0.9515151515151515,
+      "macro_f1": 0.9477130492133327
+    },
+    "mobilenet_improved": {
+      "device": "cpu",
+      "images": 165,
+      "predictions_equal_saved": true,
+      "correct": 159,
+      "accuracy": 0.9636363636363636,
+      "macro_f1": 0.9620029693559106
+    },
+    "convnext_aug": {
+      "device": "cpu",
+      "images": 165,
+      "predictions_equal_saved": true,
+      "correct": 162,
+      "accuracy": 0.9818181818181818,
+      "macro_f1": 0.9827226846466708
+    },
+    "convnext_noaug": {
+      "device": "cpu",
+      "images": 165,
+      "predictions_equal_saved": true,
+      "correct": 161,
+      "accuracy": 0.9757575757575757,
+      "macro_f1": 0.9759005989780534
+    }
+  }
+}

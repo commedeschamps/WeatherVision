@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "duration_seconds": 248.17,
+  "resolution": [
+    1440,
+    1080
+  ],
+  "fps": 25.0,
+  "video_codec": "h264",
+  "audio_codec": "AAC",
+  "audio_rms_pcm16": 3647.8531501675825,
+  "full_decode": "passed",
+  "narration": "macOS Samantha synthetic text-to-speech; not student voice",
+  "subtitles": "English, embedded and docs/WeatherVision_demo.srt",
+  "bytes": 8377133,
+  "screen_capture": "genuine running Streamlit app",
+  "review_frames": [
+    5,
+    45,
+    95,
+    115,
+    140,
+    155,
+    185,
+    225,
+    240
+  ]
+}
