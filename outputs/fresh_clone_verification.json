@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "repository": "https://github.com/commedeschamps/WeatherVision",
+  "clone_commit": "c793f2f083cc255db0f756b8c080ce91c175ee2b",
+  "released_checkpoints_downloaded_and_sha256_verified": [
+    "cnn_baseline",
+    "convnext_aug",
+    "convnext_noaug",
+    "mobilenet_improved"
+  ],
+  "dataset_manifest_restored_and_verified": true,
+  "fresh_virtualenv_dependencies": {
+    "python": "3.14.5",
+    "torch": "2.10.0",
+    "torchvision": "0.25.0",
+    "streamlit": "1.66.1"
+  },
+  "cpu_checkpoint_inference": "all four passed",
+  "app_url_local": "http://127.0.0.1:8505",
+  "note": "Public release downloads and an independent pip installation were exercised. Localhost is not a public deployment."
+}

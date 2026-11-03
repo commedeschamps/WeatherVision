@@ -49,3 +49,13 @@ Rendered all 13 PDF pages at 1.5× using PyMuPDF and visually reviewed every pag
 ## Scope
 
 Full model training was not repeated. Hosted Colab, public deployment, a physical camera and the student's oral defense are not represented as tested. The notebook was executed locally, camera integration was exercised with a simulated device, and the application was verified locally. The public dataset is instructor-approved. The demo's screen footage comes from the actual app; macOS Samantha supplies explicitly labeled synthetic English narration.
+
+## Final artifact checks
+
+- Final suite rerun: 40 passed in 17.31 s; pip check found no broken requirements.
+- Fresh-runtime app: all 14 Chrome scenarios passed on local port 8505 with no JavaScript errors; outputs/fresh_app/browser_checks.json. The initial cold startup exceeded the original 30-second test wait; the check now allows 90 seconds. Independent dependency versions are recorded in outputs/fresh_clone_verification.json.
+- Both final PDF downloads from the app matched the final on-disk PDFs byte for byte; outputs/final_report_downloads.json.
+- Final PDF content remains within the page frame; A1 has 5 pages and A2 has 8. All pages were visually reviewed, including the final architecture, table/curve labels, real app screenshot, references and public repository/video links.
+- Final demo: 248.2 s, 1440×1080, 25 fps, H.264/AAC. Full decode succeeded. Narration RMS is nonzero, English subtitles match the script, and nine opening/middle/final frames were reviewed. The final Grad-CAM shot shows both complete images. The public MP4 download SHA-256 matches the local file; outputs/demo_verification.json.
+- Four public checkpoint release server digests and fresh downloads match configs/checkpoints.json. Weights remain outside Git history. No original checkpoint, manifest or test_metrics.json bytes changed.
+- Final package ZIP members and SHA-256 values are checked by scripts/build_final_submission.py. Models/raw images/cache are excluded; the real public video URL is included instead of duplicating its MP4.

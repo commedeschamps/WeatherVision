@@ -1,0 +1,10 @@
+{
+  "assignment1_foundation": {
+    "bytes_match_final_pdf": true,
+    "sha256": "01b4be524cc8aa54dc8f7de978a3170aefcbcfea2c9c0c4adbcd7bfa1efa9a5f"
+  },
+  "assignment2_report": {
+    "bytes_match_final_pdf": true,
+    "sha256": "1a83c6b10b4b2b59fc8327dc00ce68802444734be50bf1aabd9dfa1f5d43298c"
+  }
+}

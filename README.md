@@ -9,7 +9,7 @@ WeatherVision classifies photographs as **Cloudy, Rain, Shine, or Sunrise**. The
 
 ![WeatherVision application](outputs/app/desktop.png)
 
-[Public repository](https://github.com/commedeschamps/WeatherVision) · [Model releases](https://github.com/commedeschamps/WeatherVision/releases) · [Local run guide](docs/LOCAL_RUN_GUIDE.md)
+[Demo video — 4:08](https://github.com/commedeschamps/WeatherVision/releases/download/v1.0.0/WeatherVision_demo.mp4) · [Public repository](https://github.com/commedeschamps/WeatherVision) · [Model releases](https://github.com/commedeschamps/WeatherVision/releases) · [Local run guide](docs/LOCAL_RUN_GUIDE.md)
 
 ## Results
 

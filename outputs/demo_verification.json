@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "duration_seconds": 248.17,
+  "duration_seconds": 248.2,
   "resolution": [
     1440,
     1080
@@ -12,7 +12,7 @@
   "full_decode": "passed",
   "narration": "macOS Samantha synthetic text-to-speech; not student voice",
   "subtitles": "English, embedded and docs/WeatherVision_demo.srt",
-  "bytes": 8377133,
+  "bytes": 7481037,
   "screen_capture": "genuine running Streamlit app",
   "review_frames": [
     5,
@@ -24,5 +24,9 @@
     185,
     225,
     240
-  ]
+  ],
+  "public_url": "https://github.com/commedeschamps/WeatherVision/releases/download/v1.0.0/WeatherVision_demo.mp4",
+  "public_download_sha256": "c012750665731760f0bce829f2da3cfde2e21db02ca84db42d9593016c9d060f",
+  "public_download_verified": true,
+  "visual_review": "Opening, input/prediction, mean latency/environment, comparison, full Grad-CAM, experiments, conclusion reviewed at nine timestamps. English captions remain readable."
 }

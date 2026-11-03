@@ -1,0 +1,94 @@
+{
+  "assignment1_foundation": {
+    "pages": 5,
+    "sha256": "01b4be524cc8aa54dc8f7de978a3170aefcbcfea2c9c0c4adbcd7bfa1efa9a5f",
+    "page_checks": [
+      {
+        "page": 1,
+        "words": 338,
+        "images": 0,
+        "text_bounds": "inside frame"
+      },
+      {
+        "page": 2,
+        "words": 321,
+        "images": 1,
+        "text_bounds": "inside frame"
+      },
+      {
+        "page": 3,
+        "words": 320,
+        "images": 0,
+        "text_bounds": "inside frame"
+      },
+      {
+        "page": 4,
+        "words": 109,
+        "images": 3,
+        "text_bounds": "inside frame"
+      },
+      {
+        "page": 5,
+        "words": 373,
+        "images": 0,
+        "text_bounds": "inside frame"
+      }
+    ],
+    "visual_review": "all pages reviewed at 1.5x; architecture, chart labels, tables, captions, Grad-CAM, screenshot, references; no blank pages or overflow"
+  },
+  "assignment2_report": {
+    "pages": 8,
+    "sha256": "1a83c6b10b4b2b59fc8327dc00ce68802444734be50bf1aabd9dfa1f5d43298c",
+    "page_checks": [
+      {
+        "page": 1,
+        "words": 359,
+        "images": 0,
+        "text_bounds": "inside frame"
+      },
+      {
+        "page": 2,
+        "words": 369,
+        "images": 1,
+        "text_bounds": "inside frame"
+      },
+      {
+        "page": 3,
+        "words": 373,
+        "images": 1,
+        "text_bounds": "inside frame"
+      },
+      {
+        "page": 4,
+        "words": 415,
+        "images": 0,
+        "text_bounds": "inside frame"
+      },
+      {
+        "page": 5,
+        "words": 211,
+        "images": 3,
+        "text_bounds": "inside frame"
+      },
+      {
+        "page": 6,
+        "words": 231,
+        "images": 1,
+        "text_bounds": "inside frame"
+      },
+      {
+        "page": 7,
+        "words": 218,
+        "images": 2,
+        "text_bounds": "inside frame"
+      },
+      {
+        "page": 8,
+        "words": 348,
+        "images": 1,
+        "text_bounds": "inside frame"
+      }
+    ],
+    "visual_review": "all pages reviewed at 1.5x; architecture, chart labels, tables, captions, Grad-CAM, screenshot, references; no blank pages or overflow"
+  }
+}

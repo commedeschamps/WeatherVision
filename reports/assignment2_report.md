@@ -185,7 +185,7 @@ WeatherVision accepts uploads, camera capture, or dataset examples. It offers al
 
 **Conclusion.** Augmented ConvNeXt achieves 98.18% accuracy and 0.9827 macro-F1, ahead of MobileNetV2 and Simple CNN. The ablation adds one correct prediction. Simple CNN is the smallest and fastest model on the measured MPS workload. The application combines these models with visual explanations and exportable results.
 
-**Reproducibility.** Install `requirements.txt`, run `python scripts/download_checkpoints.py`, then `python -m streamlit run app.py`. Dataset preparation and training commands are in README and the notebook. Repository: https://github.com/commedeschamps/WeatherVision.
+**Reproducibility.** Install `requirements.txt`, run `python scripts/download_checkpoints.py`, then `python -m streamlit run app.py`. Dataset preparation and training commands are in README and the notebook. Repository: https://github.com/commedeschamps/WeatherVision. Demo video: https://github.com/commedeschamps/WeatherVision/releases/download/v1.0.0/WeatherVision_demo.mp4.
 
 ## References
 

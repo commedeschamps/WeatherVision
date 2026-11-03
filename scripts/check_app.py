@@ -17,8 +17,9 @@ def main():
     from playwright.sync_api import sync_playwright
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--url', default='http://127.0.0.1:8501')
+    parser.add_argument('--output-dir', type=Path, default=ROOT / 'outputs/app')
     args = parser.parse_args()
-    output = ROOT / 'outputs/app'
+    output = args.output_dir
     output.mkdir(parents=True, exist_ok=True)
     downloads = ROOT / 'tmp/app_downloads'
     downloads.mkdir(parents=True, exist_ok=True)
@@ -35,7 +36,7 @@ def main():
             settle()
             return page.screenshot(**kwargs)
         page.goto(args.url)
-        page.get_by_role('heading', name='WeatherVision', exact=True).wait_for()
+        page.get_by_role('heading', name='WeatherVision', exact=True).wait_for(timeout=90000)
         button = page.get_by_role('button', name='Classify image', exact=False)
         button.click()
         page.locator('.prediction-summary').wait_for(timeout=60000)
@@ -159,7 +160,7 @@ def main():
         checks.append('camera input renders; physical camera capture requires browser permission/hardware')
         assert page.get_by_test_id('stException').count() == 0
         assert not errors, errors
-        result = {'status': 'passed', 'desktop': [1440, 1080], 'tablet': [820, 1180], 'mobile': [390, 844],
+        result = {'status': 'passed', 'url': args.url, 'desktop': [1440, 1080], 'tablet': [820, 1180], 'mobile': [390, 844],
                   'checks': checks, 'page_errors': errors, 'browser_version': browser.version}
         (output / 'browser_checks.json').write_text(json.dumps(result, indent=2))
         print(json.dumps(result, indent=2))

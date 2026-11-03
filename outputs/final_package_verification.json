@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "files": 35,
+  "archive": "dist/WeatherVision_final_submission.zip",
+  "bytes": 17926107,
+  "sha256": "3ee492a0661579329c89ec50ac9545879e73737f649ddba05a60bef9524e2ef0",
+  "all_members_checksums_verified": true,
+  "weights_in_archive": false,
+  "video_distributed_by_public_url": "https://github.com/commedeschamps/WeatherVision/releases/download/v1.0.0/WeatherVision_demo.mp4"
+}
