@@ -1,0 +1,8 @@
+-r requirements.txt
+pytest>=8,<10
+nbformat>=5.10,<6
+reportlab>=4.2,<5
+pypdf>=5,<7
+PyMuPDF>=1.25,<2
+nbclient>=0.10,<1
+ipykernel>=6,<8

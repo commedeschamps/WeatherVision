@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "source_files": 64,
+  "fresh_extraction_dataset_restore": "passed with cached manual ZIP; no network required",
+  "manifest_unchanged": "5d91854a3a40fe885abf72ed0723918160cc2ebd3b8dc0afd71285dde8d6c29e",
+  "source_archive_sha256": "8646bbc3e8b60eae78446b0869241c74697de1e3b2db01443f4bb7af30bfdec9",
+  "note": "Updated application, UI assets, requirements, tests, and reports match the packaged files."
+}

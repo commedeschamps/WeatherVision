@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "dataset_images": 1097,
+  "test_images": 165,
+  "manifest_sha256": "5d91854a3a40fe885abf72ed0723918160cc2ebd3b8dc0afd71285dde8d6c29e",
+  "test_membership_sha256": "e6ae49512f6732d4a299873f844b588cde98f1b359642c3bfedabae8b6278290",
+  "all_detected_duplicate_pairs_grouped": true,
+  "models": {
+    "cnn_baseline": {
+      "actual_trained_cpu_inference": "passed",
+      "test_metrics_recalculated": "passed",
+      "best_epoch": 9,
+      "test_accuracy": 0.9515151515151515
+    },
+    "mobilenet_improved": {
+      "actual_trained_cpu_inference": "passed",
+      "test_metrics_recalculated": "passed",
+      "best_epoch": 8,
+      "test_accuracy": 0.9636363636363636
+    },
+    "convnext_aug": {
+      "actual_trained_cpu_inference": "passed",
+      "test_metrics_recalculated": "passed",
+      "best_epoch": 3,
+      "test_accuracy": 0.9818181818181818
+    },
+    "convnext_noaug": {
+      "actual_trained_cpu_inference": "passed",
+      "test_metrics_recalculated": "passed",
+      "best_epoch": 5,
+      "test_accuracy": 0.9757575757575757
+    }
+  },
+  "notebook": "schema valid; all code cells compile; shared pipeline validated locally",
+  "report_page_counts": {
+    "assignment1_foundation": 5,
+    "assignment2_report": 8
+  },
+  "gradcam_examples": 6
+}

@@ -1,0 +1,21 @@
+{
+  "technical_status": "COMPLETE MEASURED EXPERIMENTS",
+  "missing_experiments": [],
+  "page_counts": {
+    "assignment1_foundation": 5,
+    "assignment2_report": 8
+  },
+  "submission_metadata": {
+    "authors": [
+      "Rakhman Seidigali"
+    ],
+    "group": "SE-2411",
+    "repository_url": null,
+    "video_url": null
+  },
+  "manifest_sha256": "5d91854a3a40fe885abf72ed0723918160cc2ebd3b8dc0afd71285dde8d6c29e",
+  "test_membership_sha256": [
+    "e6ae49512f6732d4a299873f844b588cde98f1b359642c3bfedabae8b6278290"
+  ],
+  "screenshot_included": true
+}

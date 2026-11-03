@@ -1,0 +1,7 @@
+{
+  "comparison": "augmentation minus no augmentation",
+  "test_f1_macro_delta": 0.006822085668617417,
+  "interpretation": "Augmentation increased test macro-F1 by 0.0068 under the shared evaluation protocol.",
+  "control": "All serialized configuration fields except augment are identical; identical manifest and test membership verified",
+  "selection": "Each configuration selected its own best validation macro-F1 checkpoint; no test-based tuning"
+}

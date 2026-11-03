@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "desktop": [
+    1440,
+    1080
+  ],
+  "tablet": [
+    820,
+    1180
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "checks": [
+    "trained ConvNeXt CPU prediction on a dataset example",
+    "prediction JSON download",
+    "Grad-CAM toggle preserves prediction and downloads an overlay",
+    "same-image comparison using all three trained checkpoints",
+    "experiment table and interactive chart",
+    "report download and team details",
+    "changing an example clears stale predictions",
+    "desktop, tablet, and mobile layouts without horizontal overflow",
+    "clear/reset and invalid image recovery",
+    "valid-upload recovery after a rejected image"
+  ],
+  "page_errors": [],
+  "browser_version": "156.0.8078.74"
+}
