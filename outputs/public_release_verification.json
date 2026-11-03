@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "repository": "https://github.com/commedeschamps/WeatherVision",
+  "visibility": "public",
+  "release": "https://github.com/commedeschamps/WeatherVision/releases/tag/v1.1.0",
+  "release_source_commit": "fb1adc11bd62b6f9f263639d10e1244209b5ad6c",
+  "release_assets": [
+    {
+      "asset": "assignment1_foundation.pdf",
+      "url": "https://github.com/commedeschamps/WeatherVision/releases/download/v1.1.0/assignment1_foundation.pdf",
+      "size": 6973283,
+      "sha256": "01b4be524cc8aa54dc8f7de978a3170aefcbcfea2c9c0c4adbcd7bfa1efa9a5f",
+      "server_digest_matches": true
+    },
+    {
+      "asset": "assignment2_report.pdf",
+      "url": "https://github.com/commedeschamps/WeatherVision/releases/download/v1.1.0/assignment2_report.pdf",
+      "size": 8383375,
+      "sha256": "1a83c6b10b4b2b59fc8327dc00ce68802444734be50bf1aabd9dfa1f5d43298c",
+      "server_digest_matches": true
+    },
+    {
+      "asset": "WeatherVision_demo.mp4",
+      "url": "https://github.com/commedeschamps/WeatherVision/releases/download/v1.1.0/WeatherVision_demo.mp4",
+      "size": 7481037,
+      "sha256": "c012750665731760f0bce829f2da3cfde2e21db02ca84db42d9593016c9d060f",
+      "server_digest_matches": true
+    },
+    {
+      "asset": "WeatherVision_final_submission.zip",
+      "url": "https://github.com/commedeschamps/WeatherVision/releases/download/v1.1.0/WeatherVision_final_submission.zip",
+      "size": 17926107,
+      "sha256": "3ee492a0661579329c89ec50ac9545879e73737f649ddba05a60bef9524e2ef0",
+      "server_digest_matches": true
+    },
+    {
+      "asset": "WeatherVision_source.zip",
+      "url": "https://github.com/commedeschamps/WeatherVision/releases/download/v1.1.0/WeatherVision_source.zip",
+      "size": 25196350,
+      "sha256": "b7bc014706abf84b2e20f9727dd40716ea35539c7cca08325baa18fc8613dde8",
+      "server_digest_matches": true
+    }
+  ],
+  "anonymous_submission_zip_download_and_integrity": "passed",
+  "anonymous_source_and_pdf_checks": {
+    "README.md": {
+      "anonymous_download": "passed",
+      "bytes_match_local": true
+    },
+    "reports/assignment1_foundation.pdf": {
+      "anonymous_download": "passed",
+      "bytes_match_local": true
+    },
+    "reports/assignment2_report.pdf": {
+      "anonymous_download": "passed",
+      "bytes_match_local": true
+    },
+    "notebooks/WeatherVision_Colab.ipynb": {
+      "anonymous_download": "passed",
+      "bytes_match_local": true
+    },
+    "docs/FINAL_REQUIREMENTS_AUDIT.md": {
+      "anonymous_download": "passed",
+      "bytes_match_local": true
+    }
+  },
+  "checkpoints": "v1.0.0 assets previously downloaded and verified for all four models",
+  "video_v1_0_public_download": "SHA-256 matched local final recording"
+}

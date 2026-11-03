@@ -59,3 +59,7 @@ Full model training was not repeated. Hosted Colab, public deployment, a physica
 - Final demo: 248.2 s, 1440×1080, 25 fps, H.264/AAC. Full decode succeeded. Narration RMS is nonzero, English subtitles match the script, and nine opening/middle/final frames were reviewed. The final Grad-CAM shot shows both complete images. The public MP4 download SHA-256 matches the local file; outputs/demo_verification.json.
 - Four public checkpoint release server digests and fresh downloads match configs/checkpoints.json. Weights remain outside Git history. No original checkpoint, manifest or test_metrics.json bytes changed.
 - Final package ZIP members and SHA-256 values are checked by scripts/build_final_submission.py. Models/raw images/cache are excluded; the real public video URL is included instead of duplicating its MP4.
+
+## Public release verification
+
+`gh release create v1.1.0 ... --target fb1adc11bd62b6f9f263639d10e1244209b5ad6c`: final release published at https://github.com/commedeschamps/WeatherVision/releases/tag/v1.1.0. All five final asset sizes/server SHA-256 digests match local files. An anonymous download of WeatherVision_final_submission.zip matched its local hash and passed ZIP integrity checks. Anonymous raw downloads of README, both PDFs, the executed notebook and final audit matched local bytes. Evidence: outputs/public_release_verification.json. Stable checkpoint/video URLs in the reports remain available in v1.0.0.
