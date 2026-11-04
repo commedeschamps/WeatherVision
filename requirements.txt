@@ -1,0 +1,14 @@
+# Matched Torch/TorchVision releases; pip resolves a compatible pair.
+torch>=2.6,<2.11
+torchvision>=0.21,<0.26
+numpy>=1.26,<3
+pandas>=2.2,<4
+scikit-learn>=1.5,<2
+matplotlib>=3.9,<4
+Pillow>=11,<13
+streamlit>=1.66,<2
+PyYAML>=6,<7
+ImageHash>=4.3,<5
+transformers==4.57.6
+huggingface-hub==0.36.2
+safetensors==0.8.0

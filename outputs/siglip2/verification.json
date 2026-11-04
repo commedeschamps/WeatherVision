@@ -1,0 +1,238 @@
+{
+  "status": "passed",
+  "branch": "feature/siglip2-a2",
+  "tests": {
+    "passed": 72,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 32.717
+  },
+  "browser": {
+    "status": "passed",
+    "url": "http://127.0.0.1:8514",
+    "desktop": [
+      1440,
+      1080
+    ],
+    "tablet": [
+      820,
+      1180
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "checks": [
+      "actual SigLIP 2 default probe, zero-shot score semantics, occlusion and downloads; opacity preserves scores",
+      "trained ConvNeXt CPU prediction on a dataset example",
+      "optional average latency, valid protocol, real backend/environment and browser User-Agent",
+      "prediction JSON download",
+      "Grad-CAM toggle preserves prediction and downloads an overlay",
+      "same-image comparison using all five trained model choices",
+      "switch all three models, preserve cached predictions, and repeat CPU inference",
+      "experiment table and interactive chart",
+      "report download and team details",
+      "changing an example clears stale predictions",
+      "desktop, tablet, and mobile layouts without horizontal overflow",
+      "clear/reset and invalid image recovery",
+      "valid-upload recovery after a rejected image",
+      "unsupported file extension rejected by upload control",
+      "camera capture and prediction using a Chrome simulated media device; no physical camera tested"
+    ],
+    "page_errors": [],
+    "browser_version": "156.0.8078.80"
+  },
+  "latest_app": {
+    "status": "passed",
+    "default_model": "SigLIP 2 Linear Probe",
+    "current_report_download_sha256": "5186cc9ca522103928669af5dfcc15a29faa5eddfc39982bac072fadf30e97e8"
+  },
+  "notebook": {
+    "status": "passed",
+    "cells": 87,
+    "code_cells_executed": 61,
+    "elapsed_seconds": 10.14,
+    "provenance": {
+      "environment": "Local Python kernel; CPU demonstration; not hosted Google Colab",
+      "python": "3.14.5",
+      "code_cells_executed": 61,
+      "executed_at": "2026-11-04T10:44:36+05:00",
+      "training_performed": false,
+      "optional_branches_executed": false
+    }
+  },
+  "pdf_layout": {
+    "status": "passed",
+    "pdf_pages": 8,
+    "source_figures_verified": 8,
+    "text_within_page_margins": true,
+    "visually_reviewed_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "preservation": {
+    "status": "passed",
+    "protected_artifacts": 119,
+    "original_baseline_files": 1251,
+    "authorized_replacements": [
+      "configs/submission.yaml",
+      "reports/assignment2_report.md",
+      "reports/assignment2_report.pdf"
+    ],
+    "all_original_checkpoints_unchanged": true,
+    "original_a1_pdf_unchanged": true,
+    "convnext_pdf_archived_byte_for_byte": true
+  },
+  "independent_cpu_restart": {
+    "status": "passed",
+    "device": "cpu",
+    "test_images": 165,
+    "heads": [
+      "siglip2_aug",
+      "siglip2_aug_s43",
+      "siglip2_aug_s44",
+      "siglip2_noaug",
+      "siglip2_noaug_s43",
+      "siglip2_noaug_s44",
+      "siglip2_zero_shot"
+    ],
+    "uses_feature_cache": false,
+    "elapsed_seconds": 6.053513084014412
+  },
+  "project": {
+    "status": "passed",
+    "dataset_images": 1097,
+    "test_images": 165,
+    "manifest_sha256": "5d91854a3a40fe885abf72ed0723918160cc2ebd3b8dc0afd71285dde8d6c29e",
+    "test_membership_sha256": "e6ae49512f6732d4a299873f844b588cde98f1b359642c3bfedabae8b6278290",
+    "all_detected_duplicate_pairs_grouped": true,
+    "models": {
+      "cnn_baseline": {
+        "actual_trained_cpu_inference": "passed",
+        "test_metrics_recalculated": "passed",
+        "cpu_inference_images": 1,
+        "best_epoch": 9,
+        "test_accuracy": 0.9515151515151515
+      },
+      "mobilenet_improved": {
+        "actual_trained_cpu_inference": "passed",
+        "test_metrics_recalculated": "passed",
+        "cpu_inference_images": 1,
+        "best_epoch": 8,
+        "test_accuracy": 0.9636363636363636
+      },
+      "convnext_aug": {
+        "actual_trained_cpu_inference": "passed",
+        "test_metrics_recalculated": "passed",
+        "cpu_inference_images": 1,
+        "best_epoch": 3,
+        "test_accuracy": 0.9818181818181818
+      },
+      "convnext_noaug": {
+        "actual_trained_cpu_inference": "passed",
+        "test_metrics_recalculated": "passed",
+        "cpu_inference_images": 1,
+        "best_epoch": 5,
+        "test_accuracy": 0.9757575757575757
+      }
+    },
+    "notebook": "schema valid; all code cells compile; executed outputs present, no cell errors; local kernel, not hosted Colab",
+    "report_page_counts": {
+      "assignment1_foundation": 5,
+      "assignment2_report": 8
+    },
+    "gradcam_examples": 6,
+    "siglip2": {
+      "models": {
+        "siglip2_zero_shot": {
+          "accuracy": 0.9333333333333333,
+          "f1_macro": 0.9365769389438944,
+          "checkpoint_sha256": "6257c666654c2fcc35809918c8b41b3e9aaa456103129a67eca12196135b019e",
+          "full_cpu_inference": false
+        },
+        "siglip2_aug": {
+          "accuracy": 0.9818181818181818,
+          "f1_macro": 0.9838806550324272,
+          "checkpoint_sha256": "abd1ed8597f0299c78500554ea94eb0ce3bb9f4da515f51a7774f8c358f46a2f",
+          "full_cpu_inference": false
+        },
+        "siglip2_noaug": {
+          "accuracy": 0.9818181818181818,
+          "f1_macro": 0.9838806550324272,
+          "checkpoint_sha256": "4f6953ba11e566cab9d0588e9f22b9cc1cb7f43ed3289db510d2c4875349ff61",
+          "full_cpu_inference": false
+        },
+        "siglip2_aug_s43": {
+          "accuracy": 0.9818181818181818,
+          "f1_macro": 0.9838806550324272,
+          "checkpoint_sha256": "d80366cfbf6118f83ed152e9543607ec399407b819626e90b908c628ac2edd30",
+          "full_cpu_inference": false
+        },
+        "siglip2_noaug_s43": {
+          "accuracy": 0.9818181818181818,
+          "f1_macro": 0.9838806550324272,
+          "checkpoint_sha256": "536ded0a8a833284ef2991a0b7e5bff886e8f09cdcdd454c1a05e93cf1c73752",
+          "full_cpu_inference": false
+        },
+        "siglip2_aug_s44": {
+          "accuracy": 0.9818181818181818,
+          "f1_macro": 0.9838806550324272,
+          "checkpoint_sha256": "6cbc739b468852431bf047f3790775aad05e35163a5b48f326d181cd0424bfef",
+          "full_cpu_inference": false
+        },
+        "siglip2_noaug_s44": {
+          "accuracy": 0.9757575757575757,
+          "f1_macro": 0.9769028251407805,
+          "checkpoint_sha256": "a02e93751c2040f2e0ca60c0d7fd3417207bed74d68cb39c6ad8ad4ba5fd30cf",
+          "full_cpu_inference": false
+        }
+      },
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "notebook_code_cells": 61,
+      "video_sha256": "e4256f890af6677a576330ed798a880a050dffa69fcf9143180f0b77548f9d9f",
+      "video_duration_seconds": 240.0,
+      "local_video_integrity": "passed"
+    }
+  },
+  "demo": {
+    "lead_seconds": 0.7680293750017881,
+    "duration_seconds": 240.0,
+    "screen_capture": "genuine running Streamlit app",
+    "physical_camera_recorded": false,
+    "status": "passed",
+    "path": "dist/WeatherVision_SigLIP2_demo.mp4",
+    "sha256": "e4256f890af6677a576330ed798a880a050dffa69fcf9143180f0b77548f9d9f",
+    "bytes": 6619871,
+    "resolution": [
+      1440,
+      1080
+    ],
+    "full_decode": "passed",
+    "audio_rms_pcm16": 4769.642555356084,
+    "narration": "macOS Samantha synthetic voice; not student voice",
+    "published": false,
+    "captions": "docs/WeatherVision_demo.srt",
+    "sampled_frames_visually_reviewed_seconds": [
+      5,
+      55,
+      98,
+      130,
+      150,
+      170,
+      185,
+      210,
+      230
+    ]
+  }
+}

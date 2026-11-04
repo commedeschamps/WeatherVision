@@ -1,0 +1,53 @@
+{
+  "model_id": "google/siglip2-base-patch16-224",
+  "revision": "75de2d55ec2d0b4efc50b3e9ad70dba96a7b2fa2",
+  "config": {
+    "model_id": "google/siglip2-base-patch16-224",
+    "revision": "75de2d55ec2d0b4efc50b3e9ad70dba96a7b2fa2",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "epochs": 25,
+    "patience": 5,
+    "batch_size": 32,
+    "feature_batch_size": 16,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "feature": "pretrained_attention_pooler_output",
+    "main_run": "siglip2_aug",
+    "prompt_sets": [
+      [
+        "A photograph of cloudy weather with an overcast sky.",
+        "A photograph of rainy weather with visible rain or wet surfaces.",
+        "A photograph of bright sunshine and sunny weather.",
+        "A photograph of sunrise with warm light near the horizon."
+      ],
+      [
+        "An outdoor scene under a cloudy, overcast sky.",
+        "An outdoor scene in rain, with raindrops and wet ground.",
+        "An outdoor scene in bright sunlight under a clear sky.",
+        "An outdoor scene at sunrise, with orange light on the horizon."
+      ],
+      [
+        "cloudy weather",
+        "rainy weather",
+        "sunny weather",
+        "sunrise"
+      ]
+    ]
+  },
+  "manifest_sha256": "5d91854a3a40fe885abf72ed0723918160cc2ebd3b8dc0afd71285dde8d6c29e",
+  "checkpoints": {
+    "siglip2_aug": "abd1ed8597f0299c78500554ea94eb0ce3bb9f4da515f51a7774f8c358f46a2f",
+    "siglip2_noaug": "4f6953ba11e566cab9d0588e9f22b9cc1cb7f43ed3289db510d2c4875349ff61",
+    "siglip2_aug_s43": "d80366cfbf6118f83ed152e9543607ec399407b819626e90b908c628ac2edd30",
+    "siglip2_noaug_s43": "536ded0a8a833284ef2991a0b7e5bff886e8f09cdcdd454c1a05e93cf1c73752",
+    "siglip2_aug_s44": "6cbc739b468852431bf047f3790775aad05e35163a5b48f326d181cd0424bfef",
+    "siglip2_noaug_s44": "a02e93751c2040f2e0ca60c0d7fd3417207bed74d68cb39c6ad8ad4ba5fd30cf",
+    "siglip2_zero_shot": "6257c666654c2fcc35809918c8b41b3e9aaa456103129a67eca12196135b019e"
+  },
+  "test_evaluated_before_lock": false,
+  "main_run_predeclared": "siglip2_aug"
+}

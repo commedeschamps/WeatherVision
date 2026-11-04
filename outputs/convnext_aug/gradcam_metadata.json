@@ -1,0 +1,62 @@
+{
+  "target_layer": "features[-1] (final spatial stage, before pooling)",
+  "checkpoint_sha256": "0ed6e5c3912ccb2c60eddd2782a5d3322e4d5a7a5dcbb04a674fbcf3a43ae0ba",
+  "examples": [
+    {
+      "figure": "gradcam_01.png",
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_267.jpeg",
+      "true": "cloudy",
+      "predicted": "sunrise",
+      "correct": false,
+      "heatmap_min": 0.0,
+      "heatmap_max": 1.0
+    },
+    {
+      "figure": "gradcam_02.png",
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/rain/rain_209.jpeg",
+      "true": "rain",
+      "predicted": "sunrise",
+      "correct": false,
+      "heatmap_min": 0.0,
+      "heatmap_max": 1.0
+    },
+    {
+      "figure": "gradcam_03.png",
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/shine/shine_1.jpeg",
+      "true": "shine",
+      "predicted": "sunrise",
+      "correct": false,
+      "heatmap_min": 0.0,
+      "heatmap_max": 1.0
+    },
+    {
+      "figure": "gradcam_04.png",
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_101.jpeg",
+      "true": "cloudy",
+      "predicted": "cloudy",
+      "correct": true,
+      "heatmap_min": 0.0,
+      "heatmap_max": 1.0
+    },
+    {
+      "figure": "gradcam_05.png",
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_108.jpeg",
+      "true": "cloudy",
+      "predicted": "cloudy",
+      "correct": true,
+      "heatmap_min": 0.0,
+      "heatmap_max": 1.0
+    },
+    {
+      "figure": "gradcam_06.png",
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_112.jpeg",
+      "true": "cloudy",
+      "predicted": "cloudy",
+      "correct": true,
+      "heatmap_min": 0.0,
+      "heatmap_max": 1.0
+    }
+  ],
+  "errors_available": 3,
+  "note": "Post-evaluation examples; approximate feature attribution, not segmentation or causal proof. Original image preserved; center-crop mapping inverted for overlay."
+}

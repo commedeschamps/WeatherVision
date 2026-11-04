@@ -1,0 +1,1410 @@
+{
+  "checkpoint_sha256": "0ed6e5c3912ccb2c60eddd2782a5d3322e4d5a7a5dcbb04a674fbcf3a43ae0ba",
+  "manifest_sha256": "5d91854a3a40fe885abf72ed0723918160cc2ebd3b8dc0afd71285dde8d6c29e",
+  "environment": {
+    "python": "3.14.5",
+    "torch": "2.10.0",
+    "torchvision": "0.25.0",
+    "sklearn": "1.9.1",
+    "numpy": "2.5.4",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "cpu_count": 10,
+    "device": "mps",
+    "cuda_available": false,
+    "mps_available": true,
+    "gpu": null,
+    "threads": 4
+  },
+  "selection": "Seed 42: four saved-correct test images per class, all three saved errors, plus all six existing Grad-CAM examples; duplicates removed. Enriched diagnostic sample, not a population estimate.",
+  "sample_count": 22,
+  "layers": {
+    "final": "features[7]: 768x7x7",
+    "earlier": "features[5]: 384x14x14"
+  },
+  "occlusion": {
+    "grid": [
+      7,
+      7
+    ],
+    "cell_pixels": [
+      32,
+      32
+    ],
+    "cells_removed": 5,
+    "fraction": 0.10204081632653061,
+    "random_repeats": 10,
+    "seed": "42 + fixed sample row index",
+    "target": "original predicted class, held fixed after perturbation",
+    "mean_baseline": "normalized zeros = ImageNet RGB mean [0.485,0.456,0.406]",
+    "blur_baseline": "Gaussian blur of the same normalized input; kernel31, sigma10; replace only selected cells"
+  },
+  "map_settings": [
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_22.jpeg",
+      "correct": true,
+      "label": "cloudy",
+      "predicted": "cloudy",
+      "file": "00_cloud_22_final.npz",
+      "target_class": 0,
+      "target_logit": 3.54248046875,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.015590102411806583,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        144,
+        79
+      ],
+      "bottom_third_mass_fraction": 0.4178183674812317
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_22.jpeg",
+      "correct": true,
+      "label": "cloudy",
+      "predicted": "cloudy",
+      "file": "00_cloud_22_earlier.npz",
+      "target_class": 0,
+      "target_logit": 3.54248046875,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.02554098330438137,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        72,
+        199
+      ],
+      "bottom_third_mass_fraction": 0.33151373267173767
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_115.jpeg",
+      "correct": true,
+      "label": "cloudy",
+      "predicted": "cloudy",
+      "file": "01_cloud_115_final.npz",
+      "target_class": 0,
+      "target_logit": 3.3701252937316895,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.016325555741786957,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        144,
+        208
+      ],
+      "bottom_third_mass_fraction": 0.2043757438659668
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_115.jpeg",
+      "correct": true,
+      "label": "cloudy",
+      "predicted": "cloudy",
+      "file": "01_cloud_115_earlier.npz",
+      "target_class": 0,
+      "target_logit": 3.3701252937316895,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.037429094314575195,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        135,
+        199
+      ],
+      "bottom_third_mass_fraction": 0.13122759759426117
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_272.jpeg",
+      "correct": true,
+      "label": "cloudy",
+      "predicted": "cloudy",
+      "file": "02_cloud_272_final.npz",
+      "target_class": 0,
+      "target_logit": 4.153537750244141,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.01322002150118351,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        0,
+        48
+      ],
+      "bottom_third_mass_fraction": 0.3960217833518982
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_272.jpeg",
+      "correct": true,
+      "label": "cloudy",
+      "predicted": "cloudy",
+      "file": "02_cloud_272_earlier.npz",
+      "target_class": 0,
+      "target_logit": 4.153537750244141,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.01628514565527439,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        168,
+        0
+      ],
+      "bottom_third_mass_fraction": 0.4265878200531006
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_293.jpeg",
+      "correct": true,
+      "label": "cloudy",
+      "predicted": "cloudy",
+      "file": "03_cloud_293_final.npz",
+      "target_class": 0,
+      "target_logit": 4.650295257568359,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.013587976805865765,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        176,
+        0
+      ],
+      "bottom_third_mass_fraction": 0.617413341999054
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_293.jpeg",
+      "correct": true,
+      "label": "cloudy",
+      "predicted": "cloudy",
+      "file": "03_cloud_293_earlier.npz",
+      "target_class": 0,
+      "target_logit": 4.650295257568359,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.013990188017487526,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        168,
+        0
+      ],
+      "bottom_third_mass_fraction": 0.5064755082130432
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/rain/rain_201.jpeg",
+      "correct": true,
+      "label": "rain",
+      "predicted": "rain",
+      "file": "04_rain_201_final.npz",
+      "target_class": 1,
+      "target_logit": 2.6994683742523193,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.011768278665840626,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        0,
+        208
+      ],
+      "bottom_third_mass_fraction": 0.30459341406822205
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/rain/rain_201.jpeg",
+      "correct": true,
+      "label": "rain",
+      "predicted": "rain",
+      "file": "04_rain_201_earlier.npz",
+      "target_class": 1,
+      "target_logit": 2.6994683742523193,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.03069433569908142,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        0,
+        199
+      ],
+      "bottom_third_mass_fraction": 0.1668701320886612
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/rain/rain_116.jpeg",
+      "correct": true,
+      "label": "rain",
+      "predicted": "rain",
+      "file": "05_rain_116_final.npz",
+      "target_class": 1,
+      "target_logit": 4.174419403076172,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.020562591031193733,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        47,
+        0
+      ],
+      "bottom_third_mass_fraction": 0.37049174308776855
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/rain/rain_116.jpeg",
+      "correct": true,
+      "label": "rain",
+      "predicted": "rain",
+      "file": "05_rain_116_earlier.npz",
+      "target_class": 1,
+      "target_logit": 4.174419403076172,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.042077720165252686,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        200,
+        104
+      ],
+      "bottom_third_mass_fraction": 0.5719519257545471
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/rain/rain_103.jpeg",
+      "correct": true,
+      "label": "rain",
+      "predicted": "rain",
+      "file": "06_rain_103_final.npz",
+      "target_class": 1,
+      "target_logit": 2.6219284534454346,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.017323456704616547,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        208,
+        80
+      ],
+      "bottom_third_mass_fraction": 0.8732051849365234
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/rain/rain_103.jpeg",
+      "correct": true,
+      "label": "rain",
+      "predicted": "rain",
+      "file": "06_rain_103_earlier.npz",
+      "target_class": 1,
+      "target_logit": 2.6219284534454346,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.047080159187316895,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        183,
+        88
+      ],
+      "bottom_third_mass_fraction": 0.7669486999511719
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/rain/rain_193.jpeg",
+      "correct": true,
+      "label": "rain",
+      "predicted": "rain",
+      "file": "07_rain_193_final.npz",
+      "target_class": 1,
+      "target_logit": 2.7691850662231445,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.016246313229203224,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        176,
+        48
+      ],
+      "bottom_third_mass_fraction": 0.33185845613479614
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/rain/rain_193.jpeg",
+      "correct": true,
+      "label": "rain",
+      "predicted": "rain",
+      "file": "07_rain_193_earlier.npz",
+      "target_class": 1,
+      "target_logit": 2.7691850662231445,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.0557766854763031,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        88,
+        40
+      ],
+      "bottom_third_mass_fraction": 0.15675872564315796
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/shine/shine_34.jpeg",
+      "correct": true,
+      "label": "shine",
+      "predicted": "shine",
+      "file": "08_shine_34_final.npz",
+      "target_class": 2,
+      "target_logit": 1.6858103275299072,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.012266099452972412,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        111,
+        208
+      ],
+      "bottom_third_mass_fraction": 0.12432650476694107
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/shine/shine_34.jpeg",
+      "correct": true,
+      "label": "shine",
+      "predicted": "shine",
+      "file": "08_shine_34_earlier.npz",
+      "target_class": 2,
+      "target_logit": 1.6858103275299072,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.04376537352800369,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        87,
+        200
+      ],
+      "bottom_third_mass_fraction": 0.04711317643523216
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/shine/shine_219.jpeg",
+      "correct": true,
+      "label": "shine",
+      "predicted": "shine",
+      "file": "09_shine_219_final.npz",
+      "target_class": 2,
+      "target_logit": 1.8737249374389648,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.01630067452788353,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        0,
+        0
+      ],
+      "bottom_third_mass_fraction": 0.05811794102191925
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/shine/shine_219.jpeg",
+      "correct": true,
+      "label": "shine",
+      "predicted": "shine",
+      "file": "09_shine_219_earlier.npz",
+      "target_class": 2,
+      "target_logit": 1.8737249374389648,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.09368950128555298,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        0,
+        71
+      ],
+      "bottom_third_mass_fraction": 0.07960373163223267
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/shine/shine_50.jpeg",
+      "correct": true,
+      "label": "shine",
+      "predicted": "shine",
+      "file": "10_shine_50_final.npz",
+      "target_class": 2,
+      "target_logit": 2.4024477005004883,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.012941793538630009,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        47,
+        80
+      ],
+      "bottom_third_mass_fraction": 0.011124181561172009
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/shine/shine_50.jpeg",
+      "correct": true,
+      "label": "shine",
+      "predicted": "shine",
+      "file": "10_shine_50_earlier.npz",
+      "target_class": 2,
+      "target_logit": 2.4024477005004883,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.026523547247052193,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        39,
+        72
+      ],
+      "bottom_third_mass_fraction": 0.06132541224360466
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/shine/shine_141.jpeg",
+      "correct": true,
+      "label": "shine",
+      "predicted": "shine",
+      "file": "11_shine_141_final.npz",
+      "target_class": 2,
+      "target_logit": 2.0128395557403564,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.014654085040092468,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        0,
+        175
+      ],
+      "bottom_third_mass_fraction": 0.0
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/shine/shine_141.jpeg",
+      "correct": true,
+      "label": "shine",
+      "predicted": "shine",
+      "file": "11_shine_141_earlier.npz",
+      "target_class": 2,
+      "target_logit": 2.0128395557403564,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.052546583116054535,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        23,
+        168
+      ],
+      "bottom_third_mass_fraction": 0.0526653416454792
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/sunrise/sunrise_195.jpeg",
+      "correct": true,
+      "label": "sunrise",
+      "predicted": "sunrise",
+      "file": "12_sunrise_195_final.npz",
+      "target_class": 3,
+      "target_logit": 6.5126495361328125,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.021072831004858017,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        79,
+        143
+      ],
+      "bottom_third_mass_fraction": 0.021484198048710823
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/sunrise/sunrise_195.jpeg",
+      "correct": true,
+      "label": "sunrise",
+      "predicted": "sunrise",
+      "file": "12_sunrise_195_earlier.npz",
+      "target_class": 3,
+      "target_logit": 6.5126495361328125,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.044788021594285965,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        71,
+        200
+      ],
+      "bottom_third_mass_fraction": 0.18309806287288666
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/sunrise/sunrise_327.jpeg",
+      "correct": true,
+      "label": "sunrise",
+      "predicted": "sunrise",
+      "file": "13_sunrise_327_final.npz",
+      "target_class": 3,
+      "target_logit": 4.822669982910156,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.02185480296611786,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        112,
+        112
+      ],
+      "bottom_third_mass_fraction": 0.10753750801086426
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/sunrise/sunrise_327.jpeg",
+      "correct": true,
+      "label": "sunrise",
+      "predicted": "sunrise",
+      "file": "13_sunrise_327_earlier.npz",
+      "target_class": 3,
+      "target_logit": 4.822669982910156,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.07760345935821533,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        119,
+        184
+      ],
+      "bottom_third_mass_fraction": 0.2600456178188324
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/sunrise/sunrise_150.jpeg",
+      "correct": true,
+      "label": "sunrise",
+      "predicted": "sunrise",
+      "file": "14_sunrise_150_final.npz",
+      "target_class": 3,
+      "target_logit": 2.9260098934173584,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.01920834742486477,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        208,
+        175
+      ],
+      "bottom_third_mass_fraction": 0.47846683859825134
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/sunrise/sunrise_150.jpeg",
+      "correct": true,
+      "label": "sunrise",
+      "predicted": "sunrise",
+      "file": "14_sunrise_150_earlier.npz",
+      "target_class": 3,
+      "target_logit": 2.9260098934173584,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.056643981486558914,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        40,
+        199
+      ],
+      "bottom_third_mass_fraction": 0.4565575122833252
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/sunrise/sunrise_56.jpeg",
+      "correct": true,
+      "label": "sunrise",
+      "predicted": "sunrise",
+      "file": "15_sunrise_56_final.npz",
+      "target_class": 3,
+      "target_logit": 2.6041839122772217,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.022711295634508133,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        47,
+        175
+      ],
+      "bottom_third_mass_fraction": 0.18766185641288757
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/sunrise/sunrise_56.jpeg",
+      "correct": true,
+      "label": "sunrise",
+      "predicted": "sunrise",
+      "file": "15_sunrise_56_earlier.npz",
+      "target_class": 3,
+      "target_logit": 2.6041839122772217,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.04744511470198631,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        168,
+        199
+      ],
+      "bottom_third_mass_fraction": 0.23118090629577637
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_267.jpeg",
+      "correct": false,
+      "label": "cloudy",
+      "predicted": "sunrise",
+      "file": "16_cloud_267_final.npz",
+      "target_class": 3,
+      "target_logit": 1.5700932741165161,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.019932329654693604,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        80,
+        112
+      ],
+      "bottom_third_mass_fraction": 0.24810777604579926
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_267.jpeg",
+      "correct": false,
+      "label": "cloudy",
+      "predicted": "sunrise",
+      "file": "16_cloud_267_earlier.npz",
+      "target_class": 3,
+      "target_logit": 1.5700932741165161,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.02907930687069893,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        120,
+        104
+      ],
+      "bottom_third_mass_fraction": 0.28980451822280884
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/rain/rain_209.jpeg",
+      "correct": false,
+      "label": "rain",
+      "predicted": "sunrise",
+      "file": "17_rain_209_final.npz",
+      "target_class": 3,
+      "target_logit": 1.7614121437072754,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.020876575261354446,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        175,
+        143
+      ],
+      "bottom_third_mass_fraction": 0.600215494632721
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/rain/rain_209.jpeg",
+      "correct": false,
+      "label": "rain",
+      "predicted": "sunrise",
+      "file": "17_rain_209_earlier.npz",
+      "target_class": 3,
+      "target_logit": 1.7614121437072754,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.06647645682096481,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        0,
+        199
+      ],
+      "bottom_third_mass_fraction": 0.429407000541687
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/shine/shine_1.jpeg",
+      "correct": false,
+      "label": "shine",
+      "predicted": "sunrise",
+      "file": "18_shine_1_final.npz",
+      "target_class": 3,
+      "target_logit": 0.833125114440918,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.019633891060948372,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        47,
+        144
+      ],
+      "bottom_third_mass_fraction": 0.12360720336437225
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/shine/shine_1.jpeg",
+      "correct": false,
+      "label": "shine",
+      "predicted": "sunrise",
+      "file": "18_shine_1_earlier.npz",
+      "target_class": 3,
+      "target_logit": 0.833125114440918,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.03865932300686836,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        24,
+        168
+      ],
+      "bottom_third_mass_fraction": 0.04487228021025658
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_101.jpeg",
+      "correct": true,
+      "label": "cloudy",
+      "predicted": "cloudy",
+      "file": "19_cloud_101_final.npz",
+      "target_class": 0,
+      "target_logit": 3.07739520072937,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.016079599037766457,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        47,
+        0
+      ],
+      "bottom_third_mass_fraction": 0.10262183099985123
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_101.jpeg",
+      "correct": true,
+      "label": "cloudy",
+      "predicted": "cloudy",
+      "file": "19_cloud_101_earlier.npz",
+      "target_class": 0,
+      "target_logit": 3.07739520072937,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.03629399463534355,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        55,
+        23
+      ],
+      "bottom_third_mass_fraction": 0.12169361859560013
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_108.jpeg",
+      "correct": true,
+      "label": "cloudy",
+      "predicted": "cloudy",
+      "file": "20_cloud_108_final.npz",
+      "target_class": 0,
+      "target_logit": 2.8664591312408447,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.015849098563194275,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        112,
+        111
+      ],
+      "bottom_third_mass_fraction": 0.033832911401987076
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_108.jpeg",
+      "correct": true,
+      "label": "cloudy",
+      "predicted": "cloudy",
+      "file": "20_cloud_108_earlier.npz",
+      "target_class": 0,
+      "target_logit": 2.8664591312408447,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.02340218983590603,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        119,
+        119
+      ],
+      "bottom_third_mass_fraction": 0.01475914940237999
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_112.jpeg",
+      "correct": true,
+      "label": "cloudy",
+      "predicted": "cloudy",
+      "file": "21_cloud_112_final.npz",
+      "target_class": 0,
+      "target_logit": 4.677778244018555,
+      "target_layer": "features[7]",
+      "stage": "final",
+      "activation_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_shape": [
+        1,
+        768,
+        7,
+        7
+      ],
+      "gradient_abs_max": 0.015181359834969044,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        0,
+        0
+      ],
+      "bottom_third_mass_fraction": 0.3063759207725525
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_112.jpeg",
+      "correct": true,
+      "label": "cloudy",
+      "predicted": "cloudy",
+      "file": "21_cloud_112_earlier.npz",
+      "target_class": 0,
+      "target_logit": 4.677778244018555,
+      "target_layer": "features[5]",
+      "stage": "earlier",
+      "activation_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_shape": [
+        1,
+        384,
+        14,
+        14
+      ],
+      "gradient_abs_max": 0.03098003752529621,
+      "spatially_constant": false,
+      "normalization": "ReLU; bilinear resize, align_corners=False; subtract min then divide by max if positive",
+      "peak_yx_224": [
+        71,
+        200
+      ],
+      "bottom_third_mass_fraction": 0.38762038946151733
+    }
+  ],
+  "parameter_mutation": false,
+  "seconds": 9.078422624967061
+}

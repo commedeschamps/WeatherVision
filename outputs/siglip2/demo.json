@@ -1,0 +1,30 @@
+{
+  "lead_seconds": 0.7680293750017881,
+  "duration_seconds": 240.0,
+  "screen_capture": "genuine running Streamlit app",
+  "physical_camera_recorded": false,
+  "status": "passed",
+  "path": "dist/WeatherVision_SigLIP2_demo.mp4",
+  "sha256": "e4256f890af6677a576330ed798a880a050dffa69fcf9143180f0b77548f9d9f",
+  "bytes": 6619871,
+  "resolution": [
+    1440,
+    1080
+  ],
+  "full_decode": "passed",
+  "audio_rms_pcm16": 4769.642555356084,
+  "narration": "macOS Samantha synthetic voice; not student voice",
+  "published": false,
+  "captions": "docs/WeatherVision_demo.srt",
+  "sampled_frames_visually_reviewed_seconds": [
+    5,
+    55,
+    98,
+    130,
+    150,
+    170,
+    185,
+    210,
+    230
+  ]
+}

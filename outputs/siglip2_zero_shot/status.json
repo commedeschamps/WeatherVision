@@ -1,0 +1,13 @@
+{
+  "state": "complete",
+  "run": "siglip2_zero_shot",
+  "config": {
+    "model": "siglip2_zero_shot"
+  },
+  "parameters": 92884224,
+  "trainable_parameters": 0,
+  "training_seconds": 0.0,
+  "best_epoch": 0,
+  "best_val_f1_macro": 0.9308826727037847,
+  "selected_prompt_set": 2
+}

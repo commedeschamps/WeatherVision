@@ -1,0 +1,138 @@
+{
+  "accuracy": 0.9757575757575757,
+  "precision_macro": 0.9797979797979799,
+  "recall_macro": 0.972740152175636,
+  "f1_macro": 0.9759005989780534,
+  "confusion_matrix": [
+    [
+      43,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      30,
+      0,
+      1
+    ],
+    [
+      2,
+      0,
+      35,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      53
+    ]
+  ],
+  "per_class": {
+    "cloudy": {
+      "precision": 0.9555555555555556,
+      "recall": 0.9772727272727273,
+      "f1-score": 0.9662921348314607,
+      "support": 44.0
+    },
+    "rain": {
+      "precision": 1.0,
+      "recall": 0.967741935483871,
+      "f1-score": 0.9836065573770492,
+      "support": 31.0
+    },
+    "shine": {
+      "precision": 1.0,
+      "recall": 0.9459459459459459,
+      "f1-score": 0.9722222222222222,
+      "support": 37.0
+    },
+    "sunrise": {
+      "precision": 0.9636363636363636,
+      "recall": 1.0,
+      "f1-score": 0.9814814814814815,
+      "support": 53.0
+    },
+    "accuracy": 0.9757575757575757,
+    "macro avg": {
+      "precision": 0.9797979797979799,
+      "recall": 0.972740152175636,
+      "f1-score": 0.9759005989780534,
+      "support": 165.0
+    },
+    "weighted avg": {
+      "precision": 0.9764677073767982,
+      "recall": 0.9757575757575757,
+      "f1-score": 0.9757539269819001,
+      "support": 165.0
+    }
+  },
+  "run": "convnext_noaug",
+  "split": "test",
+  "test_samples": 165,
+  "test_membership_sha256": "e6ae49512f6732d4a299873f844b588cde98f1b359642c3bfedabae8b6278290",
+  "manifest_sha256": "5d91854a3a40fe885abf72ed0723918160cc2ebd3b8dc0afd71285dde8d6c29e",
+  "checkpoint_sha256": "d6086becedd9c45975af6a273f0d9b31118a5d70f2b10a14e8c35cf1a7304dc5",
+  "best_epoch": 5,
+  "latency": {
+    "median_ms": 6.273083476116881,
+    "mean_ms": 6.310290332961206,
+    "std_ms": 0.14152502817256135,
+    "p95_ms": 6.500652598333545,
+    "measurements_ms": [
+      6.205125013366342,
+      6.268583005294204,
+      6.206459016539156,
+      6.200124975293875,
+      6.278708053287119,
+      6.34683296084404,
+      6.197083042934537,
+      6.250332982745022,
+      6.169332948047668,
+      6.3342920038849115,
+      6.181499978993088,
+      6.31004199385643,
+      6.223041971679777,
+      6.867207994218916,
+      6.2908330000936985,
+      6.260875030420721,
+      6.2039169715717435,
+      6.4927919884212315,
+      6.155917013529688,
+      6.258250039536506,
+      6.222209020052105,
+      6.4474999671801925,
+      6.50708400644362,
+      6.272083963267505,
+      6.416916032321751,
+      6.274082988966256,
+      6.282334041316062,
+      6.489874969702214,
+      6.313375022727996,
+      6.381999992299825
+    ],
+    "warmup": 5,
+    "repeats": 30,
+    "batch_size": 1,
+    "includes_preprocessing": false,
+    "includes_device_transfer": false,
+    "synchronization": "mps",
+    "protocol": "Same first test tensor, resident on device; forward pass only, inference_mode; no softmax, disk I/O, or model loading",
+    "environment": {
+      "python": "3.14.5",
+      "torch": "2.10.0",
+      "torchvision": "0.25.0",
+      "sklearn": "1.9.1",
+      "numpy": "2.5.4",
+      "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+      "processor": "arm",
+      "cpu_count": 10,
+      "device": "mps",
+      "cuda_available": false,
+      "mps_available": true,
+      "gpu": null,
+      "threads": 4
+    }
+  }
+}

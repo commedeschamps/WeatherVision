@@ -1,0 +1,9 @@
+{
+  "interpretation": "Across three seeds, augmentation mean accuracy was 98.18% (sample SD 0.00%), versus 97.98% (SD 0.35%) without augmentation. Mean macro-F1 was 0.9839 versus 0.9816. These three-seed descriptive results do not establish statistical significance.",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "std_ddof": 1
+}

@@ -1,0 +1,52 @@
+{
+  "method": "Class-conditioned image-region occlusion",
+  "grid": 7,
+  "region_pixels": 32,
+  "replacement": "RGB mean / normalized zeros",
+  "device": "mps",
+  "independent_region_recheck": "passed",
+  "examples": [
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_101.jpeg",
+      "true": "cloudy",
+      "predicted": "cloudy",
+      "correct": true,
+      "figure": "occlusion_01.png"
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/rain/rain_0.jpeg",
+      "true": "rain",
+      "predicted": "rain",
+      "correct": true,
+      "figure": "occlusion_02.png"
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/shine/shine_118.jpeg",
+      "true": "shine",
+      "predicted": "shine",
+      "correct": true,
+      "figure": "occlusion_03.png"
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/sunrise/sunrise_0.jpeg",
+      "true": "sunrise",
+      "predicted": "sunrise",
+      "correct": true,
+      "figure": "occlusion_04.png"
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_242.jpeg",
+      "true": "cloudy",
+      "predicted": "sunrise",
+      "correct": false,
+      "figure": "occlusion_05.png"
+    },
+    {
+      "path": "data/raw/Weather-Analysis-ad78ac8fcf1b1aae229ca6e5310aa75b06783787/cloud/cloud_267.jpeg",
+      "true": "cloudy",
+      "predicted": "sunrise",
+      "correct": false,
+      "figure": "occlusion_06.png"
+    }
+  ]
+}

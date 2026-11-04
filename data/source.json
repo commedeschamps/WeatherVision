@@ -1,0 +1,10 @@
+{
+  "type": "public_mirror",
+  "repository": "PerceptiLabs/Weather-Analysis",
+  "commit": "ad78ac8fcf1b1aae229ca6e5310aa75b06783787",
+  "url": "https://codeload.github.com/PerceptiLabs/Weather-Analysis/zip/ad78ac8fcf1b1aae229ca6e5310aa75b06783787",
+  "archive_sha256": "b36fef516384366b9505ecf72e67ddd1c68fe4d8fe6403994d9ff7b947a6e7db",
+  "original_doi": "10.17632/4drtyfjtfy.1",
+  "attribution": "Gbeminiyi Ajayi (2018); CC BY 4.0",
+  "mirror_note": "PerceptiLabs mirror images are resized; not an asserted byte-identical original"
+}

@@ -1,0 +1,72 @@
+{
+  "state": "complete",
+  "run": "siglip2_noaug_s44",
+  "seed": 44,
+  "augment": false,
+  "protocol": {
+    "model_id": "google/siglip2-base-patch16-224",
+    "revision": "75de2d55ec2d0b4efc50b3e9ad70dba96a7b2fa2",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "epochs": 25,
+    "patience": 5,
+    "batch_size": 32,
+    "feature_batch_size": 16,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "feature": "pretrained_attention_pooler_output",
+    "main_run": "siglip2_aug",
+    "prompt_sets": [
+      [
+        "A photograph of cloudy weather with an overcast sky.",
+        "A photograph of rainy weather with visible rain or wet surfaces.",
+        "A photograph of bright sunshine and sunny weather.",
+        "A photograph of sunrise with warm light near the horizon."
+      ],
+      [
+        "An outdoor scene under a cloudy, overcast sky.",
+        "An outdoor scene in rain, with raindrops and wet ground.",
+        "An outdoor scene in bright sunlight under a clear sky.",
+        "An outdoor scene at sunrise, with orange light on the horizon."
+      ],
+      [
+        "cloudy weather",
+        "rainy weather",
+        "sunny weather",
+        "sunrise"
+      ]
+    ]
+  },
+  "config": {
+    "model": "siglip2",
+    "augment": false
+  },
+  "best_epoch": 4,
+  "best_val_f1_macro": 0.9550997379149679,
+  "epochs_ran": 9,
+  "training_seconds": 0.1140407079947181,
+  "feature_extraction_seconds": 0.0,
+  "head_optimization_seconds": 0.09596108394907787,
+  "parameters": 92887300,
+  "trainable_parameters": 3076,
+  "initial_head_sha256": "e26d76d6d0e69c2c65d74fa8d447965d2057a34e680ed8c980c986ddba6517b6",
+  "environment": {
+    "python": "3.14.5",
+    "torch": "2.10.0",
+    "torchvision": "0.25.0",
+    "sklearn": "1.9.1",
+    "numpy": "2.5.4",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "cpu_count": 10,
+    "device": "mps",
+    "cuda_available": false,
+    "mps_available": true,
+    "gpu": null,
+    "threads": 4
+  },
+  "checkpoint_sha256": "a02e93751c2040f2e0ca60c0d7fd3417207bed74d68cb39c6ad8ad4ba5fd30cf"
+}

@@ -1,0 +1,45 @@
+seed: 42
+image_size: 224
+num_workers: 0
+device: auto
+experiments:
+  cnn_baseline:
+    model: cnn
+    epochs: 12
+    batch_size: 32
+    lr: 0.001
+    weight_decay: 0.0001
+    patience: 4
+    augment: true
+    pretrained: false
+    freeze_backbone: false
+  mobilenet_improved:
+    model: mobilenet
+    epochs: 8
+    batch_size: 32
+    lr: 0.001
+    weight_decay: 0.0001
+    patience: 4
+    augment: true
+    pretrained: true
+    freeze_backbone: true
+  convnext_aug:
+    model: convnext
+    epochs: 6
+    batch_size: 16
+    lr: 0.001
+    weight_decay: 0.0001
+    patience: 4
+    augment: true
+    pretrained: true
+    freeze_backbone: true
+  convnext_noaug:
+    model: convnext
+    epochs: 6
+    batch_size: 16
+    lr: 0.001
+    weight_decay: 0.0001
+    patience: 4
+    augment: false
+    pretrained: true
+    freeze_backbone: true

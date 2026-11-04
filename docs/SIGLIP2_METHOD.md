@@ -1,0 +1,17 @@
+# SigLIP 2 experiment protocol
+
+The primary A2 encoder is Google's `siglip2-base-patch16-224`, revision `75de2d55ec2d0b4efc50b3e9ad70dba96a7b2fa2`, Apache-2.0. This fixed-resolution SigLIP 2 checkpoint officially uses the Transformers `SiglipVisionModel`/`SiglipModel` API and `model_type=siglip`; that API name does not mean the older original SigLIP weights are substituted. Transformers 4.57.6 is used. Image processing is the checkpoint's own 224×224 bilinear resize, [0.5,0.5,0.5] mean/std and 1/255 rescaling, without a center crop.
+
+The frozen encoder's pretrained attention-pooled `pooler_output` is the representation. Dimensions are verified from an actual forward pass, rather than assumed. No CLS/register-token pooling is invented. The supervised adapter is a new four-output linear layer; only this head is optimized.
+
+Before any new test evaluation, the fixed design is: seeds 42/43/44, cross-entropy, AdamW, learning rate 0.001, weight decay 0.0001, head batch size 32, at most 25 epochs, patience 5, earliest strict maximum of validation macro-F1. The 25-epoch budget allows more head optimization than historical ConvNeXt's six epochs. Settings are fixed across augmentation treatments and seeds. The main app uses the predeclared seed-42 augmented run, independent of test outcomes.
+
+Augmentation is a random resized crop (scale 0.8–1.0, ratio 0.9–1.1, output 224, bilinear) and horizontal flip (p=0.5), before the official processor. No color jitter or rotation changes weather colors or introduces black corners. Each augmented epoch uses a fresh seed; deterministic non-augmented/validation representations may be cached. Augmented views are generated afresh for every seed and epoch, never replaced by one deterministic image representation. Feature extraction and head optimization times are recorded separately and included in total wall time.
+
+Zero-shot evaluation uses normalized image and text representations with the pretrained logit scale and bias, followed by independent sigmoid matching scores. Three prespecified four-description prompt sets are compared using validation macro-F1 only; the earliest set wins a tie. The chosen text representations and prompts are frozen before test evaluation. Scores do not sum to one and are not described as calibrated four-class probabilities.
+
+All training, early stopping and prompt selection complete before a selection-lock file is written and either new approach sees the test split. Membership is the unchanged manifest: 768 train, 164 validation and 165 test images. Historical results and timings are retained. New latency comparisons use a common device/protocol with separately identified measurements; original reported MPS latencies are not silently replaced.
+
+Explanations use fixed-class logit differences under 7×7 equal-area image occlusion (32×32 pixels, covering 2×2 ViT patches). Normalized zeros represent the checkpoint RGB mean. Perturbations are batched, deterministic and tied to the original predicted class. Signed values are saved; positive drops produce the overlay. This is sensitivity to artificial image-region replacement, not attention or causal proof.
+
+Sources: [checkpoint and model card](https://huggingface.co/google/siglip2-base-patch16-224), [SigLIP 2 paper](https://arxiv.org/abs/2502.14786), [Transformers SigLIP API](https://huggingface.co/docs/transformers/v4.57.1/en/model_doc/siglip).
